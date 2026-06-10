@@ -7,16 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="msjpa" />
-        <module name="msrdv" />
         <module name="webapp" />
         <module name="msadmin" />
-        <module name="msrappel" />
         <module name="msprof" />
+        <module name="msrdv" />
+        <module name="configserver" />
+        <module name="msrappel" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="configserver" options="-parameters" />
       <module name="msadmin" options="-parameters" />
       <module name="msjpa" options="-parameters" />
       <module name="msprof" options="-parameters" />
