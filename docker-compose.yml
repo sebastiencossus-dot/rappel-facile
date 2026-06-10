@@ -1,0 +1,208 @@
+services:
+
+  configserver:
+    image: sebastco/configserver
+    mem_limit: 200m
+    ports:
+      - "8071:8071"
+    networks:
+      - rappel
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8071/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: user
+    networks:
+      - rappel
+#    healthcheck:
+#      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+
+  mysql_db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    mem_limit: 500m
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: rappelfacile
+      MYSQL_USER: sebastco
+      MYSQL_PASSWORD: sebastco
+    ports:
+        - "3308:3306"
+    volumes:
+        - mysql_data:/var/lib/mysql
+    networks:
+      - rappel
+    depends_on: []
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping -h localhost -u root -proot" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+
+
+
+
+#  notes:
+#    image: sebastco/notes
+#    ports:
+#      - "9000:9000"
+#    networks:
+#      - healthcare
+#    depends_on:
+#      - mongodb
+#      - configserver
+#      - consul
+#    environment:
+#      SPRING_DATA_MONGODB_URI: mongodb://user:user@mongodb:27017/notes?authSource=admin
+#      SPRING_CLOUD_CONSUL_HOST: consul
+#      SPRING_CLOUD_CONSUL_PORT: 8500
+#      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+
+
+  webapp:
+    image: sebastco/webapp
+    mem_limit: 500m
+    ports:
+      - "8080:8080"
+    depends_on:
+      consul:
+        condition: service_healthy
+      configserver:
+        condition: service_healthy
+      mysql_db:
+        condition: service_healthy
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: consul
+      SPRING_CLOUD_CONSUL_PORT: 8500
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+    networks:
+      - rappel
+
+  msjpa:
+    image: sebastco/msjpa
+    mem_limit: 500m
+    ports:
+      - "8091:8091"
+    depends_on:
+      consul:
+        condition: service_healthy
+      configserver:
+        condition: service_healthy
+      mysql_db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_db:3306/rappelfacile
+
+
+      SPRING_CLOUD_CONSUL_HOST: consul
+      SPRING_CLOUD_CONSUL_PORT: 8500
+
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+    networks:
+      - rappel
+
+
+  msrdv:
+    image: sebastco/msrdv
+    mem_limit: 500m
+    ports:
+      - "8090:8090"
+    depends_on:
+      - mysql_db
+      - configserver
+      - consul
+      - msjpa
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: consul
+      SPRING_CLOUD_CONSUL_PORT: 8500
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+    networks:
+      - rappel
+
+  msprof:
+    image: sebastco/msprof
+    mem_limit: 500m
+    ports:
+      - "8093:8093"
+    depends_on:
+      - mysql_db
+      - configserver
+      - consul
+      - msjpa
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: consul
+      SPRING_CLOUD_CONSUL_PORT: 8500
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+    networks:
+      - rappel
+
+#  msrappel:
+#    image: sebastco/msrappel
+#    mem_limit: 500m
+#    ports:
+#      - "8094:8094"
+#    depends_on:
+#      - mysql_db
+#      - configserver
+#      - consul
+#    environment:
+#      SPRING_CLOUD_CONSUL_HOST: consul
+#      SPRING_CLOUD_CONSUL_PORT: 8500
+#      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+#    networks:
+#      - rappel
+#
+#  msadmin:
+#    image: sebastco/msadmin
+#    mem_limit: 500m
+#    ports:
+#      - "8090:8090"
+#    depends_on:
+#      - mysql_db
+#      - configserver
+#      - consul
+#    environment:
+#      SPRING_CLOUD_CONSUL_HOST: consul
+#      SPRING_CLOUD_CONSUL_PORT: 8500
+#      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+#    networks:
+#      - rappel
+
+  consul:
+    image: hashicorp/consul:1.17
+    container_name: consul
+    mem_limit: 500m
+    ports:
+      - "8500:8500"
+    command: "agent -dev -client=0.0.0.0"
+    networks:
+      - rappel
+    healthcheck:
+      test: "curl --fail --silent localhost:8500/v1/status/leader | grep . || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    depends_on:
+      configserver:
+        condition: service_healthy
+volumes:
+   mysql_data:
+networks:
+  rappel:

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="fr"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Créer un prestataire</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div th:insert="~{header :: header}"></div>
+
+<main class="ContentBox">
+
+
+    <h2 class="ContentBox-title">Créer un prestataire</h2>
+
+    <div class="ContentBox-rdvBox">
+
+
+
+            <form th:action="@{/prestataires/add}"
+                  method="post"
+                  class="ContentBox2-detailRdv">
+
+                <!-- IDENTITE -->
+                <div class="ContentBox2-detailRdv-card fond1">
+                    <p class="ContentBox2-detailRdv-card-left">
+                        <i class="fa-solid fa-user"></i> Identité
+                    </p>
+
+                    <input type="text" name="nom"
+                           class="ContentBox2-detailRdv-input"
+                           placeholder="Nom" required/>
+
+                    <input type="text" name="prenom"
+                           class="ContentBox2-detailRdv-input"
+                           placeholder="Prénom" required/>
+                </div>
+
+                <!-- PROFESSIONS -->
+                <div class="ContentBox2-detailRdv-card fond2">
+                    <p class="ContentBox2-detailRdv-card-left">
+                        <i class="fa-solid fa-briefcase"></i> Profession
+                    </p>
+                    <select name="professionIds"
+                            class="ContentBox2-detailRdv-input">
+                        <option value="">-- Choisir une profession --</option>
+                        <option th:each="p : ${professions}"
+                                th:value="${p.id}"
+                                th:text="${p.nom}">
+                        </option>
+                    </select>
+                </div>
+
+                <!-- ADRESSES -->
+                <div class="ContentBox2-detailRdv-card fond3">
+                    <p class="ContentBox2-detailRdv-card-left">
+                        <i class="fa-solid fa-location-dot"></i> Adresse
+                    </p>
+
+                    <select name="adresseExistanteId" id="adresse-select"
+                            class="ContentBox2-detailRdv-input"
+                            onchange="toggleNouvelleAdresse()">
+                        <option value="">-- Nouvelle adresse --</option>
+                        <option th:each="a : ${adresses}"
+                                th:value="${a.id}"
+                                th:text="${a.rue} + ' ' + ${a.numero} + ', ' + ${a.ville}">
+                        </option>
+                    </select>
+
+                    <div id="nouvelle-adresse">
+                        <input type="text" name="rue"
+                               class="ContentBox2-detailRdv-input" placeholder="Rue"/>
+                        <input type="text" name="numero"
+                               class="ContentBox2-detailRdv-input" placeholder="Numéro"/>
+                        <input type="text" name="ville"
+                               class="ContentBox2-detailRdv-input" placeholder="Ville"/>
+                        <input type="text" name="codePostal"
+                               class="ContentBox2-detailRdv-input" placeholder="Code postal"/>
+                    </div>
+                </div>
+
+                <!-- SUBMIT -->
+                <div class="ContentBox2-detailRdv-submit">
+                    <button type="submit"
+                            class="ContentBox2-detailRdv-btn btn2">
+                        Créer le prestataire
+                    </button>
+                </div>
+
+            </form>
+
+
+
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+
+<div th:insert="~{footer :: footer}"></div>
+
+<script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>
+
+<script src="/js/prestataire.js"></script>
+
+</body>
+</html>

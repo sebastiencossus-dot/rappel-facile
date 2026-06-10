@@ -1,0 +1,420 @@
+@use 'variables' as *;
+
+
+.HeaderBox {
+    // background-color: $menuColor;
+    display: flex;
+    align-items: center;
+    &-logo {
+        height: 50px;
+        margin: 10px;
+        padding-top: 30px;
+    }
+    &-title {
+        color: $cardJour;
+        font-family: $fontGeneral;
+        font-size: 26px;
+        margin: 0;
+        padding-top: 30px;
+    }
+    .NavBox {
+        width: 100%;
+        text-align: center;
+        z-index: 4;
+       
+        &.active{
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            
+            .NavBox{
+                &-burger{
+                    display: none;
+                }
+                &-close{
+                    display: block;
+                    right: 15px;
+                    top: 25px;
+                    z-index: 3;
+                }
+                &-toggleMenu{
+                    left: 0;
+                                     
+                }
+                &-menuPrincipal{
+                    
+                }
+                &-user{
+                    
+                }
+                &-menuSecondaire{
+                   
+                }
+            }
+        }
+        i{
+            position: absolute;
+            right: 15px;
+            top: 25px;
+            font-size: 25px;
+            margin-left: 20px;
+            padding-top: 30px;
+            cursor: pointer;
+        }
+        &-burger{
+            display: block;
+            color: $fontGeneral;
+        }
+        &-close{
+            display: none;
+            color: $fontGeneral;
+        }
+        &-toggleMenu{
+            background-color: rgba(77, 102, 242, 0.95);
+            width: 100%;
+            height: 100vh;
+            font-size: 32px;
+            padding-inline: 2em;
+            position: absolute;
+            box-sizing: border-box;
+            left: 100%;
+            top: 0;
+            transition: all 0.3s;
+        }
+        &-menuPrincipal {
+            text-decoration: none;
+                    display:flex;
+                    flex-direction: column;
+                    padding-top: 80px;
+                    padding-bottom: 20px;
+                    &-link{
+                        font-size: 25px;
+                        &:link,&:visited{
+                            color: white;
+                            text-decoration: none;
+                            padding: 20px 0 20px 0;
+                        }
+                        &:hover{
+                            color: $fontColor;
+                            // text-decoration: underline;
+                        }
+                    }
+        }
+        &-user {
+           border-top: 2px solid white;
+                    border-bottom: 2px solid white;
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    text-align: left;
+                    padding: 10px 0 10px 0;
+
+                    p{
+                        font-family: $fontGeneral;
+                        font-size: 14px;
+                        margin: 0px;
+                        padding: 0px;
+                        grid-column: 2 /2;
+                        grid-row: 1 / 1;
+                        align-items: flex-start;
+                    }
+                    &-avatar{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        // margin-top: 10px;
+                        grid-column: 1 /1;
+                        grid-row: 1 / 2;
+                        padding-right: 10px;
+                    }
+
+                    a{
+                        grid-column: 2 /2;
+                        grid-row: 1 / 1;
+                        text-decoration: none;
+                        font-size: 10px;
+                        padding-top: 15px;
+                        &:link,&:visited{
+                            color: $fontColor;
+                            text-decoration: none;
+                            // padding-bottom: 30px;
+                        }
+                        &:hover{
+                            color: $fontSecond;
+                            // text-decoration: underline;
+                        }
+                    }
+        }
+        &-menuSecondaire {
+            display:flex;
+                    flex-direction: column;
+                    padding-top: 20px;
+                    &-link{
+                        font-size: 18px;
+                        &:link,&:visited{
+                            color: white;
+                            text-decoration: none;
+                            padding-bottom: 20px;
+                        }
+                        &:hover{
+                            color: $fontColor;
+                            // text-decoration: underline;
+                        }
+                    }
+        }
+    }
+     @media screen and (min-width: 800px) {
+            .NavBox{
+                &-burger{
+                    display: none;
+                }
+                &-close{
+                    display: none;
+                }
+                &-toggleMenu{
+                    height: auto;
+                    left: 0;
+                    background-color: transparent;
+                    display: flex;
+                    justify-content: flex-end;
+                                    
+                }
+                &-menuPrincipal{
+                    display:flex;
+                    flex-direction: row;
+                    padding-top: 30px;
+                    padding-left: 50px;
+                    &-link{
+                        font-size: 16px;
+                        margin: 0 10px 0 10px;
+                        &:link,&:visited{
+                            color: white;
+                            text-decoration: none;
+                            padding: 0;
+                        }
+                        &:hover{
+                            color: $fontColor;
+                            // text-decoration: underline;
+                        }
+                    }
+                    
+                }
+                &-user{
+                    border: none;
+                    padding-top: 25px;
+                    
+                }
+                &-menuSecondaire{
+                    display: none;
+                }
+            }
+            
+        }
+}
+.ContentBox {
+    max-width: 800px;
+    &-title {
+        font-family: $fontGeneral;
+        font-size: 25px;
+        margin: 20px 0 10px 0;
+        text-align: center;
+    }
+    &-rdvBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        @media screen and (min-width: 800px) {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            // grid-auto-rows: min-content;
+            grid-template-rows: min-content auto;
+            align-items:start;
+            justify-items:start;
+
+            gap: 20px;
+            &.jour{              
+                    grid-column: 1 /2;
+                    grid-row: 1 /2;    
+            }
+            &.autre{
+                    grid-column: 2 /3;
+                    grid-row: 1 / 3;       
+            }
+            &.attente{
+                        grid-column: 1 / 2;
+                        grid-row: 2 / 3;                      
+            }
+            &-title {
+                text-align: left;
+                padding: 50px 0 0 50px;
+                width: 80%;
+            }
+        }
+        // background-color: azure;
+        
+    }
+}
+
+.RdvBox { 
+    background-color: $cardJour;
+    border-radius: 25px;
+    width: 80%;
+    align-items: flex-start;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.36);
+    margin: 10px 0 10px 0;
+    padding: 10px 0 0px 0;
+    // Variantes
+    &.jour{
+        background-color: $cardJour;      
+    }
+    &.autre{
+        background-color: $cardAutre;
+    }
+    &.attente{
+        background-color: $cardAttente;
+    }
+    // Descendants
+    
+    &-title {
+        font-family: $fontGeneral;
+        font-size: 16px;
+        text-align: left;
+        margin: 0 0 10px 10px;
+        
+    }
+    &-card {
+        display: flex;
+        border-bottom: 1px solid $fontSecond;
+        width: 95%;          
+        margin: 0 0 10px 10px;
+        &-link{
+        text-decoration: none;
+        color: $fontColor;
+        display: flex;               
+        }
+        &-clock{
+            
+            margin: 5px 5px 0 0;
+            
+        }
+        &-text {                
+            font-size: 10px;
+            padding: 10px 0 0 10px;
+            margin: 0px;                
+            &-time{
+                font-size: 12px;
+                font-weight: bold;
+                margin: 0 0 0 0;
+            }
+            &-motif{
+                color: $fontSecond;// font-size: 10px;
+                font-weight: normal;
+            }
+        }
+        &-prestataire{
+                font-size: 10px;
+                font-weight: bold;
+                max-width: 50px;
+                text-align: right;
+                margin-left: auto;
+                
+                // margin: 0;
+                
+                
+        }
+    }  
+    @media screen and (min-width: 800px) {
+        width: 100%;
+         &-card {
+             &-text{
+                 display: flex;
+                 flex-direction: column;
+             }
+         }
+        
+    }   
+}
+
+
+.NavAdd {
+    background-color: $cardAttente;
+    height: 60px;
+    
+    display: flex;
+    flex-direction: column;
+    &-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        padding: 0 30px 0 30px;
+        &-link{
+            &-text{
+                display: none;
+                
+                
+            }
+            img{
+                height: 20px;
+            }
+        }
+    }
+    
+    @media screen and (min-width: 800px) {
+        position: absolute;
+        top: 100px;
+        width: 90%; 
+        background-color: $backGroundColor;
+        &-nav {
+            justify-content: space-between;
+            &-link{
+                display: flex;
+                text-decoration: none;
+                background-color: $cardAttente;
+                vertical-align: baseline;
+                border-radius: 15px;
+                padding: 5px 10px 5px 10px;
+                // margin: 0 30px 0 30px;
+                &-text{
+                    display: inline;
+                    height: 20px;
+                    // padding: 10px;
+                    margin-left: 10px;
+                    color: $fontColor;
+                    font-family: $fontGeneral;
+                    font-size: 14px;
+                    
+                }
+            }
+        }
+        
+    }
+    
+}
+.NavFooter {
+    
+    display : none;
+    color: $fontGeneral;
+    &-link{
+        text-decoration: none;
+        color: $fontGeneral;
+        font-family: $fontGeneral;
+        font-size: 12px;
+    }
+
+        @media screen and (min-width: 800px) {
+            display: block;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;            
+            gap: 150px;
+            // background-color: $menuColor;
+            text-align: center;
+            padding: 20px 0 20px 0;
+            color: $fontGeneral;
+            font-family: $fontGeneral;
+            font-size: 14px;
+        }
+}
+

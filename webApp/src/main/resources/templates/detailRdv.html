@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Rappel Facile</title>
+</head>
+<div th:insert="~{header :: header}"></div>
+
+<main class="ContentBox2">
+    <h2 class="ContentBox2-title">Votre rendez-vous</h2>
+    <section class="ContentBox2-detailRdv">
+        <div class="ContentBox2-detailRdv-prestataire">
+            <p th:text="${rdv.prestataires.nom} + ' ' + ${rdv.prestataires.prenom}"><br><span class="ContentBox2-detailRdv-prestataire-spe" th:text="${rdv.prestataires.profession}"></span></p><img src="images/alerte.png" alt="reglage alerte">
+        </div>
+        <p class="ContentBox2-detailRdv-title">Informations du rendez-vous</p>
+        <div class="ContentBox2-detailRdv-card fond1">
+            <p class="ContentBox2-detailRdv-card-left"><i class="fa-regular fa-calendar"></i> Jour</p>
+            <p class="ContentBox2-detailRdv-card-right"
+               th:text="${#temporals.format(rdv.dateRdv, 'dd/MM/yyyy')}"></p>
+        </div>
+        <div class="ContentBox2-detailRdv-card fond2">
+            <p class="ContentBox2-detailRdv-card-left"><i class="fa-regular fa-alarm-clock RdvBox-card-clock"></i> Heure</p>
+            <p th:text="${#temporals.format(rdv.dateRdv, 'HH:mm')}"></p>
+        </div>
+        <div class="ContentBox2-detailRdv-card fond3">
+            <p class="ContentBox2-detailRdv-card-left"><i class="fa-regular fa-address-book"></i> Adresse : </p>
+            <p th:text="${rdv.adresses.rue} + ' ' + ${rdv.adresses.numero} + ', ' + ${rdv.adresses.ville}"></p>
+        </div>
+        <div class="ContentBox2-detailRdv-card fond1">
+            <p class="ContentBox2-detailRdv-card-left"><i class="fa-solid fa-phone"></i> Profession : </p>
+            <p th:text="${rdv.professions.nom}"></p>
+        </div>
+<!--        <div class="ContentBox2-detailRdv-card fond2">-->
+<!--            <p class="ContentBox2-detailRdv-card-left"><i class="fa-solid fa-at"></i> Email</p>-->
+<!--            <p class="ContentBox2-detailRdv-card-right">jessica.dupont@gmail.com</p>-->
+<!--        </div>-->
+        <div class="ContentBox2-detailRdv-card fond3">
+            <p class="ContentBox2-detailRdv-card-left"><i class="fa-solid fa-book"></i> Motif du rendez-vous : </p>
+            <p th:text="${rdv.motif}"></p>
+        </div>
+        <a class="ContentBox2-detailRdv-btn">Annuler le rendez-vous</a>
+        <a class="ContentBox2-detailRdv-btn btn2">Modifier le rendez-vous</a>
+        <div>
+            <p class="ContentBox2-detailRdv-title">Ajouter une ordonnance</P>
+            <input type="file" id="file" name="file" class="ContentBox2-detailRdv-input" placeholder="Telecharger votre ordonnance ici">
+        </div>
+    </section>
+</main>
+
+
+<div th:insert="~{footer :: footer}"></div>

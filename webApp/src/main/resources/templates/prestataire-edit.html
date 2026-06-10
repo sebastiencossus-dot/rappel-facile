@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Modifier Prestataire</title>
+
+  <style>
+    .block { border: 1px solid #ccc; padding: 10px; margin-bottom: 15px; }
+    .item { margin-bottom: 5px; }
+    button { cursor: pointer; margin-top: 5px; }
+  </style>
+</head>
+<body>
+
+<h1>Modifier Prestataire</h1>
+
+<form th:action="@{'/prestataires/edit/' + ${prestataire.id}}" method="post">
+
+  <!-- INFOS -->
+  <div class="block">
+    <input type="text" name="nom" th:value="${prestataire.nom}" required/>
+    <input type="text" name="prenom" th:value="${prestataire.prenom}" required/>
+  </div>
+
+  <!-- PROFESSIONS -->
+  <div class="block">
+    <h3>Professions</h3>
+
+    <div id="profession-container">
+
+      <div class="item" th:each="ex : ${prestataire.exercices}">
+        <select name="professionIds">
+          <option value="">-- Choisir --</option>
+
+          <option th:each="p : ${professions}"
+                  th:value="${p.id}"
+                  th:text="${p.nom}"
+                  th:selected="${p.id == ex.profession.id}">
+          </option>
+        </select>
+
+        <button type="button" onclick="this.parentElement.remove()">Supprimer</button>
+      </div>
+
+    </div>
+
+    <button type="button" onclick="addProfession()">+ Ajouter profession</button>
+  </div>
+
+  <!-- ADRESSES -->
+  <div class="block">
+    <h3>Adresses</h3>
+
+    <div id="adresse-container">
+
+      <div class="item" th:each="loc : ${prestataire.locals}">
+        <input type="text" name="rues" th:value="${loc.adresse.rue}" placeholder="Rue"/>
+        <input type="text" name="numeros" th:value="${loc.adresse.numero}" placeholder="Numéro"/>
+        <input type="text" name="villes" th:value="${loc.adresse.ville}" placeholder="Ville"/>
+        <input type="text" name="codePostals" th:value="${loc.adresse.codePostal}" placeholder="Code postal"/>
+
+        <button type="button" onclick="this.parentElement.remove()">Supprimer</button>
+      </div>
+
+    </div>
+
+    <button type="button" onclick="addAdresse()">+ Ajouter adresse</button>
+  </div>
+
+  <button type="submit">Modifier</button>
+
+</form>
+
+<script src="/js/prestataire-edit.js"></script>
+
+</body>
+</html>

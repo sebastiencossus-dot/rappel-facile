@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Rappel Facile</title>
+</head>
+<div th:insert="~{header :: header}"></div>
+
+<main class="ContentBox">
+    <h2 class="ContentBox-title">Vos rendez-vous</h2>
+    <div class="ContentBox-rdvBox">
+        <div class="ContentBox-rdvBox">
+            <section class="ContentBox-rdvBox RdvBox jour">
+
+                <h2 class="RdvBox-title">Rendez-vous du jour</h2>
+
+                <div th:if="${#lists.isEmpty(rdvJour)}">
+                    <p>Aucun rendez-vous aujourd’hui</p>
+                </div>
+                <div th:each="rdv : ${rdvJour ?: {}}"
+                     class="RdvBox-card">
+
+                    <a th:href="@{'/rdv/' + ${rdv.id}}"
+                       class="RdvBox-card-link">
+
+                        <i class="fa-regular fa-alarm-clock RdvBox-card-clock"></i>
+                    </a>
+
+                    <p class="RdvBox-card-text">
+
+            <span class="RdvBox-card-text-time"
+                  th:text="'Motif : ' + ${rdv.motif}">
+            </span>
+
+                        <br>
+
+                        <span class="RdvBox-card-text-motif"
+
+                              th:text="'A :' + ${#temporals.format(rdv.dateRdv, 'HH:mm')}">
+                        </span>
+                    </p>
+
+                    <p class="RdvBox-card-prestataire"
+                       th:text="${rdv.prestataires.nom} + ' ' + ${rdv.prestataires.prenom}">
+                    </p>
+
+                </div>
+
+            </section>
+            <section class="ContentBox-rdvBox RdvBox attente">
+
+                <h2 class="RdvBox-title">En attente de validation</h2>
+
+                <div th:if="${#lists.isEmpty(rdvAttente)}">
+                    <p>Aucun rendez-vous en attente de validation</p>
+                </div>
+                <div th:each="rdv : ${rdvAttente ?: {}}"
+                     class="RdvBox-card">
+
+                    <i class="fa-regular fa-calendar RdvBox-card-clock"></i>
+
+                    <p class="RdvBox-card-text">
+
+            <span class="RdvBox-card-text-time"
+                  th:text="${#temporals.format(rdv.dateRdv, 'dd/MM/yyyy HH:mm')}">
+            </span>
+
+                        <br>
+
+            <span class="RdvBox-card-text-time"
+                  th:text="'Motif : ' + ${rdv.motif}">
+                                               </span>
+                    </p>
+
+                    <p class="RdvBox-card-prestataire">Rdv   realisé :    </p>
+                    <p><i class="fa-regular fa-square-check"></i>
+                        <i class="fa-solid fa-ban"></i>
+                    </p>
+
+                </div>
+
+            </section>
+        </div>
+        <section class="ContentBox-rdvBox RdvBox autre">
+
+            <h2 class="RdvBox-title">Autres RDV</h2>
+            <div th:if="${#lists.isEmpty(rdvAutres)}">
+                <p>Aucun autre rendez-vous a venir</p>
+            </div>
+            <div th:each="rdv : ${rdvAutres ?: {}}"
+                 class="RdvBox-card">
+
+                <i class="fa-regular fa-calendar RdvBox-card-clock"></i>
+
+                <p class="RdvBox-card-text">
+
+            <span class="RdvBox-card-text-time"
+                  th:text="${#temporals.format(rdv.dateRdv, 'EEEE dd MMMM yyyy', T(java.util.Locale).FRENCH)}">
+            </span>
+
+                    <br>
+
+                    <span class="RdvBox-card-text-motif"
+                          th:text="${rdv.professions.nom}">
+            </span>
+                </p>
+
+                <p class="RdvBox-card-prestataire">
+                    <a th:href="@{'/rdv/edit/' + ${rdv.id}}">
+                        Modifier détails
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+</main>
+
+<div th:insert="~{footer :: footer}"></div>
+<script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>

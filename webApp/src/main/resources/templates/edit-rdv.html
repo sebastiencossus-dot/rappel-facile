@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>RDV Form</title>
+</head>
+
+<body>
+
+<div th:insert="~{header :: header}"></div>
+
+<main class="ContentBox">
+
+    <h2 class="ContentBox-title"
+        th:text="${rdv != null} ? 'Modifier le rendez-vous' : 'Créer un rendez-vous'">
+    </h2>
+
+    <section class="ContentBox2-detailRdv">
+
+        <!-- PRESTATAIRE (si edit) -->
+        <div class="ContentBox2-detailRdv-prestataire"
+             th:if="${rdv != null}">
+
+            <p>
+                <span th:text="${rdv.prestataires.nom}"></span>
+                <span class="ContentBox2-detailRdv-prestataire-spe"
+                      th:text="${rdv.prestataires.profession}">
+                </span>
+            </p>
+
+            <img src="/images/calendar-add.png" alt="rdv">
+        </div>
+
+
+        <form th:object="${rdvForm}"
+              th:action="${rdv != null} ? @{'/rdv/update/' + ${rdv.id}} : @{/rdv/add}"
+              method="post"
+              class="ContentBox2-detailRdv">
+
+
+
+
+                <div class="ContentBox2-detailRdv-card fond1">
+                    <p class="ContentBox2-detailRdv-card-left">
+                        <i class="fa-regular fa-calendar"></i> Date du rendez-vous
+                    </p>
+
+                    <input type="datetime-local"
+                           th:field="*{dateRdv}"
+                           class="ContentBox2-detailRdv-input"/>
+                </div>
+
+
+                <div class="ContentBox2-detailRdv-card fond2">
+                    <p class="ContentBox2-detailRdv-card-left">
+                        <i class="fa-solid fa-book"></i> Motif
+                    </p>
+
+                    <input type="text"
+                           th:field="*{motif}"
+                           class="ContentBox2-detailRdv-input"
+                           placeholder="Ex : Consultation annuelle"/>
+                </div>
+
+
+
+
+
+                <div class="ContentBox2-detailRdv-card fond2">
+                    <p class="ContentBox2-detailRdv-card-left">
+                        <i class="fa-regular fa-user"></i> Prestataire
+                    </p>
+
+                    <select th:field="*{prestataireId}"
+                            class="ContentBox2-detailRdv-input">
+                        <option value="">-- Choisir --</option>
+                        <option th:each="p : ${prestataires}"
+                                th:value="${p.id}"
+                                th:text="${p.nom + ' ' + p.prenom}">
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="ContentBox2-detailRdv-card fond1">
+                    <p class="ContentBox2-detailRdv-card-left">
+                        <i class="fa-solid fa-briefcase"></i> Profession
+                    </p>
+
+                    <select th:field="*{professionId}"
+                            class="ContentBox2-detailRdv-input">
+                        <option value="">-- Choisir --</option>
+                        <option th:each="pr : ${professions}"
+                                th:value="${pr.id}"
+                                th:text="${pr.nom}">
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="ContentBox2-detailRdv-card fond1">
+                    <p class="ContentBox2-detailRdv-card-left">
+                        <i class="fa-solid fa-location-dot"></i> Adresse
+                    </p>
+
+                    <select th:field="*{adresseId}"
+                            class="ContentBox2-detailRdv-input">
+                        <option value="">-- Choisir --</option>
+                        <option th:each="a : ${adresses}"
+                                th:value="${a.id}"
+                                th:text="${a.rue + ' ' + a.ville}">
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="ContentBox2-detailRdv-card fond3">
+                    <p class="ContentBox2-detailRdv-card-right">
+                        Une alerte sera envoyée 24h avant le rendez-vous.<br>
+                        Vous pourrez ajouter d'autres rappels après création.
+                    </p>
+                </div>
+
+
+                <div class="ContentBox2-detailRdv-submit">
+                    <button type="submit"
+                            class="ContentBox2-detailRdv-btn btn2"
+                            th:text="${rdv != null} ? 'Modifier le RDV' : 'Créer le RDV'">
+                    </button>
+                </div>
+
+
+
+
+
+        </form>
+
+    </section>
+
+</main>
+
+<div th:insert="~{footer :: footer}"></div>
+
+
+
+</body>
+</html>

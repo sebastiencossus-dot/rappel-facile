@@ -1,0 +1,37 @@
+<body>
+<div class="Container">
+    <header class="HeaderBox">
+        <a href="/rdv" class="HeaderLink">
+        <img class="HeaderBox-logo" th:src="@{/images/logo.png}" alt="Logo Rappel Facile"></a>
+        <h1 class="HeaderBox-title">Rappel Facile</h1>
+        <div class="NavBox">
+            <i class="fa-solid fa-bars NavBox-burger"></i>
+            <i class="fa-solid fa-close NavBox-close"></i>
+            <div class="NavBox-toggleMenu">
+
+                <nav class="NavBox-menuPrincipal">
+                    <a  class="NavBox-menuPrincipal-link" href="/rdv">Vos rendez-vous</a>
+                    <a href="/prestataires"  class="NavBox-menuPrincipal-link">Vos prestataires</a>
+                    <a href="/charts"  class="NavBox-menuPrincipal-link">Vos statistiques</a>
+                </nav>
+                <div class="NavBox-user">
+                    <img class="NavBox-user-avatar"
+                         th:if="${currentUser != null}"
+                         th:src="@{'/images/' + ${currentUser.photo}}">
+
+                    <p th:text="${currentUser != null ? currentUser.prenom : 'Invité'}"></p>
+                    <form th:action="@{/logout}" method="post" class="NavBox-user-logout">
+                        <button type="submit" class="NavBox-user-logoutBtn">
+                            log out
+                        </button>
+                    </form>
+                </div>
+                <nav class="NavBox-menuSecondaire">
+                    <a class="NavBox-menuSecondaire-link" href="">Contact</a>
+                    <a class="NavBox-menuSecondaire-link" href="">Cgu</a>
+                    <a class="NavBox-menuSecondaire-link" href="">Rgpd</a>
+                </nav>
+            </div>
+        </div>
+        <script src="/js/main.js"></script>
+    </header>
