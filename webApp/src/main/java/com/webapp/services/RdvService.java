@@ -60,4 +60,8 @@ public class RdvService {
         User user = sessionService.sessionUser();
         msJpaClient.deleteRdv(id, user.getEmail());
     }
+
+    public void validerRdv(Integer id, Integer statut, String email) {
+        msJpaClient.validerRdv(id, statut, email);
+    }
 }

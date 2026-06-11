@@ -1,8 +1,7 @@
 package com.webapp.services;
 
-import com.webapp.models.RDV;
-import com.webapp.models.RdvPrestDTO;
-import com.webapp.models.User;
+import com.webapp.models.*;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,4 +36,18 @@ public interface MsJpaClient {
     @DeleteMapping("/rdvs/{id}")
     void deleteRdv(@PathVariable("id") Integer id,
                    @RequestParam("email") String email);
+
+    @GetMapping("/professions")
+    List<Professions> findAllProfessions();
+
+    @GetMapping("/categories")
+    List<Categories> findAllCategories();
+
+    @GetMapping("/adresses")
+    List<Adresses> findAllAdresses();
+
+    @PatchMapping("/rdvs/{id}/valider")
+    void validerRdv(@PathVariable("id") Integer id,
+                    @RequestParam("statut") Integer statut,
+                    @RequestParam("email") String email);
 }

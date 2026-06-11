@@ -58,31 +58,40 @@
                 <div th:if="${#lists.isEmpty(rdvAttente)}">
                     <p>Aucun rendez-vous en attente de validation</p>
                 </div>
-                <div th:each="rdv : ${rdvAttente ?: {}}"
-                     class="RdvBox-card">
+
+                <div th:each="rdv : ${rdvAttente ?: {}}" class="RdvBox-card">
 
                     <i class="fa-regular fa-calendar RdvBox-card-clock"></i>
 
                     <p class="RdvBox-card-text">
-
             <span class="RdvBox-card-text-time"
                   th:text="${#temporals.format(rdv.dateRdv, 'dd/MM/yyyy HH:mm')}">
             </span>
-
                         <br>
-
-            <span class="RdvBox-card-text-time"
-                  th:text="'Motif : ' + ${rdv.motif}">
-                                               </span>
+                        <span class="RdvBox-card-text-time"
+                              th:text="'Motif : ' + ${rdv.motif}">
+            </span>
                     </p>
 
-                    <p class="RdvBox-card-prestataire">Rdv   realisé :    </p>
-                    <p><i class="fa-regular fa-square-check"></i>
-                        <i class="fa-solid fa-ban"></i>
-                    </p>
+                    <p class="RdvBox-card-prestataire">Rdv réalisé :</p>
+
+                    <!-- ✅ Bouton OUI → isOk = 0 -->
+                    <form th:action="@{'/rdv/' + ${rdv.id} + '/valider'}" method="post">
+                        <input type="hidden" name="statut" value="0"/>
+                        <button type="submit" class="btn btn-success btn-sm">
+                            <i class="fa-regular fa-square-check"></i> Oui
+                        </button>
+                    </form>
+
+
+                    <form th:action="@{'/rdv/' + ${rdv.id} + '/valider'}" method="post">
+                        <input type="hidden" name="statut" value="3"/>
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="fa-solid fa-ban"></i> Non
+                        </button>
+                    </form>
 
                 </div>
-
             </section>
         </div>
         <section class="ContentBox-rdvBox RdvBox autre">

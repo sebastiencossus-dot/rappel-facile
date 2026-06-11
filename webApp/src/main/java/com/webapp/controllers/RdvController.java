@@ -17,90 +17,69 @@ import java.util.List;
 @Controller
 public class RdvController {
 
-    @Autowired
-    RdvService rdvService;
-
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    SessionService sessionService;
-
-    @Autowired
-    MsJpaClient msJpaClient;
-
-    @Autowired
-    ProfessionService professionService;
-
-    @Autowired
-    PrestataireService prestataireService;
-
-    @Autowired
-    AdresseService adresseService;
-
-
+    @Autowired RdvService rdvService;
+    @Autowired SessionService sessionService;
+    @Autowired MsJpaClient msJpaClient;
+    @Autowired ReferentielService referentielService;
+    @Autowired PrestataireService prestataireService;
 
     @GetMapping("/rdv")
     public ModelAndView index() {
-
         ModelAndView mav = new ModelAndView();
 
-        User user = sessionService.sessionUser();
+        User user = sessionService.sessionUser(); // ✅ sans HttpSession
         if (user == null) {
             mav.setViewName("redirect:/login");
             return mav;
         }
+
         mav.addObject("currentUser", user);
-        String email = user.getEmail();
-
-
-
-
         LocalDate today = LocalDate.now();
-
         List<RDV> rdvs = rdvService.getRdvByUser(user.getEmail());
 
         List<RDV> todayList = rdvs.stream()
                 .filter(r -> r.getDateRdv().toLocalDate().equals(today))
-                .sorted(Comparator.comparing(RDV::getDateRdv)) // tri par heure croissante
+                .sorted(Comparator.comparing(RDV::getDateRdv))
                 .toList();
 
         List<RDV> attente = rdvs.stream()
                 .filter(r -> r.getIsOK() == 1 && r.getDateRdv().toLocalDate().isBefore(today))
-                .sorted(Comparator.comparing(RDV::getDateRdv)) // du plus ancien au plus récent
+                .sorted(Comparator.comparing(RDV::getDateRdv))
                 .toList();
 
         List<RDV> autres = rdvs.stream()
                 .filter(r -> r.getDateRdv().toLocalDate().isAfter(today))
-                .sorted(Comparator.comparing(RDV::getDateRdv)) // du plus proche au plus loin
+                .sorted(Comparator.comparing(RDV::getDateRdv))
                 .toList();
 
         mav.addObject("rdvJour", todayList);
         mav.addObject("rdvAttente", attente);
         mav.addObject("rdvAutres", autres);
         mav.setViewName("index");
-
         return mav;
-    }
-
-    @PostMapping("/rdv/add")
-    public String createRdv(@ModelAttribute rdvForm form) {
-
-        rdvService.createRdv(form);
-
-        return "redirect:/rdv"; // ou ta page liste
     }
 
     @GetMapping("/rdv/add")
     public String createForm(Model model) {
-
         model.addAttribute("rdvForm", new rdvForm());
-
         model.addAttribute("prestataires", prestataireService.findAll());
-        model.addAttribute("professions", professionService.findAll());
-        model.addAttribute("adresses", adresseService.findAll());
-
+        model.addAttribute("professions", referentielService.getAllProfessions());
+        model.addAttribute("adresses", referentielService.getAllAdresses());
         return "edit-rdv";
+    }
+
+    @PostMapping("/rdv/add")
+    public String createRdv(@ModelAttribute rdvForm form) {
+        rdvService.createRdv(form);
+        return "redirect:/rdv";
+    }
+
+    @GetMapping("/rdv/edit/{id}")
+    public ModelAndView editRdv(@PathVariable Integer id) {
+        String email = sessionService.sessionUser().getEmail(); // ✅ sans HttpSession
+        RDV rdv = msJpaClient.getRdv(id, email);
+        if (rdv == null) return new ModelAndView("redirect:/rdv");
+        return new ModelAndView("rdv-form", "rdv", rdv);
     }
 
     @PostMapping("/rdv/update/{id}")
@@ -115,30 +94,19 @@ public class RdvController {
         return "redirect:/rdv";
     }
 
-    @GetMapping("/rdv/edit/{id}")
-    public ModelAndView editRdv(@PathVariable Integer id) {
-
-        String email = sessionService.sessionUser().getEmail();
-
-        RDV rdv = msJpaClient.getRdv(id, email);
-
-        if (rdv == null) {
-            return new ModelAndView("redirect:/rdv");
-        }
-
-        return new ModelAndView("rdv-form", "rdv", rdv);
-    }
-
     @GetMapping("/rdv/{id}")
     public ModelAndView detailRdv(@PathVariable Integer id) {
-
-        String email = sessionService.sessionUser().getEmail();
+        String email = sessionService.sessionUser().getEmail(); // ✅ sans HttpSession
         RDV rdv = msJpaClient.getRdv(id, email);
-
-        if (rdv == null) {
-            return new ModelAndView("redirect:/rdv");
-        }
-
+        if (rdv == null) return new ModelAndView("redirect:/rdv");
         return new ModelAndView("detailRdv", "rdv", rdv);
+    }
+
+    @PostMapping("/rdv/{id}/valider")
+    public String validerRdv(@PathVariable Integer id,
+                             @RequestParam Integer statut) {
+        User user = sessionService.sessionUser(); // ✅ sans HttpSession
+        rdvService.validerRdv(id, statut, user.getEmail());
+        return "redirect:/rdv"; // ✅ corrigé : redirect:/rdv et non redirect:/
     }
 }

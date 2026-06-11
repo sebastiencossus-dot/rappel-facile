@@ -49,7 +49,9 @@ public class RDV {
     @OneToMany(mappedBy = "rdv")
     private List<Rappels> rappels;
 
+    public Integer getIsOK() { return isOK; }
 
+    public void setIsOK(Integer isOK) { this.isOK = isOK; }
 
     public Professions getProfessions() {
         return professions;
