@@ -69,5 +69,4 @@ public class RdvService {
     public void addAlerte(Integer rdvId, AlerteForm form, String email) {
         msJpaClient.addAlerte(rdvId, form.getTypeAlerte(), form.getDelai(), email);
     }
-
 }

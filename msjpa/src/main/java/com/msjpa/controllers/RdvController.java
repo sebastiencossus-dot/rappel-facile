@@ -91,5 +91,4 @@ public class RdvController {
 
         return rappelsRepository.save(rappel);
     }
-
 }

@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature : revamping charts for stats with procedure stored">
-      <change afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RappelDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/RappelsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/form/AlertForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RdvController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RdvDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RdvDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/RdvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/RdvService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msrappel/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msrappel/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/RdvController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsJpaClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsJpaClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/RdvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/RdvService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/addalert.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/addalert.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RDV.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RDV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RappelDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RappelDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/Rappels.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/Rappels.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +91,7 @@
       <recent name="com.webapp.models" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.WebappApplication">
+  <component name="RunManager" selected="Spring Boot.MsrappelApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="msjpa" />
       <method v="2">
@@ -183,11 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.MsrappelApplication" />
+        <item itemvalue="Spring Boot.MsprofApplication" />
+        <item itemvalue="Spring Boot.MsRdvApplication" />
         <item itemvalue="Spring Boot.WebappApplication" />
         <item itemvalue="Spring Boot.MsjpaApplication" />
-        <item itemvalue="Spring Boot.MsrappelApplication" />
-        <item itemvalue="Spring Boot.MsRdvApplication" />
-        <item itemvalue="Spring Boot.MsprofApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781253658320</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feature : revamping charts for stats with procedure stored">
+      <option name="closed" value="true" />
+      <created>1781257763812</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1781257763812</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

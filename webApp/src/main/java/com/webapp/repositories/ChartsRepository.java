@@ -8,4 +8,3 @@ package com.webapp.repositories;
 //@Repository
 //public interface ChartsRepository extends JpaRepository<User, Integer> {
 //}
-//String quoi = "fffrerttrt";

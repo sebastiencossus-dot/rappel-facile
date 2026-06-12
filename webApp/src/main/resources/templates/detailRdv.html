@@ -13,46 +13,79 @@
 <main class="ContentBox2">
     <h2 class="ContentBox2-title">Votre rendez-vous</h2>
     <section class="ContentBox2-detailRdv">
+
         <div class="ContentBox2-detailRdv-prestataire">
-            <p th:text="${rdv.prestataires.nom} + ' ' + ${rdv.prestataires.prenom}"><br><span
-                    class="ContentBox2-detailRdv-prestataire-spe" th:text="${rdv.prestataires.profession}">
-            </span></p><a href="/addAlert"><img th:src="@{/images/alerte.png}" alt="reglage alerte">Ajouter une alarme</a>
+            <p>
+                <!-- ✅ champs plats -->
+                <span th:text="${rdv.prestataireNom} + ' ' + ${rdv.prestatairePrenom}"></span>
+                <br>
+                <span class="ContentBox2-detailRdv-prestataire-spe"
+                      th:text="${rdv.professionNom}"></span>
+            </p>
+            <!-- ✅ suppression du double <a> imbriqué -->
+            <a th:href="@{'/rdv/' + ${rdv.id} + '/alerte/add'}">
+                <img th:src="@{/images/alerte.png}" alt="reglage alerte">Ajouter une alarme
+            </a>
         </div>
 
         <p class="ContentBox2-detailRdv-title">Informations du rendez-vous</p>
+
         <div class="ContentBox2-detailRdv-card fond1">
-            <p class="ContentBox2-detailRdv-card-left"><i class="fa-regular fa-calendar"></i> Jour :</p>
+            <p class="ContentBox2-detailRdv-card-left">
+                <i class="fa-regular fa-calendar"></i> Jour :
+            </p>
             <p class="ContentBox2-detailRdv-card-right"
                th:text="${#temporals.format(rdv.dateRdv, 'dd/MM/yyyy')}"></p>
         </div>
+
         <div class="ContentBox2-detailRdv-card fond2">
-            <p class="ContentBox2-detailRdv-card-left"><i class="fa-regular fa-alarm-clock RdvBox-card-clock"></i> Heure : </p>
-            <p class="ContentBox2-detailRdv-card-right" th:text="' ' + ${#temporals.format(rdv.dateRdv, 'HH:mm')}"></p>
+            <p class="ContentBox2-detailRdv-card-left">
+                <i class="fa-regular fa-alarm-clock RdvBox-card-clock"></i> Heure :
+            </p>
+            <p class="ContentBox2-detailRdv-card-right"
+               th:text="${#temporals.format(rdv.dateRdv, 'HH:mm')}"></p>
         </div>
+
         <div class="ContentBox2-detailRdv-card fond3">
-            <p class="ContentBox2-detailRdv-card-left"><i class="fa-regular fa-address-book"></i> Adresse : </p>
-            <p class="ContentBox2-detailRdv-card-right" th:text="|${rdv.adresses.numero} ${rdv.adresses.rue}, ${rdv.adresses.codepostal} ${rdv.adresses.ville}|"></p>
+            <p class="ContentBox2-detailRdv-card-left">
+                <i class="fa-regular fa-address-book"></i> Adresse :
+            </p>
+            <!-- ✅ champs plats -->
+            <p class="ContentBox2-detailRdv-card-right"
+               th:text="|${rdv.adresseNumero} ${rdv.adresseRue}, ${rdv.adresseCodePostal} ${rdv.adresseVille}|"></p>
         </div>
+
         <div class="ContentBox2-detailRdv-card fond1">
-            <p class="ContentBox2-detailRdv-card-left"><i class="fa-solid fa-phone"></i> Profession : </p>
-            <p class="ContentBox2-detailRdv-card-right" th:text="${rdv.professions.nom}"></p>
+            <p class="ContentBox2-detailRdv-card-left">
+                <i class="fa-solid fa-phone"></i> Profession :
+            </p>
+            <!-- ✅ champ plat -->
+            <p class="ContentBox2-detailRdv-card-right"
+               th:text="${rdv.professionNom}"></p>
         </div>
-        <!--        <div class="ContentBox2-detailRdv-card fond2">-->
-        <!--            <p class="ContentBox2-detailRdv-card-left"><i class="fa-solid fa-at"></i> Email</p>-->
-        <!--            <p class="ContentBox2-detailRdv-card-right">jessica.dupont@gmail.com</p>-->
-        <!--        </div>-->
+
         <div class="ContentBox2-detailRdv-card fond3">
-            <p class="ContentBox2-detailRdv-card-left"><i class="fa-solid fa-book"></i> Motif du rendez-vous : </p>
+            <p class="ContentBox2-detailRdv-card-left">
+                <i class="fa-solid fa-book"></i> Motif du rendez-vous :
+            </p>
             <p class="ContentBox2-detailRdv-card-right" th:text="${rdv.motif}"></p>
         </div>
-        <a class="ContentBox2-detailRdv-btn">Annuler le rendez-vous</a>
-        <a class="ContentBox2-detailRdv-btn">Modifier le rendez-vous</a>
+
+        <!-- ✅ liens fonctionnels avec l'id du rdv -->
+        <a th:href="@{'/rdv/delete/' + ${rdv.id}}"
+           class="ContentBox2-detailRdv-btn">Annuler le rendez-vous</a>
+        <a th:href="@{'/rdv/edit/' + ${rdv.id}}"
+           class="ContentBox2-detailRdv-btn">Modifier le rendez-vous</a>
+
         <div>
-            <p class="ContentBox2-detailRdv-title">Ajouter une ordonnance</P>
-            <input type="file" id="file" name="file" class="ContentBox2-detailRdv-input" placeholder="Telecharger votre ordonnance ici">
+            <p class="ContentBox2-detailRdv-title">Ajouter une ordonnance</p>
+            <input type="file" id="file" name="file"
+                   class="ContentBox2-detailRdv-input"
+                   placeholder="Telecharger votre ordonnance ici">
         </div>
+
     </section>
 </main>
 
-
 <div th:insert="~{footer :: footer}"></div>
+<script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>

@@ -13,7 +13,7 @@
 <main class="ContentBox">
     <div style="width: 85%; margin: auto">
     <pre>
-    sante = [[${sante}]]
+    medical = [[${medical}]]
     beaute = [[${beaute}]]
     soin = [[${soin}]]
     administratif = [[${administratif}]]
@@ -29,13 +29,13 @@
 
     const labels = /*[[${labels}]]*/ [];
 
-const sante = /*[[${sante}]]*/ [];
+const medical = /*[[${medical}]]*/ [];
 const beaute = /*[[${beaute}]]*/ [];
 const soin = /*[[${soin}]]*/ [];
 const administratif = /*[[${administratif}]]*/ [];
 
 console.log("labels:", labels);
-console.log("sante:", sante);
+console.log("medical:", medical);
 console.log("beaute:", beaute);
 console.log("soin:", soin);
 console.log("administratif:", administratif);
@@ -48,8 +48,8 @@ new Chart(ctx, {
         labels: labels,
         datasets: [
             {
-                label: 'Santé',
-                data: sante
+                label: 'Medical',
+                data: medical
             },
             {
                 label: 'Beauté',

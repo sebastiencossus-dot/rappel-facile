@@ -6,6 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @FeignClient(name = "msjpa")
 public interface MsJpaClient {
@@ -56,4 +57,10 @@ public interface MsJpaClient {
                    @RequestParam("typeAlerte") String typeAlerte,
                    @RequestParam("delai") Integer delai,
                    @RequestParam("email") String email);
+
+    @GetMapping("/rdv/stats")
+    Map<String, List<Integer>> getRdvStats(
+            @RequestParam("idUser") Long idUser,
+            @RequestParam("annee") int annee
+    );
 }

@@ -1,5 +1,6 @@
 package com.msjpa.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,7 @@ public class Rappels {
 
     @ManyToOne
     @JoinColumn(name = "rdv_id")
+    @JsonIgnore
     private RDV rdv;
 
 }

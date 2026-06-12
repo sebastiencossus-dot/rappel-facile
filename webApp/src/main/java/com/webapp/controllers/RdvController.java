@@ -125,5 +125,4 @@ public class RdvController {
         rdvService.addAlerte(id, form, email);
         return "redirect:/rdv/" + id;
     }
-
 }
