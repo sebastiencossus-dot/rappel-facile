@@ -73,4 +73,26 @@ new Chart(document.getElementById('chartCategories'), {
     }
 });
 
+    function chargerRDV(datasetLabel, label) {
+
+    let type;
+    let valeur;
+
+    // déterminer si c'est une catégorie ou un statut
+    if (["Médical", "Beauté", "Soin", "Administratif"].includes(datasetLabel)) {
+        type = "categorie";
+        valeur = datasetLabel.toLowerCase();
+    } else {
+        type = "statut";
+
+        if (datasetLabel === "Effectué") valeur = 0;
+        if (datasetLabel === "Raté") valeur = 3;
+        if (datasetLabel === "À venir") valeur = 1;
+    }
+
+    fetch(`/api/rdvs/details?mois=${label}&type=${type}&valeur=${valeur}`)
+        .then(res => res.json())
+        .then(data => afficherRDV(data, datasetLabel, label));
+}
+
 </script>

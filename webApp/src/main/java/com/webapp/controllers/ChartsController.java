@@ -2,14 +2,17 @@ package com.webapp.controllers;
 
 
 
+import com.webapp.models.RDV;
 import com.webapp.models.User;
 import com.webapp.services.MsJpaClient;
+import com.webapp.services.RdvService;
 import com.webapp.services.SessionService;
 import com.webapp.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -23,10 +26,12 @@ public class ChartsController {
 
     private SessionService sessionService;
     private MsJpaClient msjpaClient;
+    private RdvService rdvService;
 
     public ChartsController(SessionService sessionService, MsJpaClient msjpaClient) {
         this.sessionService = sessionService;
         this.msjpaClient = msjpaClient;
+        this.rdvService = rdvService;
     }
 
     @GetMapping("/charts")
@@ -55,4 +60,14 @@ public class ChartsController {
 
         return mav;
     }
+
+    @GetMapping("/details")
+    public List<RDV> getDetails(
+            @RequestParam int mois,
+            @RequestParam String type, // categorie OU statut
+            @RequestParam String valeur
+    ) {
+        return rdvService.getDetails(mois, type, valeur);
+    }
+
 }

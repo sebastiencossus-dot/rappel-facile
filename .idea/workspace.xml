@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature : revamping charts for stats with procedure stored">
+    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature : add dump bdd and second charts for stats">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/ChartsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/ChartsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/ChartsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/ChartsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/ChartsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/ChartsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/charts.html" afterDir="false" />
@@ -59,29 +60,30 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MsRdvApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MsjpaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MsprofApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MsrappelApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.WebappApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebas/IdeaProjects/rappel-facile/msjpa/src/main/java/com/msjpa/repositories&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.MsRdvApplication.executor": "Run",
+    "Spring Boot.MsjpaApplication.executor": "Run",
+    "Spring Boot.MsprofApplication.executor": "Run",
+    "Spring Boot.MsrappelApplication.executor": "Run",
+    "Spring Boot.WebappApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sebas/IdeaProjects/rappel-facile/msjpa/src/main/java/com/msjpa/repositories",
+    "onboarding.tips.debug.path": "C:/Users/sebas/IdeaProjects/rappel-facile/database/src/main/java/com/restTemplate/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sebas\IdeaProjects\rappel-facile\msjpa\src\main\java\com\msjpa\repositories" />
@@ -286,7 +288,23 @@
       <option name="project" value="LOCAL" />
       <updated>1781257763812</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feature : add dump bdd and second charts for stats">
+      <option name="closed" value="true" />
+      <created>1781268475715</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1781268475715</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feature : add dump bdd and second charts for stats">
+      <option name="closed" value="true" />
+      <created>1781268496249</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1781268496249</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,6 +324,18 @@
     <MESSAGE value="feature : revamping index.html for validate rdv" />
     <MESSAGE value="feature : msrappel and cron for alert ok by mail" />
     <MESSAGE value="feature : revamping charts for stats with procedure stored" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature : revamping charts for stats with procedure stored" />
+    <MESSAGE value="feature : add dump bdd and second charts for stats" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature : add dump bdd and second charts for stats" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/database/src/main/java/com/restTemplate/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

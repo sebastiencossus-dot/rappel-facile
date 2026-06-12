@@ -1,5 +1,6 @@
 package com.msjpa.services;
 
+import com.msjpa.models.RDV;
 import com.msjpa.repositories.ChartsRepository;
 import org.springframework.stereotype.Service;
 
@@ -50,5 +51,14 @@ public class ChartsService {
         result.put("rate",           rate);
         result.put("avenir",         avenir);
         return result;
+    }
+
+    public List<RDV> getDetails(int mois, String type, String valeur) {
+
+        if (type.equals("categorie")) {
+            return rdvRepository.findByCategorieAndMonth(valeur, mois);
+        } else {
+            return rdvRepository.findByStatutAndMonth(valeur, mois);
+        }
     }
 }
