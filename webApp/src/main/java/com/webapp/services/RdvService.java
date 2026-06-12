@@ -4,6 +4,7 @@ import com.webapp.models.Prestataires;
 import com.webapp.models.RdvPrestDTO;
 import com.webapp.models.User;
 import com.webapp.models.RDV;
+import com.webapp.services.form.AlerteForm;
 import com.webapp.services.form.rdvForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,4 +65,9 @@ public class RdvService {
     public void validerRdv(Integer id, Integer statut, String email) {
         msJpaClient.validerRdv(id, statut, email);
     }
+
+    public void addAlerte(Integer rdvId, AlerteForm form, String email) {
+        msJpaClient.addAlerte(rdvId, form.getTypeAlerte(), form.getDelai(), email);
+    }
+
 }

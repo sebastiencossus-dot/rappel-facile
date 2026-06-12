@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -11,10 +10,50 @@
 <div th:insert="~{header :: header}"></div>
 
 <main class="ContentBox2">
+    <h2 class="ContentBox2-title">Ajouter une alerte</h2>
 
-Page d'ajout d'une alerte a creer
+    <section class="ContentBox2-detailRdv">
 
+        <form th:action="@{'/rdv/' + ${rdvId} + '/alerte/add'}" method="post">
+
+            <div class="ContentBox2-detailRdv-card fond1">
+                <label class="ContentBox2-detailRdv-card-left" for="typeAlerte">
+                    <i class="fa-regular fa-bell"></i> Type d'alerte :
+                </label>
+                <select id="typeAlerte" name="typeAlerte" class="form-select">
+                    <option value="EMAIL">Email</option>
+                    <option value="SMS">SMS</option>
+                    <option value="NOTIFICATION">Notification</option>
+                </select>
+            </div>
+
+            <div class="ContentBox2-detailRdv-card fond2">
+                <label class="ContentBox2-detailRdv-card-left" for="delai">
+                    <i class="fa-regular fa-clock"></i> Délai avant le RDV :
+                </label>
+                <select id="delai" name="delai" class="form-select">
+                    <option value="15">15 minutes avant</option>
+                    <option value="30">30 minutes avant</option>
+                    <option value="60">1 heure avant</option>
+                    <option value="120">2 heures avant</option>
+                    <option value="1440">1 jour avant</option>
+                    <option value="2880">2 jours avant</option>
+                    <option value="10080">1 semaine avant</option>
+                </select>
+            </div>
+
+            <button type="submit" class="ContentBox2-detailRdv-btn">
+                Enregistrer l'alerte
+            </button>
+            <a th:href="@{'/rdv/' + ${rdvId}}" class="ContentBox2-detailRdv-btn">
+                Annuler
+            </a>
+
+        </form>
+
+    </section>
 </main>
 
 <div th:insert="~{footer :: footer}"></div>
 <script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>
+</html>

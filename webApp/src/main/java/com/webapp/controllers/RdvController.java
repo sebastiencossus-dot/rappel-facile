@@ -3,6 +3,7 @@ package com.webapp.controllers;
 import com.webapp.models.RDV;
 import com.webapp.models.User;
 import com.webapp.services.*;
+import com.webapp.services.form.AlerteForm;
 import com.webapp.services.form.rdvForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -109,4 +110,20 @@ public class RdvController {
         rdvService.validerRdv(id, statut, user.getEmail());
         return "redirect:/rdv"; // ✅ corrigé : redirect:/rdv et non redirect:/
     }
+
+    @GetMapping("/rdv/{id}/alerte/add")
+    public String addAlerteForm(@PathVariable Integer id, Model model) {
+        model.addAttribute("rdvId", id);
+        model.addAttribute("alerteForm", new AlerteForm());
+        return "addalert";
+    }
+
+    @PostMapping("/rdv/{id}/alerte/add")
+    public String addAlerte(@PathVariable Integer id,
+                            @ModelAttribute AlerteForm form) {
+        String email = sessionService.sessionUser().getEmail();
+        rdvService.addAlerte(id, form, email);
+        return "redirect:/rdv/" + id;
+    }
+
 }

@@ -100,5 +100,33 @@ import java.util.List;
 
             return rdv;
         }
+
+        public RdvDTO toDTO(RDV rdv) {
+            RdvDTO dto = new RdvDTO();
+            dto.setId(rdv.getId());
+            dto.setDateRdv(rdv.getDateRdv());
+            dto.setIsOK(rdv.getIsOK());
+            dto.setMotif(rdv.getMotif());
+
+            if (rdv.getPrestataires() != null) {
+                dto.setPrestataireNom(rdv.getPrestataires().getNom());
+                dto.setPrestatairePrenom(rdv.getPrestataires().getPrenom());
+            }
+            if (rdv.getProfessions() != null) {
+                dto.setProfessionNom(rdv.getProfessions().getNom());
+            }
+            if (rdv.getAdresses() != null) {
+                dto.setAdresseRue(rdv.getAdresses().getRue());
+                dto.setAdresseNumero(rdv.getAdresses().getNumero());
+                dto.setAdresseVille(rdv.getAdresses().getVille());
+                dto.setAdresseCodePostal(rdv.getAdresses().getCodepostal());
+            }
+            if (rdv.getRappels() != null) {
+                dto.setRappels(rdv.getRappels().stream()
+                        .map(r -> new RappelDTO(r.getId(), r.getDelai(), r.getTypeAlerte()))
+                        .toList());
+            }
+            return dto;
+        }
     }
 

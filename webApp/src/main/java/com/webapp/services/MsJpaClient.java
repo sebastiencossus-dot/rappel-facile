@@ -50,4 +50,10 @@ public interface MsJpaClient {
     void validerRdv(@PathVariable("id") Integer id,
                     @RequestParam("statut") Integer statut,
                     @RequestParam("email") String email);
+
+    @PostMapping("/rdvs/{id}/alertes")
+    void addAlerte(@PathVariable("id") Integer rdvId,
+                   @RequestParam("typeAlerte") String typeAlerte,
+                   @RequestParam("delai") Integer delai,
+                   @RequestParam("email") String email);
 }
