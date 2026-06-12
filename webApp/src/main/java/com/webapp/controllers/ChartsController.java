@@ -49,6 +49,9 @@ public class ChartsController {
         mav.addObject("beaute",         stats.get("beaute"));
         mav.addObject("soin",           stats.get("soin"));
         mav.addObject("administratif",  stats.get("administratif"));
+        mav.addObject("effectue", stats.get("effectue"));
+        mav.addObject("rate",     stats.get("rate"));
+        mav.addObject("avenir",   stats.get("avenir"));
 
         return mav;
     }

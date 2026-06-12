@@ -12,13 +12,12 @@
 
 <main class="ContentBox">
     <div style="width: 85%; margin: auto">
-    <pre>
-    medical = [[${medical}]]
-    beaute = [[${beaute}]]
-    soin = [[${soin}]]
-    administratif = [[${administratif}]]
-</pre>
-<canvas id="myChart"></canvas>
+
+        <h3>Répartition par catégorie</h3>
+        <canvas id="chartCategories"></canvas>
+
+        <h3 style="margin-top: 40px">Répartition par statut</h3>
+        <canvas id="chartStatuts"></canvas>
 </div>
 </main>
 
@@ -33,57 +32,44 @@ const medical = /*[[${medical}]]*/ [];
 const beaute = /*[[${beaute}]]*/ [];
 const soin = /*[[${soin}]]*/ [];
 const administratif = /*[[${administratif}]]*/ [];
-
-console.log("labels:", labels);
-console.log("medical:", medical);
-console.log("beaute:", beaute);
-console.log("soin:", soin);
-console.log("administratif:", administratif);
+const effectue = /*[[${effectue}]]*/ [];
+const rate     = /*[[${rate}]]*/     [];
+const avenir   = /*[[${avenir}]]*/   [];
 
 const ctx = document.getElementById('myChart');
 
-new Chart(ctx, {
+new Chart(document.getElementById('chartCategories'), {
     type: 'bar',
     data: {
         labels: labels,
         datasets: [
-            {
-                label: 'Medical',
-                data: medical
-            },
-            {
-                label: 'Beauté',
-                data: beaute
-            },
-            {
-                label: 'Soin',
-                data: soin
-            },
-            {
-                label: 'Administratif',
-                data: administratif
-            }
+            { label: 'Médical',       data: medical,       backgroundColor: 'rgba(54, 162, 235, 0.7)'  },
+            { label: 'Beauté',        data: beaute,        backgroundColor: 'rgba(255, 99, 132, 0.7)'  },
+            { label: 'Soin',          data: soin,          backgroundColor: 'rgba(153, 102, 255, 0.7)' },
+            { label: 'Administratif', data: administratif, backgroundColor: 'rgba(255, 206, 86, 0.7)'  }
         ]
     },
     options: {
         responsive: true,
-        plugins: {
-            legend: {
-                position: 'top'
-            },
-            tooltip: {
-                mode: 'index',
-                intersect: false
-            }
-        },
-        scales: {
-            x: {
-                stacked: false
-            },
-            y: {
-                beginAtZero: true
-            }
-        }
+        plugins: { legend: { position: 'top' } },
+        scales: { x: { stacked: false }, y: { beginAtZero: true } }
+    }
+});
+
+    new Chart(document.getElementById('chartStatuts'), {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [
+            { label: 'Effectué',  data: effectue, backgroundColor: 'rgba(75, 192, 100, 0.7)' },
+            { label: 'Raté',      data: rate,     backgroundColor: 'rgba(255, 50, 50, 0.7)'  },
+            { label: 'À venir',   data: avenir,   backgroundColor: 'rgba(255, 165, 0, 0.7)'  }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { position: 'top' } },
+        scales: { x: { stacked: false }, y: { beginAtZero: true } }
     }
 });
 
