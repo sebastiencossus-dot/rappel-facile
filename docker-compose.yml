@@ -87,6 +87,7 @@ services:
       mysql_db:
         condition: service_healthy
     environment:
+      SPRING_APPLICATION_NAME: webapp
       SPRING_CLOUD_CONSUL_HOST: consul
       SPRING_CLOUD_CONSUL_PORT: 8500
       SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
@@ -152,22 +153,22 @@ services:
     networks:
       - rappel
 
-#  msrappel:
-#    image: sebastco/msrappel
-#    mem_limit: 500m
-#    ports:
-#      - "8094:8094"
-#    depends_on:
-#      - mysql_db
-#      - configserver
-#      - consul
-#    environment:
-#      SPRING_CLOUD_CONSUL_HOST: consul
-#      SPRING_CLOUD_CONSUL_PORT: 8500
-#      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
-#    networks:
-#      - rappel
-#
+  msrappel:
+    image: sebastco/msrappel
+    mem_limit: 500m
+    ports:
+      - "8094:8094"
+    depends_on:
+      - mysql_db
+      - configserver
+      - consul
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: consul
+      SPRING_CLOUD_CONSUL_PORT: 8500
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+    networks:
+      - rappel
+
 #  msadmin:
 #    image: sebastco/msadmin
 #    mem_limit: 500m

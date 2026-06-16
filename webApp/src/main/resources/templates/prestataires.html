@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="/css/style.css" rel="stylesheet">
     <title>Prestataires</title>
 </head>
@@ -96,7 +97,7 @@
 <script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>
 
 <script>
-    // --- FILTRE PAR CATEGORIE ---
+
     function filtrer(categories) {
         const cards = document.querySelectorAll('.presta-card');
         let visible = 0;
@@ -110,12 +111,11 @@
 
         document.getElementById('aucun-resultat').style.display = visible === 0 ? 'block' : 'none';
 
-        // Bouton actif
         document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
         event.target.classList.add('active');
     }
 
-    // --- OUVRIR FICHE ---
+
     function ouvrirFiche(btn) {
         const data = btn.previousElementSibling;
 

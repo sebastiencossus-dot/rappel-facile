@@ -53,12 +53,12 @@ public class ChartsService {
         return result;
     }
 
-    public List<RDV> getDetails(int mois, String type, String valeur) {
-
-        if (type.equals("categorie")) {
-            return rdvRepository.findByCategorieAndMonth(valeur, mois);
-        } else {
-            return rdvRepository.findByStatutAndMonth(valeur, mois);
-        }
-    }
+//    public List<RDV> getDetails(int mois, String type, String valeur) {
+//
+//        if (type.equals("categorie")) {
+//            return rdvRepository.findByCategorieAndMonth(valeur, mois);
+//        } else {
+//            return rdvRepository.findByStatutAndMonth(valeur, mois);
+//        }
+//    }
 }

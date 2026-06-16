@@ -6,8 +6,9 @@
     display: flex;
     align-items: center;
     &-logo {
-        height: 50px;
+        height: 80px;
         margin: 10px;
+        z-index: 99;
         padding-top: 30px;
     }
     &-title {
@@ -42,15 +43,7 @@
                     left: 0;
                                      
                 }
-                &-menuPrincipal{
-                    
-                }
-                &-user{
-                    
-                }
-                &-menuSecondaire{
-                   
-                }
+                
             }
         }
         i{
@@ -128,12 +121,14 @@
                         padding-right: 10px;
                     }
 
-                    a{
+                    &-logout{
                         grid-column: 2 /2;
-                        grid-row: 1 / 1;
+                        grid-row: 2 /2;
                         text-decoration: none;
                         font-size: 10px;
-                        padding-top: 15px;
+                        margin-bottom: 15px;
+                        
+                        
                         &:link,&:visited{
                             color: $fontColor;
                             text-decoration: none;
@@ -212,7 +207,7 @@
         }
 }
 .ContentBox {
-    max-width: 800px;
+    // max-width: 800px;
     &-title {
         font-family: $fontGeneral;
         font-size: 25px;
@@ -285,6 +280,7 @@
     }
     &-card {
         display: flex;
+        align-items:center;
         border-bottom: 1px solid $fontSecond;
         width: 95%;          
         margin: 0 0 10px 10px;
@@ -312,12 +308,18 @@
                 font-weight: normal;
             }
         }
+        &-btns{
+            &.yes{
+                margin-left:auto;
+            }
+        }
         &-prestataire{
                 font-size: 10px;
                 font-weight: bold;
                 max-width: 50px;
                 text-align: right;
                 margin-left: auto;
+                margin-bottom: 0px;
                 
                 // margin: 0;
                 

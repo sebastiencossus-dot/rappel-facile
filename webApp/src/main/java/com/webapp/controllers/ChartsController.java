@@ -45,8 +45,8 @@ public class ChartsController {
 
         Map<String, List<Integer>> stats = msjpaClient.getRdvStats((long) user.getIdUser(), 2026);
 
-        String[] moisLabels = {"Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin",
-                "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"};
+        String[] moisLabels = {"Jan", "Fev", "Mar", "Avr", "Mai", "Juin",
+                "Juil", "Aout", "Sept", "Oct", "Nov", "Dec"};
 
         ModelAndView mav = new ModelAndView("charts");
         mav.addObject("labels",         moisLabels);
@@ -61,13 +61,13 @@ public class ChartsController {
         return mav;
     }
 
-    @GetMapping("/details")
-    public List<RDV> getDetails(
-            @RequestParam int mois,
-            @RequestParam String type, // categorie OU statut
-            @RequestParam String valeur
-    ) {
-        return rdvService.getDetails(mois, type, valeur);
-    }
+//    @GetMapping("/details")
+//    public List<RDV> getDetails(
+//            @RequestParam int mois,
+//            @RequestParam String type, // categorie OU statut
+//            @RequestParam String valeur
+//    ) {
+//        return rdvService.getDetails(mois, type, valeur);
+//    }
 
 }

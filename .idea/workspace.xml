@@ -4,12 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature : add dump bdd and second charts for stats">
+    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="end of journey">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/ChartsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/ChartsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/ChartsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/ChartsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msrappel/src/main/java/com/msrappel/Scheduler/RappelScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/msrappel/src/main/java/com/msrappel/Scheduler/RappelScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msrappel/src/main/java/com/msrappel/Services/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msrappel/src/main/java/com/msrappel/Services/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msrappel/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/msrappel/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msrdv/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msrdv/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/ChartsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/ChartsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_components.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_components.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_detailRdv.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_detailRdv.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_generals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_generals.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/addalert.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/addalert.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/charts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/detailRdv.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/detailRdv.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/edit-rdv.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/edit-rdv.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/prestataire-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/prestataire-add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/prestataire-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/prestataire-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/prestataires.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/prestataires.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/signup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +37,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="185" />
+    <option name="cachedIndexableFilesCount" value="209" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -63,6 +83,24 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.docker-compose.yml.consul: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.msrappel: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.msrdv: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.mysql_db: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.webapp: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Maven.msjpa [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
+    "Maven.msjpa [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msjpa [package].executor": "Run",
+    "Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
+    "Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msprof [package].executor": "Run",
+    "Maven.msrappel [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msrappel [package].executor": "Run",
+    "Maven.msrdv [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msrdv [package].executor": "Run",
+    "Maven.webapp [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.webapp [package].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -93,7 +131,7 @@
       <recent name="com.webapp.models" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MsrappelApplication">
+  <component name="RunManager" selected="Docker.docker-compose.yml.mysql_db: Compose Deployment">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="msjpa" />
       <method v="2">
@@ -105,83 +143,82 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration name="MsRdvApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msrdv" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msRdv.MsRdvApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msRdv.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
     </configuration>
-    <configuration name="MsjpaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msjpa" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msjpa.MsjpaApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msjpa.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="docker-compose.yml.consul: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="consul" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
-    <configuration name="MsprofApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msprof" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msprof.MsprofApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msprof.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="docker-compose.yml.msrappel: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="msrappel" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
-    <configuration name="MsrappelApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msrappel" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msrappel.MsrappelApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msrappel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="docker-compose.yml.msrdv: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="msrdv" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
-    <configuration name="WebappApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="webapp" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.webapp.WebappApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.webapp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="docker-compose.yml.mysql_db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mysql_db" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.webapp: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="webapp" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.WebappApplication" />
-        <item itemvalue="Spring Boot.MsjpaApplication" />
-        <item itemvalue="Spring Boot.MsrappelApplication" />
-        <item itemvalue="Spring Boot.MsprofApplication" />
-        <item itemvalue="Spring Boot.MsRdvApplication" />
+        <item itemvalue="Docker.docker-compose.yml.mysql_db: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.consul: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.webapp: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.msrappel: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.msrdv: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -304,7 +341,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781268496249</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="end of journey">
+      <option name="closed" value="true" />
+      <created>1781272508317</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1781272508318</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -325,7 +370,8 @@
     <MESSAGE value="feature : msrappel and cron for alert ok by mail" />
     <MESSAGE value="feature : revamping charts for stats with procedure stored" />
     <MESSAGE value="feature : add dump bdd and second charts for stats" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature : add dump bdd and second charts for stats" />
+    <MESSAGE value="end of journey" />
+    <option name="LAST_COMMIT_MESSAGE" value="end of journey" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

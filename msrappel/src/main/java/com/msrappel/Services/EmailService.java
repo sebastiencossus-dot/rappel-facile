@@ -1,4 +1,4 @@
-package com.msrappel.services;
+package com.msrappel.Services;
 
 import com.msrappel.Models.RappelDTO;
 import lombok.RequiredArgsConstructor;

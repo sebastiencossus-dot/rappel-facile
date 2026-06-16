@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
     <link href="/css/style.css" rel="stylesheet">
     <title>RDV Form</title>
 </head>
@@ -30,9 +31,17 @@
             </p>
 
             <img src="/images/calendar-add.png" alt="rdv">
+            
+            
         </div>
+        <div class="ContentBox2-detailRdv-prestataire"
+             th:if="${rdv == null}">
 
+            <p>
+                <span>Choisissez un prestataire</span>
+            </p>
 
+            <img src="/images/calendar-add.png" alt="rdv">
         <form th:object="${rdvForm}"
               th:action="${rdv != null} ? @{'/rdv/update/' + ${rdv.id}} : @{/rdv/add}"
               method="post"
@@ -130,11 +139,12 @@
                     </button>
                 </div>
 
-
+            
 
 
 
         </form>
+        </div>
 
     </section>
 

@@ -18,7 +18,7 @@ import java.util.List;
 public class RappelScheduler {
 
     private final MsJpaClient msJpaClient;
-    private final com.msrappel.services.EmailService emailService;
+    private final com.msrappel.Services.EmailService emailService;
     private static final Logger log = LoggerFactory.getLogger(RappelScheduler.class);
 
     // ✅ s'exécute toutes les minutes
