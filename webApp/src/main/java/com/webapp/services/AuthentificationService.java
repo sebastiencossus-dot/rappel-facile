@@ -5,12 +5,14 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor  // ✅ remplace @Autowired + constructeur manquant
@@ -26,11 +28,7 @@ public class AuthentificationService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         try {
             User user = msJpaClient.findUserByEmail(email);
-
-            // ✅ Log temporaire pour voir ce qui arrive
-            log.debug("User reçu de msjpa : {}", user);
-            log.debug("Password reçu : '{}'", user != null ? user.getPassword() : "USER NULL");
-
+            log.info("ROLE RECU DE MSJPA = {}", user.getRole());
 
             if (user == null || user.getEmail() == null || user.getPassword() == null) {
                 log.warn("Utilisateur introuvable ou incomplet : {}", email);
@@ -40,7 +38,7 @@ public class AuthentificationService implements UserDetailsService {
             return new org.springframework.security.core.userdetails.User(
                     user.getEmail(),
                     user.getPassword(),
-                    new ArrayList<>()
+                    List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole()))
             );
 
         } catch (UsernameNotFoundException e) {

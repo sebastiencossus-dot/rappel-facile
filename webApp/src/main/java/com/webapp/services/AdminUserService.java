@@ -10,21 +10,21 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminUserService {
 
-    private final MsJpaClient msJpaClient;
+    private final MsAdminClient msAdminClient; // ✅ remplace msJpaClient
 
     public List<User> findAll() {
-        return msJpaClient.findAllUsers();
+        return msAdminClient.findAllUsers();
     }
 
     public User findById(Integer id) {
-        return msJpaClient.findUserById(id);
+        return msAdminClient.findUserById(id);
     }
 
     public User update(Integer id, User user) {
-        return msJpaClient.updateUser(id, user);
+        return msAdminClient.updateUser(id, user);
     }
 
     public void delete(Integer id) {
-        msJpaClient.deleteUser(id);
+        msAdminClient.deleteUser(id);
     }
 }

@@ -525,12 +525,7 @@ body {
   }
 }
 
-body {
-  background-color: #f4f6fa;
-  margin: 0;
-  padding: 0;
-}
-
+/* body { background-color: #f4f6fa; margin:0; padding:0; } */
 .AdminLayout {
   display: flex;
   min-height: 100vh;

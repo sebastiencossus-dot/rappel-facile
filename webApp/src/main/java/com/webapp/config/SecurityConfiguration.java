@@ -9,9 +9,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 @Configuration
@@ -21,22 +23,47 @@ public class SecurityConfiguration {
     private AuthentificationService authentificationService;
 
     @Bean
-    public PasswordEncoder passwordEncoder() throws Exception { return new BCryptPasswordEncoder(); }
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler successHandler() {
+        return (request, response, authentication) -> {
+            boolean isAdmin = authentication.getAuthorities().stream()
+                    .map(GrantedAuthority::getAuthority)
+                    .anyMatch(role -> role.equals("ROLE_ADMIN")); // ✅ corrigé
+
+            if (isAdmin) {
+                response.sendRedirect("/admin");
+            } else {
+                response.sendRedirect("/");
+            }
+        };
+    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/css/bootstrap.min.css", "/index.css", "/images/**", "/signin", "/signup", "/js/**")
-//                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .permitAll().anyRequest().authenticated()
+                        .requestMatchers(
+                                "/css/**",
+                                "/images/**",
+                                "/js/**",
+                                "/favicon.ico",
+                                "/actuator/health",
+                                "/signin",
+                                "/signup"
+                        ).permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/signin")
                         .loginProcessingUrl("/signin")
                         .usernameParameter("email")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/", true)
+                        .successHandler(successHandler()) // ✅ remplace defaultSuccessUrl
                         .failureUrl("/signin?error=true")
                         .permitAll()
                 )
@@ -46,8 +73,7 @@ public class SecurityConfiguration {
                         .deleteCookies("JSESSIONID")
                         .permitAll()
                 )
-
-                .sessionManagement( session -> session
+                .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                         .maximumSessions(1)
                         .expiredUrl("/signin")

@@ -4,42 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="end of journey">
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/AdminUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/js/admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-sidebar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-user-edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-users.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin.html" afterDir="false" />
+    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature : add template to signin , signup, addalerte. and first to admin">
+      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/controllers/AdminStatsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/controllers/AdminUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/models/AdminRdvDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/models/AdminUserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/AdminStatsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/AdminUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/MsJpaClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/AdminRdvDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/AdminUserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsAdminClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RappelsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RappelsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RDV.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RDV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/RappelsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/RappelsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/RdvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/RdvService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/ChartsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/ChartsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/RdvController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/RappelDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/RappelDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsJpaClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsJpaClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/RdvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/RdvService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_components.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_components.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_detailRdv.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_detailRdv.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_generals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_generals.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msadmin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/MsadminApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/MsadminApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msadmin/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AuthentificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AuthentificationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/addalert.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/addalert.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/charts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/detailRdv.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/detailRdv.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/edit-rdv.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/edit-rdv.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/prestataires.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/prestataires.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/signin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -90,58 +78,59 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Docker.docker-compose.yml.consul: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.msrappel: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.msrdv: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.mysql_db: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.webapp: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msjpa [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msjpa [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msjpa [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msprof [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msrappel [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msrappel [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msrdv [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msrdv [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.webapp [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.webapp [package].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MsRdvApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MsjpaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MsprofApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MsrappelApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.WebappApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebas/IdeaProjects/rappel-facile/msjpa/src/main/java/com/msjpa/repositories&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/sebas/IdeaProjects/rappel-facile/database/src/main/java/com/restTemplate/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.docker-compose.yml.consul: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.msrappel: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.msrdv: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.mysql_db: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.webapp: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Maven.msjpa [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
+    "Maven.msjpa [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msjpa [package].executor": "Run",
+    "Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
+    "Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msprof [package].executor": "Run",
+    "Maven.msrappel [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msrappel [package].executor": "Run",
+    "Maven.msrdv [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msrdv [package].executor": "Run",
+    "Maven.webapp [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.webapp [package].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.MsRdvApplication.executor": "Run",
+    "Spring Boot.MsadminApplication.executor": "Run",
+    "Spring Boot.MsjpaApplication.executor": "Run",
+    "Spring Boot.MsprofApplication.executor": "Run",
+    "Spring Boot.MsrappelApplication.executor": "Run",
+    "Spring Boot.WebappApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sebas/IdeaProjects/rappel-facile/msjpa/src/main/java/com/msjpa/repositories",
+    "onboarding.tips.debug.path": "C:/Users/sebas/IdeaProjects/rappel-facile/database/src/main/java/com/restTemplate/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sebas\IdeaProjects\rappel-facile\msjpa\src\main\java\com\msjpa\repositories" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.msrappel.Models" />
       <recent name="com.webapp.models" />
+      <recent name="com.msrappel.Models" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.WebappApplication">
+  <component name="RunManager" selected="Spring Boot.MsadminApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="msjpa" />
       <method v="2">
@@ -153,13 +142,13 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration name="MsRdvApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="MsadminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msrdv" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msRdv.MsRdvApplication" />
+      <module name="msadmin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msadmin.MsadminApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msRdv.*" />
+          <option name="PATTERN" value="com.msadmin.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -232,10 +221,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WebappApplication" />
+        <item itemvalue="Spring Boot.MsadminApplication" />
+        <item itemvalue="Spring Boot.MsjpaApplication" />
         <item itemvalue="Spring Boot.MsrappelApplication" />
         <item itemvalue="Spring Boot.MsprofApplication" />
-        <item itemvalue="Spring Boot.MsRdvApplication" />
-        <item itemvalue="Spring Boot.MsjpaApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -374,7 +363,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781616022932</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feature : add template to signin , signup, addalerte. and first to admin">
+      <option name="closed" value="true" />
+      <created>1781861359049</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1781861359049</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -396,7 +393,8 @@
     <MESSAGE value="feature : revamping charts for stats with procedure stored" />
     <MESSAGE value="feature : add dump bdd and second charts for stats" />
     <MESSAGE value="end of journey" />
-    <option name="LAST_COMMIT_MESSAGE" value="end of journey" />
+    <MESSAGE value="feature : add template to signin , signup, addalerte. and first to admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature : add template to signin , signup, addalerte. and first to admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
