@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<aside th:fragment="sidebar(active)" class="AdminSidebar" id="adminSidebar">
+    <div class="AdminSidebar-logo">
+        <img th:src="@{/images/logo.png}" alt="logo">
+        <span>Rappel Facile</span>
+    </div>
+    <nav class="AdminSidebar-nav">
+        <a th:href="@{/admin}" class="AdminSidebar-link" th:classappend="${active == 'dashboard'} ? 'active'">
+            <i class="fa-solid fa-gauge"></i> Tableau de bord
+        </a>
+        <a th:href="@{/admin/users}" class="AdminSidebar-link" th:classappend="${active == 'users'} ? 'active'">
+            <i class="fa-solid fa-users"></i> Utilisateurs
+        </a>
+        <a th:href="@{/admin/prestataires}" class="AdminSidebar-link" th:classappend="${active == 'prestataires'} ? 'active'">
+            <i class="fa-solid fa-user-tie"></i> Prestataires
+        </a>
+        <a th:href="@{/admin/rdv}" class="AdminSidebar-link" th:classappend="${active == 'rdv'} ? 'active'">
+            <i class="fa-solid fa-calendar-check"></i> Rendez-vous
+        </a>
+        <a th:href="@{/admin/professions}" class="AdminSidebar-link" th:classappend="${active == 'professions'} ? 'active'">
+            <i class="fa-solid fa-briefcase"></i> Professions
+        </a>
+        <a th:href="@{/admin/stats}" class="AdminSidebar-link" th:classappend="${active == 'stats'} ? 'active'">
+            <i class="fa-solid fa-chart-line"></i> Statistiques
+        </a>
+    </nav>
+    <div class="AdminSidebar-footer">
+        <a th:href="@{/}"><i class="fa-solid fa-arrow-left"></i> Retour à l'app</a>
+        <br>
+        <form th:action="@{/logout}" method="post" style="margin-top:8px;">
+            <button type="submit" style="background:none; border:none; color:#ccc; font-size:13px; padding:0; cursor:pointer;">
+                <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+            </button>
+        </form>
+    </div>
+</aside>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Rappel Facile — Admin</title>
+
+</head>
+<body>
+<button class="AdminBurger" onclick="toggleAdminMenu()">
+    <i class="fa-solid fa-bars" id="burgerIcon"></i>
+</button>
+
+<!-- ✅ Overlay pour fermer en cliquant à côté -->
+<div class="AdminOverlay" id="adminOverlay" onclick="closeAdminMenu()"></div>
+<div class="AdminLayout">
+
+    <!-- SIDEBAR -->
+    <aside class="AdminSidebar" id="adminSidebar">
+        <div class="AdminSidebar-logo">
+            <img th:src="@{/images/logo.png}" alt="logo">
+            <span>Rappel Facile</span>
+        </div>
+
+        <nav class="AdminSidebar-nav">
+            <a th:href="@{/admin}" class="AdminSidebar-link active">
+                <i class="fa-solid fa-gauge"></i> Tableau de bord
+            </a>
+            <a th:href="@{/admin/users}" class="AdminSidebar-link">
+                <i class="fa-solid fa-users"></i> Utilisateurs
+            </a>
+            <a th:href="@{/admin/prestataires}" class="AdminSidebar-link">
+                <i class="fa-solid fa-user-tie"></i> Prestataires
+            </a>
+            <a th:href="@{/admin/rdv}" class="AdminSidebar-link">
+                <i class="fa-solid fa-calendar-check"></i> Rendez-vous
+            </a>
+            <a th:href="@{/admin/professions}" class="AdminSidebar-link">
+                <i class="fa-solid fa-briefcase"></i> Professions
+            </a>
+            <a th:href="@{/admin/stats}" class="AdminSidebar-link">
+                <i class="fa-solid fa-chart-line"></i> Statistiques
+            </a>
+        </nav>
+
+        <div class="AdminSidebar-footer">
+            <a th:href="@{/}"><i class="fa-solid fa-arrow-left"></i> Retour à l'app</a>
+            <br>
+            <form th:action="@{/logout}" method="post" style="margin-top:8px;">
+                <button type="submit" style="background:none; border:none; color:#ccc; font-size:13px; padding:0; cursor:pointer;">
+                    <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+                </button>
+            </form>
+        </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="AdminContent">
+
+        <div class="AdminTopbar">
+            <h1>Tableau de bord</h1>
+            <div class="AdminTopbar-user">
+                Connecté en tant qu'<strong th:text="${currentUser != null ? currentUser.email : 'admin'}">admin</strong>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="AdminStats">
+            <div class="AdminStat-card c1">
+                <div class="AdminStat-card-icon"><i class="fa-solid fa-users"></i></div>
+                <p class="AdminStat-card-value" th:text="${nbUsers ?: 0}">0</p>
+                <p class="AdminStat-card-label">Utilisateurs inscrits</p>
+            </div>
+            <div class="AdminStat-card c2">
+                <div class="AdminStat-card-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <p class="AdminStat-card-value" th:text="${nbPrestataires ?: 0}">0</p>
+                <p class="AdminStat-card-label">Prestataires actifs</p>
+            </div>
+            <div class="AdminStat-card c3">
+                <div class="AdminStat-card-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                <p class="AdminStat-card-value" th:text="${nbRdv ?: 0}">0</p>
+                <p class="AdminStat-card-label">RDV ce mois-ci</p>
+            </div>
+            <div class="AdminStat-card c4">
+                <div class="AdminStat-card-icon"><i class="fa-solid fa-bell"></i></div>
+                <p class="AdminStat-card-value" th:text="${nbAlertes ?: 0}">0</p>
+                <p class="AdminStat-card-label">Alertes programmées</p>
+            </div>
+        </div>
+
+        <!-- DERNIERS RDV -->
+        <div class="AdminPanel">
+            <p class="AdminPanel-title">
+                Derniers rendez-vous
+                <a th:href="@{/admin/rdv}">Voir tout →</a>
+            </p>
+            <table class="AdminTable">
+                <thead>
+                <tr>
+                    <th>Utilisateur</th>
+                    <th>Prestataire</th>
+                    <th>Date</th>
+                    <th>Statut</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="rdv : ${derniersRdv}">
+                    <td th:text="${rdv.userEmail}">email@exemple.fr</td>
+                    <td th:text="${rdv.prestataireNom} + ' ' + ${rdv.prestatairePrenom}">Nom Prénom</td>
+                    <td th:text="${#temporals.format(rdv.dateRdv, 'dd/MM/yyyy HH:mm')}">01/01/2026</td>
+                    <td>
+                        <span class="AdminBadge ok" th:if="${rdv.isOK == 0}">Réalisé</span>
+                        <span class="AdminBadge pending" th:if="${rdv.isOK == 1}">En attente</span>
+                        <span class="AdminBadge cancel" th:if="${rdv.isOK == 3}">Annulé</span>
+                    </td>
+                    <td>
+                        <a class="AdminAction" th:href="@{'/admin/rdv/' + ${rdv.id}}"><i class="fa-solid fa-eye"></i></a>
+                        <a class="AdminAction danger" th:href="@{'/admin/rdv/delete/' + ${rdv.id}}"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- DERNIERS USERS -->
+        <div class="AdminPanel">
+            <p class="AdminPanel-title">
+                Derniers utilisateurs inscrits
+                <a th:href="@{/admin/users}">Voir tout →</a>
+            </p>
+            <table class="AdminTable">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${derniersUsers}">
+                    <td th:text="${user.nom} + ' ' + ${user.prenom}">Nom Prénom</td>
+                    <td th:text="${user.email}">email@exemple.fr</td>
+                    <td th:text="${user.tel}">0600000000</td>
+                    <td>
+                        <a class="AdminAction" th:href="@{'/admin/users/' + ${user.idUser}}"><i class="fa-solid fa-eye"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+</div>
+<script>
+    function toggleAdminMenu() {
+        const sidebar = document.getElementById('adminSidebar');
+        const overlay = document.getElementById('adminOverlay');
+        const icon = document.getElementById('burgerIcon');
+
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('active');
+
+        if (sidebar.classList.contains('open')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    }
+
+    function closeAdminMenu() {
+        document.getElementById('adminSidebar').classList.remove('open');
+        document.getElementById('adminOverlay').classList.remove('active');
+        const icon = document.getElementById('burgerIcon');
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+    }
+</script>
+
+<script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -28,6 +28,7 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/css/bootstrap.min.css", "/index.css", "/images/**", "/signin", "/signup", "/js/**")
+//                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .permitAll().anyRequest().authenticated()
                 )
                 .formLogin(form -> form

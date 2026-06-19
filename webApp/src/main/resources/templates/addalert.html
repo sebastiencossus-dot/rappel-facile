@@ -2,7 +2,8 @@
 <html lang="fr"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"><link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="/css/style.css" rel="stylesheet">
     <title>Rappel Facile</title>
@@ -10,44 +11,64 @@
 <div th:insert="~{header :: header}"></div>
 
 <main class="ContentBox">
-    <h2 class="ContentBox-title">Ajouter une alerte</h2>
+    <h2 class="ContentBox2-title">Ajouter une alerte</h2>
 
-    <section class="ContentBox-detailRdv">
+    <section class="ContentBox2-detailRdv">
+
+        <!-- Bandeau intro (rose) -->
+        <div class="ContentBox2-detailRdv-prestataire">
+            <p>
+                <span style="font-size:16px; font-weight:bold;">
+                    <i class="fa-regular fa-bell"></i> Nouvelle alarme
+                </span>
+                <br>
+                <span class="ContentBox2-detailRdv-prestataire">
+                    Soyez prévenu avant votre rendez-vous
+                </span>
+            </p>
+            <img th:src="@{/images/alerte.png}" alt="alerte" style="height:40px;">
+        </div>
+
 
         <form th:action="@{'/rdv/' + ${rdvId} + '/alerte/add'}" method="post">
 
-            <div class="ContentBox-detailRdv-card fond1">
-                <label class="ContentBox2-detailRdv-card-left" for="typeAlerte">
-                    <i class="fa-regular fa-bell"></i> Type d'alerte :
-                </label>
-                <select id="typeAlerte" name="typeAlerte" class="form-select">
+            <div class="ContentBox2-detailRdv-card fond1">
+                <p class="ContentBox2-detailRdv-card-left">
+                    <i class="fa-regular fa-bell"></i> Type d'alerte
+                </p>
+                <select id="typeAlerte" name="typeAlerte" class="ContentBox2-detailRdv-input">
                     <option value="EMAIL">Email</option>
                     <option value="SMS">SMS</option>
                     <option value="NOTIFICATION">Notification</option>
                 </select>
             </div>
 
-            <div class="ContentBox-detailRdv-card fond2">
-                <label class="ContentBox2-detailRdv-card-left" for="delai">
-                    <i class="fa-regular fa-clock"></i> Délai avant le RDV :
-                </label>
-                <select id="delai" name="delai" class="form-select">
+            <div class="ContentBox2-detailRdv-card fond2">
+                <p class="ContentBox2-detailRdv-card-left">
+                    <i class="fa-regular fa-clock"></i> Délai avant le RDV
+                </p>
+                <select id="delai" name="delai" class="ContentBox2-detailRdv-input">
                     <option value="15">15 minutes avant</option>
                     <option value="30">30 minutes avant</option>
+                    <option value="45">45 minutes avant</option>
                     <option value="60">1 heure avant</option>
                     <option value="120">2 heures avant</option>
-                    <option value="1440">1 jour avant</option>
+                    <option value="180">3 heures avant</option>
+                    <option value="360">6 heures avant</option>
+                    <option value="720">12 heures avant</option>
                     <option value="2880">2 jours avant</option>
                     <option value="10080">1 semaine avant</option>
                 </select>
             </div>
 
-            <button type="submit" class="ContentBox2-detailRdv-btn">
-                Enregistrer l'alerte
-            </button>
-            <a th:href="@{'/rdv/' + ${rdvId}}" class="ContentBox2-detailRdv-btn">
-                Annuler
-            </a>
+            <div class="ContentBox2-detailRdv-card fond3" style="justify-content:center; gap:15px;">
+                <button type="submit" class="ContentBox2-detailRdv-btn btn2" style="width:auto; padding:10px 25px;">
+                    <i class="fa-solid fa-check"></i> Enregistrer
+                </button>
+                <a th:href="@{'/rdv/' + ${rdvId}}" class="ContentBox2-detailRdv-btn" style="width:auto; padding:10px 25px;">
+                    Annuler
+                </a>
+            </div>
 
         </form>
 

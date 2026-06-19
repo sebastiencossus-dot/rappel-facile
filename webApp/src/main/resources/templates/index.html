@@ -29,32 +29,33 @@
                        class="RdvBox-card-link">
 
                         <i class="fa-regular fa-alarm-clock RdvBox-card-clock"></i>
-                    </a>
+                        
+                        <p class="RdvBox-card-text">
+                            <span class="RdvBox-card-text-motif"
 
-                    <p class="RdvBox-card-text">
-
-            <span class="RdvBox-card-text-time"
+                                  th:text="'A :' + ${#temporals.format(rdv.dateRdv, 'HH:mm')}">
+                        </span>
+                            <br>
+                            <span class="RdvBox-card-text-time"
                   th:text="'Motif : ' + ${rdv.motif}">
             </span>
+            
 
-                        <br>
+            
 
-                        <span class="RdvBox-card-text-motif"
-
-                              th:text="'A :' + ${#temporals.format(rdv.dateRdv, 'HH:mm')}">
-                        </span>
                     </p>
-
+                    
                     <p class="RdvBox-card-prestataire"
                        th:text="${rdv.prestataireNom} + ' ' + ${rdv.prestatairePrenom}">
                     </p>
-
+                    
+                </a>
                 </div>
 
             </section>
             <section class="ContentBox-rdvBox RdvBox attente">
 
-                <h2 class="RdvBox-title">En attente de validation bibi</h2>
+                <h2 class="RdvBox-title">En attente de validation</h2>
 
                 <div th:if="${#lists.isEmpty(rdvAttente)}">
                     <p>Aucun rendez-vous en attente de validation</p>
@@ -69,12 +70,12 @@
                          th:text="${#temporals.format(rdv.dateRdv, 'dd/MM/yyyy HH:mm')}">
                         </span>
                         <br>
-                        <span class="RdvBox-card-text-time"
+                        <span class="RdvBox-card-text-motif"
                               th:text="'Motif : ' + ${rdv.motif}">
                         </span>
                     </p>
 
-                    <form th:action="@{'/rdv/' + ${rdv.id} + '/valider'}" method="post" class="pt-2 RdvBox-card-btns yes">
+                    <form th:action="@{'/rdv/' + ${rdv.id} + '/valider'}" method="post" class="pt-2 RdvBox-card-btns yes" style="flex-shrink:0;" >
                         <input type="hidden" name="statut" value="0"/>
                         <button type="submit" class="btn btn-success btn-sm">
                             <i class="fa-regular fa-square-check"></i> Oui
@@ -82,7 +83,7 @@
                     </form>
 
 
-                    <form th:action="@{'/rdv/' + ${rdv.id} + '/valider'}" method="post" class="pt-2 RdvBox-card-btns no">
+                    <form th:action="@{'/rdv/' + ${rdv.id} + '/valider'}" method="post" class="pt-2 RdvBox-card-btns no" style="flex-shrink:0;">
                         <input type="hidden" name="statut" value="3"/>
                         <button type="submit" class="btn btn-danger btn-sm">
                             <i class="fa-solid fa-ban"></i> Non
@@ -100,28 +101,27 @@
             </div>
             <div th:each="rdv : ${rdvAutres ?: {}}"
                  class="RdvBox-card">
+                <a th:href="@{'/rdv/' + ${rdv.id}}"
+                       class="RdvBox-card-link">
+                    <i class="fa-regular fa-calendar RdvBox-card-clock"></i>
 
-                <i class="fa-regular fa-calendar RdvBox-card-clock"></i>
+                    <p class="RdvBox-card-text">
 
-                <p class="RdvBox-card-text">
-
-            <span class="RdvBox-card-text-time"
-                  th:text="${#temporals.format(rdv.dateRdv, 'EEEE dd MMMM yyyy', T(java.util.Locale).FRENCH)}">
-            </span>
+                    <span class="RdvBox-card-text-time"
+                        th:text="${#temporals.format(rdv.dateRdv, 'EEEE dd MMMM yyyy HH/mm', T(java.util.Locale).FRENCH)}">
+                    </span>
 
                     <br>
 
                     <span class="RdvBox-card-text-motif"
                           th:text="${rdv.professionNom}">
-            </span>
-                </p>
+                    </span>
+                    </p>
 
-                <p class="RdvBox-card-prestataire">
-                    <a th:href="@{'/rdv/edit/' + ${rdv.id}}">
-                        Modifier détails
-                    </a>
-                </p>
-
+                    <p class="RdvBox-card-prestataire"
+                       th:text="${rdv.prestataireNom} + ' ' + ${rdv.prestatairePrenom}">
+                    </p>
+                </a>
             </div>
 
         </section>

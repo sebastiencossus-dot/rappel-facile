@@ -1,6 +1,7 @@
 package com.webapp.controllers;
 
 import com.webapp.models.RDV;
+import com.webapp.models.RappelDTO;
 import com.webapp.models.User;
 import com.webapp.services.*;
 import com.webapp.services.form.AlerteForm;
@@ -124,5 +125,24 @@ public class RdvController {
         String email = sessionService.sessionUser().getEmail();
         rdvService.addAlerte(id, form, email);
         return "redirect:/rdv/" + id;
+    }
+
+    @GetMapping("/rdv/{id}/alertes")
+    public ModelAndView listeAlertes(@PathVariable Integer id) {
+        String email = sessionService.sessionUser().getEmail();
+        RDV rdv = msJpaClient.getRdv(id, email);
+        List<RappelDTO> rappels = rdvService.getRappelsByRdv(id);
+
+        ModelAndView mav = new ModelAndView("listeAlertes");
+        mav.addObject("rdv", rdv);
+        mav.addObject("rappels", rappels);
+        return mav;
+    }
+
+    @GetMapping("/rdv/{rdvId}/alertes/delete/{rappelId}")
+    public String deleteAlerte(@PathVariable Integer rdvId,
+                               @PathVariable Integer rappelId) {
+        rdvService.deleteRappel(rappelId);
+        return "redirect:/rdv/" + rdvId + "/alertes";
     }
 }

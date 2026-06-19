@@ -24,6 +24,8 @@ import java.util.List;
         private ProfessionRepository professionRepository;
         @Autowired
         private AdresseRepository adresseRepository;
+        @Autowired
+        private RappelsRepository rappelsRepository;
 
         public RdvDTO toDTO(RDV rdv) {
             RdvDTO dto = new RdvDTO();
@@ -87,7 +89,15 @@ import java.util.List;
                         .orElseThrow(() -> new RuntimeException("Profession introuvable")));
             }
 
-            return rdvRepository.save(rdv);
+            RDV savedRdv = rdvRepository.save(rdv);
+
+            Rappels rappel = new Rappels();
+            rappel.setRdv(savedRdv);
+            rappel.setTypeAlerte("EMAIL");
+            rappel.setDelai(1440);
+            rappelsRepository.save(rappel);
+
+            return savedRdv;
         }
 
 
@@ -134,5 +144,7 @@ import java.util.List;
 
             return rdv;
         }
+
+
     }
 

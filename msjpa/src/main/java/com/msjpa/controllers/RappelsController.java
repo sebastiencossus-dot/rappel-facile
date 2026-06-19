@@ -4,9 +4,7 @@ package com.msjpa.controllers;
 import com.msjpa.models.RappelDTO;
 import com.msjpa.repositories.RappelsRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,5 +34,24 @@ public class RappelsController {
                     return dto;
                 })
                 .toList();
+    }
+
+    @GetMapping("/by-rdv")
+    public List<RappelDTO> findByRdvId(@RequestParam Integer rdvId) {
+        return rappelsRepository.findByRdvId(rdvId).stream()
+                .map(r -> {
+                    RappelDTO dto = new RappelDTO();
+                    dto.setId(r.getId());
+                    dto.setDelai(r.getDelai());
+                    dto.setTypeAlerte(r.getTypeAlerte());
+                    dto.setRdvId(r.getRdv().getId());
+                    return dto;
+                })
+                .toList();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteRappel(@PathVariable Integer id) {
+        rappelsRepository.deleteById(id);
     }
 }

@@ -70,4 +70,9 @@ public class ChartsController {
 //        return rdvService.getDetails(mois, type, valeur);
 //    }
 
+    @GetMapping("/qrcode")
+    public String qrcode() {
+        return "qrcode";
+    }
+
 }

@@ -20,6 +20,7 @@ public class User {
     private String prenom;
     private String tel;
     private String photo;
+    private String role;
 
     public int getIdUser() {
         return idUser;

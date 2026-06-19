@@ -34,7 +34,7 @@
              th:attr="data-professions=${#strings.listJoin(p.professions, ',')},
               data-categories=${p.categories != null ? #strings.listJoin(p.categories, ',') : ''}">
 
-            <p class="presta-nom" th:text="${p.nom} + ' ' + ${p.prenom}"></p>
+            <p class="ContentBox2-detailRdv-card-prestanom" th:text="${p.nom} + ' ' + ${p.prenom}"></p>
 
             <div class="presta-tags">
                 <span th:each="prof : ${p.professions}"

@@ -12,7 +12,9 @@
         padding: 0 0 20px 0;
         
         &-prestataire {
-            background-color: $cardJour;
+            background-color: $backGroundColor;
+            font-size: 16px;
+            font-weight: bold;
             width: 95%;
             margin: 0 0 10px 10px;
             text-align: center;
@@ -22,8 +24,8 @@
             text-align: center;
             font-size: 14px;
             color: $fontColor;
-            border-bottom: 1px solid $fontSecond;
-            border-radius: 15px;
+            // border-bottom: 1px solid $fontSecond;
+            // border-radius: 15px;
             &-spe{
                 font-size: 10px;
                 color: $fontSecond;
@@ -39,7 +41,12 @@
             border-bottom: 1px solid $fontSecond;
             width: 95%;          
             margin: 0 0 10px 10px;
+            padding: 10px 0 10px 0;
             border-radius: 15px;
+            &-prestanom{
+                font-weight: bold;
+                margin: 10px;
+            }
             &.fond1 {
                 background-color: $cardJour;
             }
@@ -52,6 +59,7 @@
             &-left{
                 display: flex;
                 align-items: center;
+                padding:10px 0 0 10px; ;
                 img{
                     width: 25px;
                 }
@@ -68,17 +76,24 @@
                 text-align: right;
                 margin-left: auto;
             }
+            .Center{
+                margin: auto;
+            }
+            
         } 
+        
         &-btn{
             display: flex;
             justify-content: center;
-            // margin: 0 auto;
-            width: 95%;
+            background-color: $backGroundColor;
+            text-decoration: none;
+            width: 90%;
             gap: 20px;
-            margin-top: 20px;
+            // margin-top: 20px;
             border: black 1px solid;
             border-radius: 15px;
-            padding: 10px 0 10px 0;
+            padding: 10px 0px 10px 0;
+            margin: 5% auto 5% auto;
             &:hover {
                 background-color: $fontSecond;
                 color: white;
@@ -95,7 +110,7 @@
         }
         &-input{
             width: 95%;
-            padding: 00px;
+            margin: 10px;
             // margin: 0 0 10px 10px;
             // border: 1px solid $fontSecond;
             border-radius: 5px;
@@ -123,6 +138,7 @@
             &-input{
                 grid-column: -4 / -3;
                 grid-row: 6 / 7;
+                margin: 10px;
             }
         }
         

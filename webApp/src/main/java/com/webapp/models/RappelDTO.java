@@ -11,4 +11,6 @@ public class RappelDTO {
     private Integer id;
     private Integer delai;
     private String typeAlerte;
+
+    private Integer rdvId;
 }

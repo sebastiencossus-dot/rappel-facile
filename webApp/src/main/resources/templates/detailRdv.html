@@ -11,22 +11,27 @@
 </head>
 <div th:insert="~{header :: header}"></div>
 
-<main class="ContentBox2">
+<main class="ContentBox">
     <h2 class="ContentBox2-title">Votre rendez-vous</h2>
     <section class="ContentBox2-detailRdv">
 
         <div class="ContentBox2-detailRdv-prestataire">
             <p>
-                <!-- ✅ champs plats -->
                 <span th:text="${rdv.prestataireNom} + ' ' + ${rdv.prestatairePrenom}"></span>
                 <br>
                 <span class="ContentBox2-detailRdv-prestataire-spe"
-                      th:text="${rdv.professionNom}"></span>
+                    th:text="${rdv.professionNom}"></span>
             </p>
-            <!-- ✅ suppression du double <a> imbriqué -->
-            <a th:href="@{'/rdv/' + ${rdv.id} + '/alerte/add'}">
-                <img th:src="@{/images/alerte.png}" alt="reglage alerte">Ajouter une alarme
-            </a>
+
+    
+            <div>
+                <a th:href="@{'/rdv/' + ${rdv.id} + '/alerte/add'}" class="ContentBox2-detailRdv-btn">
+                    <img th:src="@{/images/alerte.png}" alt="ajouter alerte">Ajouter une alarme
+                </a>
+                <a th:href="@{'/rdv/' + ${rdv.id} + '/alertes'}" class="ContentBox2-detailRdv-btn">
+                    <i class="fa-regular fa-bell"></i> Mes alarmes
+                </a>
+            </div>
         </div>
 
         <p class="ContentBox2-detailRdv-title">Informations du rendez-vous</p>
@@ -65,18 +70,19 @@
                th:text="${rdv.professionNom}"></p>
         </div>
 
-        <div class="ContentBox2-detailRdv-card fond3">
+        <div class="ContentBox2-detailRdv-card fond2">
             <p class="ContentBox2-detailRdv-card-left">
                 <i class="fa-solid fa-book"></i> Motif du rendez-vous :
             </p>
             <p class="ContentBox2-detailRdv-card-right" th:text="${rdv.motif}"></p>
         </div>
 
-        <!-- ✅ liens fonctionnels avec l'id du rdv -->
-        <a th:href="@{'/rdv/delete/' + ${rdv.id}}"
-           class="ContentBox2-detailRdv-btn">Annuler le rendez-vous</a>
-        <a th:href="@{'/rdv/edit/' + ${rdv.id}}"
-           class="ContentBox2-detailRdv-btn">Modifier le rendez-vous</a>
+        <div class="ContentBox2-detailRdv-card fond3">
+            <a th:href="@{'/rdv/delete/' + ${rdv.id}}"
+               class="ContentBox2-detailRdv-btn">Annuler le rendez-vous</a>
+            <a th:href="@{'/rdv/edit/' + ${rdv.id}}"
+               class="ContentBox2-detailRdv-btn">Modifier le rendez-vous</a>
+        </div>
 
         <div>
             <p class="ContentBox2-detailRdv-title">Ajouter une ordonnance</p>

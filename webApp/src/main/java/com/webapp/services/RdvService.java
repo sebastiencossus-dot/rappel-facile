@@ -1,9 +1,6 @@
 package com.webapp.services;
 
-import com.webapp.models.Prestataires;
-import com.webapp.models.RdvPrestDTO;
-import com.webapp.models.User;
-import com.webapp.models.RDV;
+import com.webapp.models.*;
 import com.webapp.services.form.AlerteForm;
 import com.webapp.services.form.rdvForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,5 +65,13 @@ public class RdvService {
 
     public void addAlerte(Integer rdvId, AlerteForm form, String email) {
         msJpaClient.addAlerte(rdvId, form.getTypeAlerte(), form.getDelai(), email);
+    }
+
+    public List<RappelDTO> getRappelsByRdv(Integer rdvId) {
+        return msJpaClient.getRappelsByRdv(rdvId);
+    }
+
+    public void deleteRappel(Integer id) {
+        msJpaClient.deleteRappel(id);
     }
 }

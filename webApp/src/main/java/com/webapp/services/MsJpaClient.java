@@ -63,4 +63,23 @@ public interface MsJpaClient {
             @RequestParam("idUser") Long idUser,
             @RequestParam("annee") int annee
     );
+
+
+    @GetMapping("/rappels/by-rdv")
+    List<RappelDTO> getRappelsByRdv(@RequestParam("rdvId") Integer rdvId);
+
+    @DeleteMapping("/rappels/{id}")
+    void deleteRappel(@PathVariable("id") Integer id);
+
+    @GetMapping("/users/all")
+    List<User> findAllUsers();
+
+    @GetMapping("/users/{id}")
+    User findUserById(@PathVariable("id") Integer id);
+
+    @PutMapping("/users/{id}")
+    User updateUser(@PathVariable("id") Integer id, @RequestBody User user);
+
+    @DeleteMapping("/users/{id}")
+    void deleteUser(@PathVariable("id") Integer id);
 }

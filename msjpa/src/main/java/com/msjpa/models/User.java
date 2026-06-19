@@ -30,6 +30,8 @@ public class User {
     private String prenom;
     private String tel;
     private String photo;
+    @Column(name = "role")
+    private String role = "USER";
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
