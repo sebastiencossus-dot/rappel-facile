@@ -2,6 +2,7 @@ package com.webapp.services;
 
 import com.webapp.models.AdminRdvDTO;
 import com.webapp.models.AdminUserDTO;
+import com.webapp.models.PrestataireResponseDTO;
 import com.webapp.models.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -32,4 +33,14 @@ public interface MsAdminClient {
 
     @GetMapping("/admin/stats/recent-users")
     List<AdminUserDTO> getRecentUsers();
+
+
+    @GetMapping("/admin/prestataires")
+    List<PrestataireResponseDTO> findAllPrestataires();
+
+    @GetMapping("/admin/prestataires/{id}")
+    PrestataireResponseDTO findPrestataireById(@PathVariable("id") Integer id);
+
+    @DeleteMapping("/admin/prestataires/{id}")
+    void deletePrestataire(@PathVariable("id") Integer id);
 }

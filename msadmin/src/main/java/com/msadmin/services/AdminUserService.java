@@ -1,6 +1,6 @@
 package com.msadmin.services;
 
-import com.msadmin.clients.MsJpaClient;
+import com.msadmin.services.MsJpaClient;
 import com.msadmin.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;

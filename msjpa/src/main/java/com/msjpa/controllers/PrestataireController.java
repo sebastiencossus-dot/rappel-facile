@@ -5,8 +5,11 @@ import com.msjpa.models.*;
 import com.msjpa.repositories.AdresseRepository;
 import com.msjpa.repositories.PrestataireRepository;
 import com.msjpa.repositories.ProfessionRepository;
+import com.msjpa.repositories.RdvRepository;
 import com.msjpa.services.PrestataireService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +27,8 @@ public class PrestataireController {
     private ProfessionRepository professionRepository;
     @Autowired
     private AdresseRepository adresseRepository;
+    @Autowired
+    private RdvRepository rdvRepository;
     private final PrestataireService service;
 
     public PrestataireController(PrestataireService service) {
@@ -119,5 +124,27 @@ public class PrestataireController {
     public void update(@PathVariable Integer id,
                        @RequestBody PrestataireUpdateDTO dto) {
         service.update(id, dto);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
+        Prestataires p = prestataireRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Prestataire introuvable : " + id));
+
+        // Stop when a prestataire a in a rdv
+        List<RDV> rdvs = rdvRepository.findByPrestatairesId(id);
+        if (!rdvs.isEmpty()) {
+            return ResponseEntity
+                    .status(HttpStatus.CONFLICT)
+                    .body("Impossible de supprimer : ce prestataire a " + rdvs.size() + " RDV associé(s)");
+        }
+
+        p.getExercices().clear();
+        p.getLocals().clear();
+        prestataireRepository.saveAndFlush(p);
+        prestataireRepository.deleteById(id);
+
+        return ResponseEntity.ok("Prestataire supprimé");
     }
 }

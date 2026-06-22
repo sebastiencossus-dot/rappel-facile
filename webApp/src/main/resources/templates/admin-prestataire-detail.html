@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
+    <title>Rappel Facile — Détail prestataire</title>
+</head>
+<body>
+
+<button class="AdminBurger" onclick="toggleAdminMenu()">
+    <i class="fa-solid fa-bars" id="burgerIcon"></i>
+</button>
+<div class="AdminOverlay" id="adminOverlay" onclick="closeAdminMenu()"></div>
+
+<div class="AdminLayout">
+
+    <aside class="AdminSidebar" id="adminSidebar" th:replace="~{admin-sidebar :: sidebar('prestataires')}"></aside>
+
+    <main class="AdminContent">
+
+        <div class="AdminTopbar">
+            <h1>Détail prestataire</h1>
+        </div>
+
+        <div class="AdminPanel" style="max-width:600px;">
+
+            <!-- Bandeau identité -->
+            <div style="background-color:#F79BC5; border-radius:15px; padding:15px 20px; margin-bottom:20px; display:flex; align-items:center; gap:15px;">
+                <i class="fa-solid fa-user-tie" style="font-size:30px;"></i>
+                <div>
+                    <p style="margin:0; font-size:18px; font-weight:bold;"
+                       th:text="${prestataire.nom} + ' ' + ${prestataire.prenom}"></p>
+                    <p style="margin:0; font-size:12px; color:#555;">ID : <span th:text="${prestataire.id}"></span></p>
+                </div>
+            </div>
+
+            <!-- Professions -->
+            <div style="background-color:#E8C9FA; border-radius:15px; padding:12px 20px; margin-bottom:10px;">
+                <p style="margin:0; font-size:12px; font-weight:bold;">
+                    <i class="fa-solid fa-briefcase"></i> Professions
+                </p>
+                <p style="margin:5px 0 0 0; font-size:13px;">
+                    <span th:each="prof, iter : ${prestataire.professions}"
+                          th:text="${prof} + (${!iter.last} ? ', ' : '')">
+                    </span>
+                    <span th:if="${#lists.isEmpty(prestataire.professions)}" style="color:#888;">Aucune profession</span>
+                </p>
+            </div>
+
+            <!-- Catégories -->
+            <div style="background-color:#EFE9B7; border-radius:15px; padding:12px 20px; margin-bottom:10px;">
+                <p style="margin:0; font-size:12px; font-weight:bold;">
+                    <i class="fa-solid fa-tags"></i> Catégories
+                </p>
+                <p style="margin:5px 0 0 0; font-size:13px;">
+                    <span th:each="cat, iter : ${prestataire.categories}"
+                          th:text="${cat} + (${!iter.last} ? ', ' : '')">
+                    </span>
+                    <span th:if="${#lists.isEmpty(prestataire.categories)}" style="color:#888;">Aucune catégorie</span>
+                </p>
+            </div>
+
+            <!-- Adresses -->
+            <div style="background-color:#F79BC5; border-radius:15px; padding:12px 20px; margin-bottom:20px;">
+                <p style="margin:0; font-size:12px; font-weight:bold;">
+                    <i class="fa-solid fa-location-dot"></i> Adresses
+                </p>
+                <div th:each="adr : ${prestataire.adresses}" style="margin-top:5px; font-size:13px;">
+                    <span th:text="${adr.numero} + ' ' + ${adr.rue} + ', ' + ${adr.codepostal} + ' ' + ${adr.ville}"></span>
+                </div>
+                <span th:if="${#lists.isEmpty(prestataire.adresses)}" style="color:#888; font-size:13px;">Aucune adresse</span>
+            </div>
+
+            <!-- Actions -->
+            <div style="display:flex; gap:10px;">
+                <a th:href="@{/admin/prestataires}"
+                   style="background-color:#eee; color:#000; border-radius:15px; padding:10px 25px; text-decoration:none; font-weight:bold;">
+                    <i class="fa-solid fa-arrow-left"></i> Retour
+                </a>
+                <a th:href="@{'/admin/prestataires/' + ${prestataire.id} + '/delete'}"
+                   onclick="return confirm('Supprimer ce prestataire ?');"
+                   style="background-color:#c0392b; color:#fff; border-radius:15px; padding:10px 25px; text-decoration:none; font-weight:bold;">
+                    <i class="fa-solid fa-trash"></i> Supprimer
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+</div>
+
+<script th:src="@{/js/admin.js}"></script>
+<script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>
+</body>
+</html>

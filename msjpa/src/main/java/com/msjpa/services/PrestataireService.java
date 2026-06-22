@@ -103,9 +103,7 @@ public class PrestataireService {
 
     public List<PrestataireResponseDTO> getAll() {
 
-        List<Prestataires> prestataires =
-                prestataireRepository.findAllWithExercices();
-                prestataireRepository.findAllWithLocals();
+        List<Prestataires> prestataires = prestataireRepository.findAllWithExercices();
 
         return prestataires.stream()
                 .map(PrestataireMapper::toDTO)
@@ -180,6 +178,8 @@ public class PrestataireService {
     }
 
     public PrestataireResponseDTO getById(Integer id) {
-        return null;
+        Prestataires p = prestataireRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Prestataire introuvable : " + id));
+        return PrestataireMapper.toDTO(p);
     }
 }

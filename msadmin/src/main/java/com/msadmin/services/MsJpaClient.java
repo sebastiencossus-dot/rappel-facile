@@ -1,4 +1,4 @@
-package com.msadmin.clients;
+package com.msadmin.services;
 
 import com.msadmin.models.*;
 import org.springframework.cloud.openfeign.FeignClient;

@@ -169,21 +169,21 @@ services:
     networks:
       - rappel
 
-#  msadmin:
-#    image: sebastco/msadmin
-#    mem_limit: 500m
-#    ports:
-#      - "8090:8090"
-#    depends_on:
-#      - mysql_db
-#      - configserver
-#      - consul
-#    environment:
-#      SPRING_CLOUD_CONSUL_HOST: consul
-#      SPRING_CLOUD_CONSUL_PORT: 8500
-#      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
-#    networks:
-#      - rappel
+  msadmin:
+    image: sebastco/msadmin
+    mem_limit: 500m
+    ports:
+      - "8090:8090"
+    depends_on:
+      - mysql_db
+      - configserver
+      - consul
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: consul
+      SPRING_CLOUD_CONSUL_PORT: 8500
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+    networks:
+      - rappel
 
   consul:
     image: hashicorp/consul:1.17
