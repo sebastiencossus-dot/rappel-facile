@@ -1,9 +1,6 @@
 package com.webapp.services;
 
-import com.webapp.models.AdminRdvDTO;
-import com.webapp.models.AdminUserDTO;
-import com.webapp.models.PrestataireResponseDTO;
-import com.webapp.models.User;
+import com.webapp.models.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,4 +40,31 @@ public interface MsAdminClient {
 
     @DeleteMapping("/admin/prestataires/{id}")
     void deletePrestataire(@PathVariable("id") Integer id);
+
+    @GetMapping("/admin/rdv")
+    List<AdminRdvDTO> findAllRdv();
+
+    @GetMapping("/admin/rdv/statut/{statut}")
+    List<AdminRdvDTO> findRdvByStatut(@PathVariable("statut") Integer statut);
+
+    @DeleteMapping("/admin/rdv/{id}")
+    void deleteRdv(@PathVariable("id") Integer id);
+
+    @GetMapping("/admin/professions")
+    List<ProfessionDTO> findAllProfessions();
+
+    @PostMapping("/admin/professions")
+    ProfessionDTO createProfession(@RequestBody ProfessionDTO dto);
+
+    @DeleteMapping("/admin/professions/{id}")
+    void deleteProfession(@PathVariable("id") Integer id);
+
+    @GetMapping("/admin/professions/categories")
+    List<CategorieDTO> findAllCategories();
+
+    @PostMapping("/admin/professions/categories")
+    CategorieDTO createCategorie(@RequestBody CategorieDTO dto);
+
+    @DeleteMapping("/admin/professions/categories/{id}")
+    void deleteCategorie(@PathVariable("id") Integer id);
 }

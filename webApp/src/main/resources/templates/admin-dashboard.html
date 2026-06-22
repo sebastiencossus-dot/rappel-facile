@@ -14,7 +14,7 @@
     <i class="fa-solid fa-bars" id="burgerIcon"></i>
 </button>
 
-<!-- ✅ Overlay pour fermer en cliquant à côté -->
+
 <div class="AdminOverlay" id="adminOverlay" onclick="closeAdminMenu()"></div>
 <div class="AdminLayout">
 
@@ -82,12 +82,12 @@
             <div class="AdminStat-card c3">
                 <div class="AdminStat-card-icon"><i class="fa-solid fa-calendar-check"></i></div>
                 <p class="AdminStat-card-value" th:text="${nbRdv ?: 0}">0</p>
-                <p class="AdminStat-card-label">RDV ce mois-ci</p>
+                <p class="AdminStat-card-label">RDV totaux</p>
             </div>
             <div class="AdminStat-card c4">
                 <div class="AdminStat-card-icon"><i class="fa-solid fa-bell"></i></div>
                 <p class="AdminStat-card-value" th:text="${nbAlertes ?: 0}">0</p>
-                <p class="AdminStat-card-label">Alertes programmées</p>
+                <p class="AdminStat-card-label">Alertes programmées( a venir dans v2 )</p>
             </div>
         </div>
 

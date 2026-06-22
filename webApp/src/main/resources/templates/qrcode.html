@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Rappel Facile — QR Code</title>
+</head>
+
+<div th:insert="~{header :: header}"></div>
+
+<main class="ContentBox">
+    <h2 class="ContentBox-title">Accès rapide</h2>
+
+    <section class="ContentBox2-detailRdv">
+
+        <!-- Bandeau intro (rose comme l'app) -->
+        <div class="ContentBox2-detailRdv-prestataire">
+            <p>
+                <span style="font-size:16px; font-weight:bold;">
+                    <i class="fa-solid fa-qrcode"></i> Rappel Facile
+                </span>
+                <br>
+                <span class="ContentBox2-detailRdv-prestataire-spe">
+                    Gérez vos rendez-vous en un flash
+                </span>
+            </p>
+            <img th:src="@{/images/logo.png}" alt="logo" style="height:50px;">
+        </div>
+
+        <!-- Carte explication (fond3 = jaune) -->
+        <div class="ContentBox2-detailRdv-card fond3" style="flex-direction:column; padding:15px 20px; align-items:flex-start;">
+            <p style="margin:0; font-size:14px; font-weight:bold;">
+                <i class="fa-solid fa-circle-info"></i> Comment ça marche ?
+            </p>
+            <p style="margin:8px 0 0 0; font-size:13px; color:#444;">
+                Flashez le QR code ci-dessous avec votre smartphone pour accéder à <strong>Rappel Facile</strong>.
+                Avec votre aide, cette personne pourra enregistrer ses rendez-vous et recevoir des rappels automatiques.
+            </p>
+        </div>
+
+        <!-- Étapes (fond1 = rose) -->
+        <div class="ContentBox2-detailRdv-card fond1" style="flex-direction:column; padding:15px 20px; align-items:flex-start;">
+            <p style="margin:0; font-size:14px; font-weight:bold;">
+                <i class="fa-solid fa-list-check"></i> En 3 étapes simples
+            </p>
+            <p style="margin:8px 0 0 0; font-size:13px;">
+                <i class="fa-solid fa-camera" style="width:20px;"></i> <strong>1.</strong> Flashez le QR code<br>
+                <i class="fa-solid fa-user-plus" style="width:20px;"></i> <strong>2.</strong> Enregistrer les informations du rendez-vous
+                <br>
+                <i class="fa-solid fa-bell" style="width:20px;"></i> <strong>3.</strong> Cliquez pour enregistrer le rdv et il sera automatiquement ajouté à l'application et un rappel est deja prevu 24 heures avant celui-ci
+                <br>
+                
+            </p>
+        </div>
+
+        <!-- QR Code (fond2 = violet) -->
+        <div class="ContentBox2-detailRdv-card fond2"
+             style="flex-direction:column; align-items:center; padding:20px; justify-content:center;">
+            <p style="margin:0 0 15px 0; font-size:14px; font-weight:bold; text-align:center;">
+                <i class="fa-solid fa-mobile-screen"></i> Flashez ce QR code
+            </p>
+            <img th:src="@{/images/qrcode.webp}"
+                 alt="QR Code Rappel Facile"
+                 style="width:200px; height:200px; border-radius:10px; border: 3px solid white;">
+            <p style="margin:15px 0 0 0; font-size:11px; color:#666; text-align:center;">
+                Pointez l'appareil photo de votre smartphone<br>vers ce code pour accéder à l'application
+            </p>
+        </div>
+
+    </section>
+</main>
+
+<div th:insert="~{footer :: footer}"></div>
+<script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>

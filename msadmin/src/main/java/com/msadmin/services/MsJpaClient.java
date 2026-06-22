@@ -30,4 +30,31 @@ public interface MsJpaClient {
 
     @GetMapping("/admin/stats/recent-users")
     List<AdminUserDTO> getRecentUsers();
+
+    @GetMapping("/rdvs/all")
+    List<AdminRdvDTO> getAllRdv();
+
+    @GetMapping("/rdvs/all/statut/{statut}")
+    List<AdminRdvDTO> getRdvByStatut(@PathVariable("statut") Integer statut);
+
+    @DeleteMapping("/rdvs/admin/{id}")
+    void deleteRdvAdmin(@PathVariable("id") Integer id);
+
+    @GetMapping("/professions/admin")
+    List<ProfessionDTO> getAllProfessionsAdmin();
+
+    @PostMapping("/professions/admin")
+    ProfessionDTO createProfession(@RequestBody ProfessionDTO dto);
+
+    @DeleteMapping("/professions/admin/{id}")
+    void deleteProfession(@PathVariable("id") Integer id);
+
+    @GetMapping("/categories/admin")
+    List<CategorieDTO> getAllCategoriesAdmin();
+
+    @PostMapping("/categories/admin")
+    CategorieDTO createCategorie(@RequestBody CategorieDTO dto);
+
+    @DeleteMapping("/categories/admin/{id}")
+    void deleteCategorie(@PathVariable("id") Integer id);
 }

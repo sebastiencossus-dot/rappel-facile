@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Rappel Facile — Mes alarmes</title>
+</head>
+
+<div th:insert="~{header :: header}"></div>
+
+<main class="ContentBox">
+    <h2 class="ContentBox2-title">Mes alarmes</h2>
+
+    <section class="ContentBox2-detailRdv">
+
+        <!-- Bandeau RDV -->
+        <div class="ContentBox2-detailRdv-prestataire">
+            <p>
+                <span th:text="${rdv.prestataireNom} + ' ' + ${rdv.prestatairePrenom}"></span>
+                <br>
+                <span class="ContentBox2-detailRdv-prestataire-spe"
+                      th:text="${rdv.professionNom}"></span>
+            </p>
+            <a th:href="@{'/rdv/' + ${rdv.id} + '/alerte/add'}" class="ContentBox2-detailRdv-btn">
+                <img th:src="@{/images/alerte.png}" alt="ajouter alerte">Ajouter
+            </a>
+        </div>
+
+        <!-- Info RDV -->
+        <p class="ContentBox2-detailRdv-title">
+            RDV du <span th:text="${#temporals.format(rdv.dateRdv, 'dd/MM/yyyy à HH:mm')}"></span>
+        </p>
+
+        <!-- Liste vide -->
+        <div th:if="${#lists.isEmpty(rappels)}"
+             class="ContentBox2-detailRdv-card fond3"
+             style="justify-content:center; padding:15px;">
+            <p style="margin:0; font-size:13px; color:#666;">
+                <i class="fa-regular fa-bell-slash"></i> Aucune alarme configurée pour ce rendez-vous.
+            </p>
+        </div>
+
+        <!-- Liste des rappels -->
+        <div th:each="rappel : ${rappels}"
+             class="ContentBox2-detailRdv-card"
+             th:classappend="${rappelStat.index % 3 == 0} ? 'fond1' : (${rappelStat.index % 3 == 1} ? 'fond2' : 'fond3')">
+
+            <p class="ContentBox2-detailRdv-card-left">
+                <i class="fa-regular fa-bell"></i>
+                <span th:text="${rappel.typeAlerte}"></span>
+            </p>
+
+            <p class="ContentBox2-detailRdv-card-right" style="font-size:13px;">
+                <!-- Affichage délai lisible -->
+                <span th:if="${rappel.delai < 60}"
+                      th:text="${rappel.delai} + ' min avant'"></span>
+                <span th:if="${rappel.delai == 60}">1 heure avant</span>
+                <span th:if="${rappel.delai > 60 and rappel.delai < 1440}"
+                      th:text="${rappel.delai / 60} + ' heures avant'"></span>
+                <span th:if="${rappel.delai == 1440}">1 jour avant</span>
+                <span th:if="${rappel.delai > 1440}"
+                      th:text="${rappel.delai / 1440} + ' jours avant'"></span>
+            </p>
+
+            <!-- Bouton supprimer -->
+            <a th:href="@{'/rdv/' + ${rdv.id} + '/alertes/delete/' + ${rappel.id}}"
+               style="margin-left:10px; color:#c0392b; font-size:16px;"
+               title="Supprimer cette alarme">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+
+        <!-- Bouton retour -->
+        <div style="margin-top:20px;">
+            <a th:href="@{'/rdv/' + ${rdv.id}}"
+               class="ContentBox2-detailRdv-btn">
+                Retour au rendez-vous
+            </a>
+        </div>
+
+    </section>
+</main>
+
+<div th:insert="~{footer :: footer}"></div>
+<script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>

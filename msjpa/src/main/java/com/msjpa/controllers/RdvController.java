@@ -91,4 +91,26 @@ public class RdvController {
 
         return rappelsRepository.save(rappel);
     }
+
+
+    @GetMapping("/all")
+    public List<RdvDTO> getAllRdv() {
+        return rdvRepository.findAll().stream()
+                .map(rdvService::toDTO)
+                .toList();
+    }
+
+    @GetMapping("/all/statut/{statut}")
+    public List<RdvDTO> getRdvByStatut(@PathVariable Integer statut) {
+        return rdvRepository.findByIsOK(statut).stream()
+                .map(rdvService::toDTO)
+                .toList();
+    }
+
+    @DeleteMapping("/admin/{id}")
+    public void deleteRdvAdmin(@PathVariable Integer id) {
+        RDV rdv = rdvRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("RDV introuvable : " + id));
+        rdvRepository.delete(rdv);
+    }
 }

@@ -24,4 +24,5 @@ public interface RdvRepository extends JpaRepository<RDV, Integer> {
     List<RDV> findFullByUserId(@Param("userId") Integer userId);
     List<RDV> findByUser_Email(String email);
     List<RDV> findByPrestatairesId(Integer prestataireId);
+    List<RDV> findByIsOK(Integer isOK);
 }
