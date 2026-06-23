@@ -14,6 +14,7 @@ services:
       retries: 10
       start_period: 20s
 
+
   mongodb:
     image: mongo:latest
     container_name: mongodb
@@ -24,11 +25,12 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: user
     networks:
       - rappel
-#    healthcheck:
-#      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
-#      interval: 10s
-#      timeout: 5s
-#      retries: 5
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 
   msstats:
     image: sebastco/msstats
@@ -45,6 +47,7 @@ services:
       - consul
       - configserver
       - mongodb
+
 
   mysql_db:
     image: mysql:8.0
@@ -71,25 +74,6 @@ services:
       start_period: 40s
 
 
-
-
-#  notes:
-#    image: sebastco/notes
-#    ports:
-#      - "9000:9000"
-#    networks:
-#      - healthcare
-#    depends_on:
-#      - mongodb
-#      - configserver
-#      - consul
-#    environment:
-#      SPRING_DATA_MONGODB_URI: mongodb://user:user@mongodb:27017/notes?authSource=admin
-#      SPRING_CLOUD_CONSUL_HOST: consul
-#      SPRING_CLOUD_CONSUL_PORT: 8500
-#      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
-
-
   webapp:
     image: sebastco/webapp
     mem_limit: 500m
@@ -110,6 +94,7 @@ services:
     networks:
       - rappel
 
+
   msjpa:
     image: sebastco/msjpa
     mem_limit: 500m
@@ -125,7 +110,6 @@ services:
     environment:
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql_db:3306/rappelfacile
-
 
       SPRING_CLOUD_CONSUL_HOST: consul
       SPRING_CLOUD_CONSUL_PORT: 8500
@@ -152,6 +136,7 @@ services:
     networks:
       - rappel
 
+
   msprof:
     image: sebastco/msprof
     mem_limit: 500m
@@ -169,6 +154,7 @@ services:
     networks:
       - rappel
 
+
   msrappel:
     image: sebastco/msrappel
     mem_limit: 500m
@@ -185,6 +171,7 @@ services:
     networks:
       - rappel
 
+
   msadmin:
     image: sebastco/msadmin
     mem_limit: 500m
@@ -200,6 +187,7 @@ services:
       SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
     networks:
       - rappel
+
 
   consul:
     image: hashicorp/consul:1.17
@@ -219,6 +207,8 @@ services:
     depends_on:
       configserver:
         condition: service_healthy
+
+
 volumes:
    mysql_data:
 networks:
