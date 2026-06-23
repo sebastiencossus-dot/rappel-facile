@@ -4,42 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature admin with profession and rdv , next statistics">
-      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/models/DashboardStatsDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/MsstatsClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/controllers/StatsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/ConnexionEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/ConnexionRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/DashboardStatsDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/RdvStatEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/RdvStatRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/VisiteEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/VisiteRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/repositories/ConnexionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/repositories/RdvStatRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/repositories/VisiteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/services/StatsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/StatsInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/AdminStatsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/DashboardStatsDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsstatsClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-stats.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="finished adminStats">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/controllers/AdminStatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/controllers/AdminStatsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/AdminStatsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/AdminStatsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msadmin/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsAdminClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsAdminClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-prestataires.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-prestataires.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-users.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_components.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_components.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_detailRdv.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_detailRdv.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/charts.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +121,7 @@
       <recent name="com.msrappel.Models" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager" selected="Spring Boot.MsjpaApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="msjpa" />
       <method v="2">
@@ -169,20 +140,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.msjpa.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsrappelApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msrappel" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msrappel.MsrappelApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msrappel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -231,13 +188,26 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.webapp: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="webapp" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Spring Boot.WebappApplication" />
-        <item itemvalue="Docker.docker-compose.yml.mongodb: Compose Deployment" />
         <item itemvalue="Spring Boot.MsjpaApplication" />
-        <item itemvalue="Spring Boot.MsrappelApplication" />
+        <item itemvalue="Docker.docker-compose.yml.webapp: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.mongodb: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -408,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782131259217</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="finished adminStats">
+      <option name="closed" value="true" />
+      <created>1782207218060</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1782207218061</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -434,7 +412,8 @@
     <MESSAGE value="start to create msadmin" />
     <MESSAGE value="feature admin with prestataires" />
     <MESSAGE value="feature admin with profession and rdv , next statistics" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature admin with profession and rdv , next statistics" />
+    <MESSAGE value="finished adminStats" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished adminStats" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

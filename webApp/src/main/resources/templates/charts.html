@@ -52,11 +52,23 @@ new Chart(document.getElementById('chartCategories'), {
             { label: 'Administratif', data: administratif, backgroundColor: 'rgba(255, 206, 86, 0.7)'  }
         ]
     },
-    options: {
-        responsive: true,
-        plugins: { legend: { position: 'top' } },
-        scales: { x: { stacked: false }, y: { beginAtZero: true } }
+  options: {
+    responsive: true,
+    plugins: {
+        legend: { position: 'top' }
+    },
+    scales: {
+        x: {
+            stacked: false
+        },
+        y: {
+            beginAtZero: true,
+            ticks: {
+                stepSize: 1
+            }
+        }
     }
+}
 });
 
     new Chart(document.getElementById('chartStatuts'), {
@@ -72,7 +84,9 @@ new Chart(document.getElementById('chartCategories'), {
     options: {
         responsive: true,
         plugins: { legend: { position: 'top' } },
-        scales: { x: { stacked: false }, y: { beginAtZero: true } }
+        scales: { x: { stacked: false }, y: { beginAtZero: true,ticks: {
+                stepSize: 1
+            } } }
     }
 });
 
