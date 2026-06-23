@@ -30,6 +30,22 @@ services:
 #      timeout: 5s
 #      retries: 5
 
+  msstats:
+    image: sebastco/msstats
+    ports:
+      - "9000:9000"
+    networks:
+      - rappel
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://root:user@mongodb:27017/admin?authSource=admin
+      SPRING_CLOUD_CONSUL_HOST: consul
+      SPRING_CLOUD_CONSUL_PORT: 8500
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+    depends_on:
+      - consul
+      - configserver
+      - mongodb
+
   mysql_db:
     image: mysql:8.0
     container_name: mysql_db
@@ -173,7 +189,7 @@ services:
     image: sebastco/msadmin
     mem_limit: 500m
     ports:
-      - "8090:8090"
+      - "8092:8092"
     depends_on:
       - mysql_db
       - configserver

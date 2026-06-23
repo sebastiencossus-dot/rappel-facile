@@ -2,6 +2,7 @@ package com.msadmin.controllers;
 
 import com.msadmin.models.AdminRdvDTO;
 import com.msadmin.models.AdminUserDTO;
+import com.msadmin.models.DashboardStatsDTO;
 import com.msadmin.services.AdminStatsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,5 +37,8 @@ public class AdminStatsController {
         return adminStatsService.getRecentUsers();
     }
 
-
+    @GetMapping("/mongo")
+    public DashboardStatsDTO getMongoStats() {
+        return adminStatsService.getMongoStats();
+    }
 }

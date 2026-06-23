@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/msrappel/pom.xml" />
         <option value="$PROJECT_DIR$/configserver/pom.xml" />
         <option value="$PROJECT_DIR$/database/pom.xml" />
+        <option value="$PROJECT_DIR$/msstats/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
+    <title>Rappel Facile — Statistiques</title>
+</head>
+<body>
+
+<button class="AdminBurger" onclick="toggleAdminMenu()">
+    <i class="fa-solid fa-bars" id="burgerIcon"></i>
+</button>
+<div class="AdminOverlay" id="adminOverlay" onclick="closeAdminMenu()"></div>
+
+<div class="AdminLayout">
+
+    <aside class="AdminSidebar" id="adminSidebar"
+           th:replace="~{admin-sidebar :: sidebar('stats')}"></aside>
+
+    <main class="AdminContent">
+
+        <div class="AdminTopbar">
+            <h1>Statistiques</h1>
+            <div class="AdminTopbar-user">
+                Connecté en tant que
+                <strong th:text="${currentUser != null ? currentUser.email : 'admin'}"></strong>
+            </div>
+        </div>
+
+        <!-- Stat cards MongoDB -->
+        <div class="AdminStats" style="margin-bottom:25px;">
+            <div class="AdminStat-card c1">
+                <div class="AdminStat-card-icon"><i class="fa-solid fa-right-to-bracket"></i></div>
+                <p class="AdminStat-card-value"
+                   th:text="${mongoStats != null ? mongoStats.connexionsDuJour : 0}">0</p>
+                <p class="AdminStat-card-label">Connexions aujourd'hui</p>
+            </div>
+            <div class="AdminStat-card c2">
+                <div class="AdminStat-card-icon"><i class="fa-solid fa-eye"></i></div>
+                <p class="AdminStat-card-value"
+                   th:text="${mongoStats != null ? mongoStats.visitesDuJour : 0}">0</p>
+                <p class="AdminStat-card-label">Pages visitées aujourd'hui</p>
+            </div>
+            <div class="AdminStat-card c3">
+                <div class="AdminStat-card-icon"><i class="fa-solid fa-users"></i></div>
+                <p class="AdminStat-card-value"
+                   th:text="${mongoStats != null ? mongoStats.totalConnexions : 0}">0</p>
+                <p class="AdminStat-card-label">Total connexions</p>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
+
+            <!-- Chart 1 — Connexions par heure -->
+            <div class="AdminPanel">
+                <p class="AdminPanel-title">Connexions par heure (aujourd'hui)</p>
+                <canvas id="chartConnexions" height="200"></canvas>
+            </div>
+
+            <!-- Chart 2 — Visites par page -->
+            <div class="AdminPanel">
+                <p class="AdminPanel-title">Pages les plus visitées</p>
+                <canvas id="chartPages" height="200"></canvas>
+            </div>
+
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+
+            <!-- Chart 3 — RDV par user -->
+            <div class="AdminPanel">
+                <p class="AdminPanel-title">RDV par utilisateur</p>
+                <canvas id="chartRdvUser" height="200"></canvas>
+            </div>
+
+            <!-- Chart 4 — Alertes par RDV -->
+            <div class="AdminPanel">
+                <p class="AdminPanel-title">Alertes par RDV</p>
+                <canvas id="chartAlertes" height="200"></canvas>
+            </div>
+
+        </div>
+
+    </main>
+</div>
+
+<!-- ✅ Passer les données Thymeleaf en JSON pour Chart.js -->
+<script th:inline="javascript">
+    const connexionsParHeure = /*[[${mongoStats != null ? mongoStats.connexionsParHeure : {}}]]*/ {};
+    const visitesParPage = /*[[${mongoStats != null ? mongoStats.visitesParPage : {}}]]*/ {};
+    const rdvParUser = /*[[${mongoStats != null ? mongoStats.rdvParUser : {}}]]*/ {};
+    const alertesParRdv = /*[[${mongoStats != null ? mongoStats.alertesParRdv : {}}]]*/ {};
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const colors = ['#F79BC5', '#E8C9FA', '#EFE9B7', '#B0E1FA', '#4D66F2', '#FF6384', '#36A2EB'];
+
+    // Chart 1 — Connexions par heure (linéaire)
+    const heures = Array.from({length: 24}, (_, i) => i + 'h');
+    const connexionsData = heures.map((_, i) => connexionsParHeure[i] || 0);
+
+    new Chart(document.getElementById('chartConnexions'), {
+        type: 'line',
+        data: {
+            labels: heures,
+            datasets: [{
+                label: 'Connexions',
+                data: connexionsData,
+                borderColor: '#4D66F2',
+                backgroundColor: 'rgba(77,102,242,0.1)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+        }
+    });
+
+    // Chart 2 — Visites par page (donut)
+    const pagesLabels = Object.keys(visitesParPage);
+    const pagesData = Object.values(visitesParPage);
+
+    new Chart(document.getElementById('chartPages'), {
+        type: 'doughnut',
+        data: {
+            labels: pagesLabels,
+            datasets: [{
+                data: pagesData,
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'right', labels: { font: { size: 11 } } } }
+        }
+    });
+
+    // Chart 3 — RDV par user (barre horizontale)
+    const rdvLabels = Object.keys(rdvParUser).map(e => e.split('@')[0]); // afficher juste le pseudo
+    const rdvData = Object.values(rdvParUser);
+
+    new Chart(document.getElementById('chartRdvUser'), {
+        type: 'bar',
+        data: {
+            labels: rdvLabels,
+            datasets: [{
+                label: 'RDV',
+                data: rdvData,
+                backgroundColor: '#F79BC5'
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { x: { beginAtZero: true, ticks: { stepSize: 1 } } }
+        }
+    });
+
+    // Chart 4 — Alertes par RDV (barre)
+    const alertesLabels = Object.keys(alertesParRdv).map(id => 'RDV #' + id);
+    const alertesData = Object.values(alertesParRdv);
+
+    new Chart(document.getElementById('chartAlertes'), {
+        type: 'bar',
+        data: {
+            labels: alertesLabels,
+            datasets: [{
+                label: 'Alertes',
+                data: alertesData,
+                backgroundColor: '#E8C9FA'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+        }
+    });
+</script>
+
+<script th:src="@{/js/admin.js}"></script>
+<script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>
+</body>
+</html>

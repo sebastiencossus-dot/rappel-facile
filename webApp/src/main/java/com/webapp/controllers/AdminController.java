@@ -1,9 +1,6 @@
 package com.webapp.controllers;
 
-import com.webapp.services.AdminPrestataireService;
-import com.webapp.services.AdminRdvService;
-import com.webapp.services.AdminUserService;
-import com.webapp.services.SessionService;
+import com.webapp.services.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +16,7 @@ public class AdminController {
     private final AdminUserService adminUserService;
     private final AdminPrestataireService adminPrestataireService;
     private final AdminRdvService adminRdvService;
+    private final AdminService adminService;
 
     @GetMapping
     public String dashboard(Model model) {
@@ -26,6 +24,7 @@ public class AdminController {
         model.addAttribute("nbUsers", adminUserService.findAll().size());
         model.addAttribute("nbPrestataires", adminPrestataireService.findAll().size());
         model.addAttribute("nbRdv", adminRdvService.findAll().size());
+        model.addAttribute("mongoStats", adminService.getMongoStats());
 
         // temporaire si tu n’as pas encore de service
         model.addAttribute("nbAlertes", 0);

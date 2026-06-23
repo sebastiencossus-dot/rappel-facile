@@ -11,6 +11,7 @@
         <module name="webapp" />
         <module name="msadmin" />
         <module name="msprof" />
+        <module name="msstats" />
         <module name="msrdv" />
         <module name="configserver" />
         <module name="msrappel" />
@@ -28,6 +29,7 @@
       <module name="msprof" options="-parameters" />
       <module name="msrappel" options="-parameters" />
       <module name="msrdv" options="-parameters" />
+      <module name="msstats" options="-parameters" />
       <module name="webapp" options="-parameters" />
     </option>
   </component>

@@ -1,5 +1,6 @@
 package com.msadmin.services;
 
+import com.msadmin.models.DashboardStatsDTO;
 import com.msadmin.services.MsJpaClient;
 import com.msadmin.services.MsProfClient;
 import com.msadmin.models.AdminRdvDTO;
@@ -46,5 +47,12 @@ public class AdminStatsService {
                 "nbAlertes", stats.getOrDefault("nbAlertes", 0L),
                 "nbPrestataires", nbPrestataires // ✅ vrai nombre
         );
+    }
+
+    // Ajouter l'injection et la méthode
+    private final MsstatsClient msstatsClient;
+
+    public DashboardStatsDTO getMongoStats() {
+        return msstatsClient.getDashboard();
     }
 }

@@ -4,35 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature admin with prestataires">
-      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/controllers/AdminProfessionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/controllers/AdminRdvController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/models/CategorieDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/models/ProfessionDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/AdminProfessionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/AdminRdvService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/CategoriesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/CategorieDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/ProfessionDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/CategorieRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/AdminProfessionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/AdminRdvController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/CategorieDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/ProfessionDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminProfessionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminRdvService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-professions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-rdv.html" afterDir="false" />
+    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature admin with profession and rdv , next statistics">
+      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/models/DashboardStatsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/MsstatsClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/controllers/StatsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/ConnexionEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/ConnexionRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/DashboardStatsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/RdvStatEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/RdvStatRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/VisiteEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/models/VisiteRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/repositories/ConnexionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/repositories/RdvStatRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/repositories/VisiteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msstats/src/main/java/com/msstats/services/StatsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/StatsInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/AdminStatsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/DashboardStatsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsstatsClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-stats.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/models/AdminRdvDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/models/AdminRdvDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/MsJpaClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/MsJpaClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/ProfessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/ProfessionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RdvController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/RdvRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/RdvRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/controllers/AdminStatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/controllers/AdminStatsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/AdminStatsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/src/main/java/com/msadmin/services/AdminStatsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msadmin/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/msadmin/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/AdminRdvDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/AdminRdvDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsAdminClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/MsAdminClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-prestataires.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-prestataires.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-users.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/admin-users.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +47,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="233" />
+    <option name="cachedIndexableFilesCount" value="260" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -83,49 +90,56 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Docker.docker-compose.yml.consul: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.msrappel: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.msrdv: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.mysql_db: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.webapp: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msjpa [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msjpa [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msjpa [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msprof [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msrappel [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msrappel [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msrdv [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.msrdv [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.webapp [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.webapp [package].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MsRdvApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MsadminApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MsjpaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MsprofApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.MsrappelApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.WebappApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebas/IdeaProjects/rappel-facile/msjpa/src/main/java/com/msjpa/repositories&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/sebas/IdeaProjects/rappel-facile/database/src/main/java/com/restTemplate/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.docker-compose.yml.consul: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.mongodb: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.msrappel: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.msrdv: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.mysql_db: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.webapp: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Maven.msadmin [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msadmin [package].executor": "Run",
+    "Maven.msjpa [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
+    "Maven.msjpa [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msjpa [package].executor": "Run",
+    "Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
+    "Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msprof [package].executor": "Run",
+    "Maven.msrappel [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msrappel [package].executor": "Run",
+    "Maven.msrdv [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msrdv [package].executor": "Run",
+    "Maven.msstats [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
+    "Maven.msstats [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.msstats [package].executor": "Run",
+    "Maven.webapp [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
+    "Maven.webapp [package].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.MsRdvApplication.executor": "Run",
+    "Spring Boot.MsadminApplication.executor": "Run",
+    "Spring Boot.MsjpaApplication.executor": "Run",
+    "Spring Boot.MsprofApplication.executor": "Run",
+    "Spring Boot.MsrappelApplication.executor": "Run",
+    "Spring Boot.MsstatsApplication.executor": "Run",
+    "Spring Boot.WebappApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sebas/IdeaProjects/rappel-facile/msjpa/src/main/java/com/msjpa/repositories",
+    "onboarding.tips.debug.path": "C:/Users/sebas/IdeaProjects/rappel-facile/msstats/src/main/java/com/restTemplate/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sebas\IdeaProjects\rappel-facile\msjpa\src\main\java\com\msjpa\repositories" />
@@ -136,7 +150,7 @@
       <recent name="com.msrappel.Models" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.consul: Compose Deployment">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="msjpa" />
       <method v="2">
@@ -148,27 +162,13 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration name="MsadminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="MsjpaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msadmin" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msadmin.MsadminApplication" />
+      <module name="msjpa" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msjpa.MsjpaApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msadmin.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsprofApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msprof" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msprof.MsprofApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msprof.*" />
+          <option name="PATTERN" value="com.msjpa.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -210,12 +210,20 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.consul: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.mongodb: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="services">
             <list>
-              <option value="consul" />
+              <option value="mongodb" />
             </list>
           </option>
           <option name="sourceFilePath" value="docker-compose.yml" />
@@ -225,11 +233,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Spring Boot.WebappApplication" />
-        <item itemvalue="Spring Boot.MsadminApplication" />
-        <item itemvalue="Spring Boot.MsprofApplication" />
+        <item itemvalue="Docker.docker-compose.yml.mongodb: Compose Deployment" />
+        <item itemvalue="Spring Boot.MsjpaApplication" />
         <item itemvalue="Spring Boot.MsrappelApplication" />
-        <item itemvalue="Docker.docker-compose.yml.consul: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -392,7 +400,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782119674210</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feature admin with profession and rdv , next statistics">
+      <option name="closed" value="true" />
+      <created>1782131259217</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1782131259217</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -417,7 +433,8 @@
     <MESSAGE value="feature : add template to signin , signup, addalerte. and first to admin" />
     <MESSAGE value="start to create msadmin" />
     <MESSAGE value="feature admin with prestataires" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature admin with prestataires" />
+    <MESSAGE value="feature admin with profession and rdv , next statistics" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature admin with profession and rdv , next statistics" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -426,6 +443,11 @@
           <url>file://$PROJECT_DIR$/database/src/main/java/com/restTemplate/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/msstats/src/main/java/com/restTemplate/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

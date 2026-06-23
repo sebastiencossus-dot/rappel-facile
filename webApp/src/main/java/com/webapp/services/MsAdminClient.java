@@ -67,4 +67,8 @@ public interface MsAdminClient {
 
     @DeleteMapping("/admin/professions/categories/{id}")
     void deleteCategorie(@PathVariable("id") Integer id);
+
+
+    @GetMapping("/admin/stats/mongo")
+    DashboardStatsDTO getMongoStats();
 }

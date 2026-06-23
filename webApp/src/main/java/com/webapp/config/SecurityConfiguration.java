@@ -1,6 +1,7 @@
 package com.webapp.config;
 
 import com.webapp.services.AuthentificationService;
+import com.webapp.services.MsstatsClient;
 import jakarta.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,11 +17,15 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 
+import java.util.Map;
+
 @Configuration
 public class SecurityConfiguration {
 
     @Autowired
     private AuthentificationService authentificationService;
+    @Autowired
+    private MsstatsClient msstatsClient;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -32,7 +37,19 @@ public class SecurityConfiguration {
         return (request, response, authentication) -> {
             boolean isAdmin = authentication.getAuthorities().stream()
                     .map(GrantedAuthority::getAuthority)
-                    .anyMatch(role -> role.equals("ROLE_ADMIN")); // ✅ corrigé
+                    .anyMatch(role -> role.equals("ROLE_ADMIN"));
+
+            //  Envoyer l'événement connexion à msstats (async pour ne pas bloquer)
+            try {
+                String email = authentication.getName();
+                String ip = request.getRemoteAddr();
+                msstatsClient.recordConnexion(Map.of(
+                        "userEmail", email,
+                        "ipAddress", ip != null ? ip : "unknown"
+                ));
+            } catch (Exception e) {
+                // Ne pas bloquer le login si msstats est indisponible
+            }
 
             if (isAdmin) {
                 response.sendRedirect("/admin");
@@ -63,7 +80,7 @@ public class SecurityConfiguration {
                         .loginProcessingUrl("/signin")
                         .usernameParameter("email")
                         .passwordParameter("password")
-                        .successHandler(successHandler()) // ✅ remplace defaultSuccessUrl
+                        .successHandler(successHandler())
                         .failureUrl("/signin?error=true")
                         .permitAll()
                 )
