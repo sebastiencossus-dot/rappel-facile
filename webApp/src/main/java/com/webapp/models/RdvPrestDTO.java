@@ -1,5 +1,7 @@
 package com.webapp.models;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.time.LocalDateTime;
 
 public class RdvPrestDTO {

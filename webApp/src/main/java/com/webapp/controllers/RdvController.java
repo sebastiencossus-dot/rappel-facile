@@ -1,8 +1,6 @@
 package com.webapp.controllers;
 
-import com.webapp.models.RDV;
-import com.webapp.models.RappelDTO;
-import com.webapp.models.User;
+import com.webapp.models.*;
 import com.webapp.services.*;
 import com.webapp.services.form.AlerteForm;
 import com.webapp.services.form.rdvForm;
@@ -13,8 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class RdvController {
@@ -29,7 +26,7 @@ public class RdvController {
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView();
 
-        User user = sessionService.sessionUser(); // ✅ sans HttpSession
+        User user = sessionService.sessionUser();
         if (user == null) {
             mav.setViewName("redirect:/login");
             return mav;
@@ -73,12 +70,13 @@ public class RdvController {
     @PostMapping("/rdv/add")
     public String createRdv(@ModelAttribute rdvForm form) {
         rdvService.createRdv(form);
+
         return "redirect:/rdv";
     }
 
     @GetMapping("/rdv/edit/{id}")
     public ModelAndView editRdv(@PathVariable Integer id) {
-        String email = sessionService.sessionUser().getEmail(); // ✅ sans HttpSession
+        String email = sessionService.sessionUser().getEmail(); // sans HttpSession
         RDV rdv = msJpaClient.getRdv(id, email);
         if (rdv == null) return new ModelAndView("redirect:/rdv");
         return new ModelAndView("rdv-form", "rdv", rdv);
@@ -144,5 +142,48 @@ public class RdvController {
                                @PathVariable Integer rappelId) {
         rdvService.deleteRappel(rappelId);
         return "redirect:/rdv/" + rdvId + "/alertes";
+    }
+
+    @GetMapping("/rdv/prestataire/{id}/details")
+    @ResponseBody
+    public Map<String, Object> getPrestataireDetails(@PathVariable Integer id) {
+        Prestataires prestataire = prestataireService.findById(id);
+
+        List<Map<String, Object>> professions = new ArrayList<>();
+        // Les professions viennent de msprof via PrestataireResponseDTO
+        PrestataireResponseDTO dto = prestataireService.findAll().stream()
+                .filter(p -> p.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+
+        List<Map<String, Object>> adresses = new ArrayList<>();
+
+        if (dto != null) {
+            // Professions — on utilise les professions du référentiel filtrées par nom
+            List<Professions> toutesLesProfessions = referentielService.getAllProfessions();
+            dto.getProfessions().forEach(profNom -> {
+                toutesLesProfessions.stream()
+                        .filter(p -> p.getNom().equals(profNom))
+                        .findFirst()
+                        .ifPresent(p -> {
+                            Map<String, Object> profMap = new HashMap<>();
+                            profMap.put("id", p.getId());
+                            profMap.put("nom", p.getNom());
+                            professions.add(profMap);
+                        });
+            });
+
+            // Adresses
+            dto.getAdresses().forEach(adr -> {
+                Map<String, Object> adrMap = new HashMap<>();
+                adrMap.put("id", adr.getId());
+                adrMap.put("numero", adr.getNumero());
+                adrMap.put("rue", adr.getRue());
+                adrMap.put("ville", adr.getVille());
+                adresses.add(adrMap);
+            });
+        }
+
+        return Map.of("professions", professions, "adresses", adresses);
     }
 }

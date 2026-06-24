@@ -21,131 +21,110 @@
     <section class="ContentBox2-detailRdv">
 
         <!-- PRESTATAIRE (si edit) -->
-        <div class="ContentBox2-detailRdv-prestataire"
-             th:if="${rdv != null}">
-
+        <div class="ContentBox2-detailRdv-prestataire" th:if="${rdv != null}">
             <p>
                 <span th:text="${rdv.prestataireNom}"></span>
                 <span class="ContentBox2-detailRdv-prestataire-spe"
-                      th:text="${rdv.professionNom}">
-                </span>
+                      th:text="${rdv.professionNom}"></span>
             </p>
-
             <img src="/images/calendar-add.png" alt="rdv">
-            
-            
         </div>
-        <div class="ContentBox2-detailRdv-prestataire"
-             th:if="${rdv == null}">
 
-            <p>
-                <span>Choisissez un prestataire</span>
-            </p>
-
-            <img src="/images/calendar-add.png" alt="rdv">
+        
         <form th:object="${rdvForm}"
               th:action="${rdv != null} ? @{'/rdv/update/' + ${rdv.id}} : @{/rdv/add}"
               method="post"
-              class="ContentBox2-detailRdv">
+              style="width:100%; display:contents;">
 
+            <!-- Date -->
+            <div class="ContentBox2-detailRdv-card fond1">
+                <p class="ContentBox2-detailRdv-card-left">
+                    <i class="fa-regular fa-calendar"></i> Date du rendez-vous
+                </p>
+                <input type="datetime-local"
+                       th:field="*{dateRdv}"
+                       class="ContentBox2-detailRdv-input"/>
+            </div>
 
+            <!-- Motif -->
+            <div class="ContentBox2-detailRdv-card fond2">
+                <p class="ContentBox2-detailRdv-card-left">
+                    <i class="fa-solid fa-book"></i> Motif
+                </p>
+                <input type="text"
+                       th:field="*{motif}"
+                       class="ContentBox2-detailRdv-input"
+                       placeholder="Ex : Consultation annuelle"/>
+            </div>
 
+            <!-- Prestataire -->
+            <div class="ContentBox2-detailRdv-card fond2">
+                <p class="ContentBox2-detailRdv-card-left">
+                    <i class="fa-regular fa-user"></i> Prestataire
+                </p>
+                <select id="prestataireSelect"
+                        th:field="*{prestataireId}"
+                        class="ContentBox2-detailRdv-input"
+                        onchange="loadPrestataireDetails(this.value)">
+                    <option value="">-- Choisir un prestataire --</option>
+                    <option th:each="p : ${prestataires}"
+                            th:value="${p.id}"
+                            th:text="${p.nom + ' ' + p.prenom}">
+                    </option>
+                </select>
+            </div>
 
-                <div class="ContentBox2-detailRdv-card fond1">
-                    <p class="ContentBox2-detailRdv-card-left">
-                        <i class="fa-regular fa-calendar"></i> Date du rendez-vous
-                    </p>
+            <!-- Profession — caché jusqu'au choix -->
+            <div id="professionSection"
+                 class="ContentBox2-detailRdv-card fond1"
+                 style="display:none;">
+                <p class="ContentBox2-detailRdv-card-left">
+                    <i class="fa-solid fa-briefcase"></i> Profession
+                </p>
+                <select id="professionSelect"
+                        th:field="*{professionId}"
+                        class="ContentBox2-detailRdv-input">
+                    <option value="">-- Choisir --</option>
+                </select>
+            </div>
 
-                    <input type="datetime-local"
-                           th:field="*{dateRdv}"
-                           class="ContentBox2-detailRdv-input"/>
-                </div>
+            <!-- Adresse — caché jusqu'au choix -->
+            <div id="adresseSection"
+                 class="ContentBox2-detailRdv-card fond1"
+                 style="display:none;">
+                <p class="ContentBox2-detailRdv-card-left">
+                    <i class="fa-solid fa-location-dot"></i> Adresse
+                </p>
+                <select id="adresseSelect"
+                        th:field="*{adresseId}"
+                        th:attr="data-selected=${rdvForm.adresseId}"
+                        class="ContentBox2-detailRdv-input"
+                        required>
+                    <option th:each="adr : ${adresses}"
+                            th:value="${adr.id}"
+                            th:text="${adr.numero + ' ' + adr.rue + ', ' + adr.Codepostal + ' ' + adr.ville}"
+                            th:selected="${rdvForm.adresseId == adr.id}">
+                    </option>
+                </select>
+            </div>
 
+            <!-- Info alerte -->
+            <div class="ContentBox2-detailRdv-card fond3">
+                <p class="ContentBox2-detailRdv-card-right">
+                    Une alerte sera envoyée 24h avant le rendez-vous.<br>
+                    Vous pourrez ajouter d'autres rappels après création.
+                </p>
+            </div>
 
-                <div class="ContentBox2-detailRdv-card fond2">
-                    <p class="ContentBox2-detailRdv-card-left">
-                        <i class="fa-solid fa-book"></i> Motif
-                    </p>
-
-                    <input type="text"
-                           th:field="*{motif}"
-                           class="ContentBox2-detailRdv-input"
-                           placeholder="Ex : Consultation annuelle"/>
-                </div>
-
-
-
-
-
-                <div class="ContentBox2-detailRdv-card fond2">
-                    <p class="ContentBox2-detailRdv-card-left">
-                        <i class="fa-regular fa-user"></i> Prestataire
-                    </p>
-
-                    <select th:field="*{prestataireId}"
-                            class="ContentBox2-detailRdv-input">
-                        <option value="">-- Choisir --</option>
-                        <option th:each="p : ${prestataires}"
-                                th:value="${p.id}"
-                                th:text="${p.nom + ' ' + p.prenom}">
-                        </option>
-                    </select>
-                </div>
-
-
-                <div class="ContentBox2-detailRdv-card fond1">
-                    <p class="ContentBox2-detailRdv-card-left">
-                        <i class="fa-solid fa-briefcase"></i> Profession
-                    </p>
-
-                    <select th:field="*{professionId}"
-                            class="ContentBox2-detailRdv-input">
-                        <option value="">-- Choisir --</option>
-                        <option th:each="pr : ${professions}"
-                                th:value="${pr.id}"
-                                th:text="${pr.nom}">
-                        </option>
-                    </select>
-                </div>
-
-
-                <div class="ContentBox2-detailRdv-card fond1">
-                    <p class="ContentBox2-detailRdv-card-left">
-                        <i class="fa-solid fa-location-dot"></i> Adresse
-                    </p>
-
-                    <select th:field="*{adresseId}"
-                            class="ContentBox2-detailRdv-input">
-                        <option value="">-- Choisir --</option>
-                        <option th:each="a : ${adresses}"
-                                th:value="${a.id}"
-                                th:text="${a.rue + ' ' + a.ville}">
-                        </option>
-                    </select>
-                </div>
-
-
-                <div class="ContentBox2-detailRdv-card fond3">
-                    <p class="ContentBox2-detailRdv-card-right">
-                        Une alerte sera envoyée 24h avant le rendez-vous.<br>
-                        Vous pourrez ajouter d'autres rappels après création.
-                    </p>
-                </div>
-
-
-                <div class="ContentBox2-detailRdv-submit">
-                    <button type="submit"
-                            class="ContentBox2-detailRdv-btn btn2"
-                            th:text="${rdv != null} ? 'Modifier le RDV' : 'Créer le RDV'">
-                    </button>
-                </div>
-
-            
-
-
+            <!-- Bouton submit -->
+            <div class="ContentBox2-detailRdv-submit" style="grid-column: 1 / -1;">
+                <button type="submit"
+                        class="ContentBox2-detailRdv-btn btn2"
+                        th:text="${rdv != null} ? 'Modifier le RDV' : 'Créer le RDV'">
+                </button>
+            </div>
 
         </form>
-        </div>
 
     </section>
 
@@ -153,7 +132,81 @@
 
 <div th:insert="~{footer :: footer}"></div>
 
-
 <script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>
+
+<script th:inline="javascript">
+    const prestatairesData = /*[[${prestataires}]]*/ [];
+
+    function loadPrestataireDetails(prestataireId) {
+        const professionSection = document.getElementById('professionSection');
+        const adresseSection = document.getElementById('adresseSection');
+        const professionSelect = document.getElementById('professionSelect');
+        const adresseSelect = document.getElementById('adresseSelect');
+
+        professionSelect.innerHTML = '<option value="">-- Choisir --</option>';
+        adresseSelect.innerHTML = '<option value="">-- Choisir --</option>';
+        professionSection.style.display = 'none';
+        adresseSection.style.display = 'none';
+
+        if (!prestataireId) return;
+
+        // Avant le fetch, ajouter sur le formulaire
+document.querySelector('form').addEventListener('submit', function(e) {
+    const adresseVal = document.getElementById('adresseSelect').value;
+    if (!adresseVal || adresseVal === 'null' || adresseVal === '') {
+        e.preventDefault();
+        alert('Veuillez choisir une adresse');
+    }
+});
+
+        fetch('/rdv/prestataire/' + prestataireId + '/details')
+            .then(response => response.json())
+            .then(data => {
+
+             console.log('Adresses reçues:', JSON.stringify(data.adresses));
+
+                if (data.professions && data.professions.length > 0) {
+                    data.professions.forEach(prof => {
+                        const option = document.createElement('option');
+                        option.value = prof.id;
+                        option.textContent = prof.nom;
+                        professionSelect.appendChild(option);
+                    });
+                    professionSection.style.display = 'flex';
+                }
+
+                if (data.adresses && data.adresses.length > 0) {
+
+        data.adresses.forEach(adr => {
+            const option = document.createElement('option');
+            option.value = adr.id;
+            option.textContent =
+                (adr.numero || '') + ' ' +
+                (adr.rue || '') + ', ' +
+                (adr.ville || '');
+
+            adresseSelect.appendChild(option);
+        });
+
+        adresseSection.style.display = 'flex';
+
+        // 👉 IMPORTANT : préselection si existe déjà
+        const current = adresseSelect.getAttribute("data-selected");
+        if (current) {
+            adresseSelect.value = current;
+        }
+    }
+})
+            .catch(err => console.error('Erreur:', err));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('prestataireSelect');
+        if (select && select.value) {
+            loadPrestataireDetails(select.value);
+        }
+    });
+</script>
+
 </body>
 </html>

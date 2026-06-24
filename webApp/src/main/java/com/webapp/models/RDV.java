@@ -12,7 +12,6 @@ public class RDV {
     private Integer isOK;
     private String motif;
 
-    // Champs plats — plus de références circulaires
     private Integer prestataireId;
     private String prestataireNom;
     private String prestatairePrenom;

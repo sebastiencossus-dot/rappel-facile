@@ -72,6 +72,23 @@ import java.util.List;
             rdv.setMotif(dto.getMotif());
             rdv.setIsOK(1);
 
+            User user = new User();
+            user.setId(dto.getUserId());
+            rdv.setUser(user);
+
+
+            Prestataires prest = new Prestataires();
+            prest.setId(dto.getPrestataireId());
+            rdv.setPrestataires(prest);
+
+
+//
+
+
+            Professions prof = new Professions();
+            prof.setId(dto.getProfessionId());
+            rdv.setProfessions(prof);
+
             if (dto.getUserId() != null) {
                 rdv.setUser(userRepository.findById(dto.getUserId())
                         .orElseThrow(() -> new RuntimeException("User introuvable")));
@@ -81,8 +98,10 @@ import java.util.List;
                         .orElseThrow(() -> new RuntimeException("Prestataire introuvable")));
             }
             if (dto.getAdresseId() != null) {
-                rdv.setAdresses(adresseRepository.findById(dto.getAdresseId())
-                        .orElseThrow(() -> new RuntimeException("Adresse introuvable")));
+                Adresses adresse = adresseRepository.findById(dto.getAdresseId())
+                        .orElseThrow(() -> new RuntimeException("Adresse introuvable"));
+
+                rdv.setAdresses(adresse);
             }
             if (dto.getProfessionId() != null) {
                 rdv.setProfessions(professionRepository.findById(dto.getProfessionId())
