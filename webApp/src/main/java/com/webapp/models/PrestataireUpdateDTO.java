@@ -1,4 +1,4 @@
-package com.msprof.Models;
+package com.webapp.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

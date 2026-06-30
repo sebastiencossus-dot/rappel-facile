@@ -147,7 +147,7 @@ public class RdvController {
     @GetMapping("/rdv/prestataire/{id}/details")
     @ResponseBody
     public Map<String, Object> getPrestataireDetails(@PathVariable Integer id) {
-        Prestataires prestataire = prestataireService.findById(id);
+
 
         List<Map<String, Object>> professions = new ArrayList<>();
         // Les professions viennent de msprof via PrestataireResponseDTO

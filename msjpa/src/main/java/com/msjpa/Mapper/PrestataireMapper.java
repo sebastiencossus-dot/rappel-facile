@@ -20,7 +20,6 @@ public class PrestataireMapper {
                         .collect(Collectors.toList())
         );
 
-        // ← ajout catégories (dédoublonnées)
         dto.setCategories(
                 p.getExercices().stream()
                         .map(ex -> ex.getProfessions().getCategorie())
@@ -30,6 +29,36 @@ public class PrestataireMapper {
                         .collect(Collectors.toList())
         );
 
+        List<AdresseDTO> adresses = p.getLocals().stream()
+                .map(l -> {
+                    Adresses a = l.getAdresses();
+                    return new AdresseDTO(a.getId(), a.getRue(), a.getNumero(), a.getVille(), a.getCodepostal());
+                })
+                .collect(Collectors.toList());
+
+        dto.setAdresses(adresses);
+
+        return dto;
+    }
+
+    /**
+     * Mapper dédié à l'écran d'édition : renvoie les ids de profession
+     * et les adresses déjà liées, à plat, sans exposer Exerce/Local.
+     */
+    public static PrestataireDetailDTO toDetailDTO(Prestataires p) {
+
+        PrestataireDetailDTO dto = new PrestataireDetailDTO();
+
+        dto.setId(p.getId());
+        dto.setNom(p.getNom());
+        dto.setPrenom(p.getPrenom());
+        dto.setIsValide(p.getIsValide());
+
+        dto.setProfessionIds(
+                p.getExercices().stream()
+                        .map(ex -> ex.getProfessions().getId())
+                        .collect(Collectors.toList())
+        );
 
         List<AdresseDTO> adresses = p.getLocals().stream()
                 .map(l -> {

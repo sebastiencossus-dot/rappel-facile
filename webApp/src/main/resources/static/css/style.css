@@ -71,11 +71,11 @@ p {
 }
 .HeaderBox .NavBox-burger {
   display: block;
-  color: "Roboto", sans-serif;
+  color: #000000;
 }
 .HeaderBox .NavBox-close {
   display: none;
-  color: "Roboto", sans-serif;
+  color: #000000;
 }
 .HeaderBox .NavBox-toggleMenu {
   background-color: rgba(77, 102, 242, 0.95);
@@ -377,11 +377,11 @@ p {
 
 .NavFooter {
   display: none;
-  color: "Roboto", sans-serif;
+  color: #000000;
 }
 .NavFooter-link {
   text-decoration: none;
-  color: "Roboto", sans-serif;
+  color: #000000;
   font-family: "Roboto", sans-serif;
   font-size: 12px;
 }
@@ -394,7 +394,7 @@ p {
     gap: 150px;
     text-align: center;
     padding: 20px 0 20px 0;
-    color: "Roboto", sans-serif;
+    color: #000000;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
   }

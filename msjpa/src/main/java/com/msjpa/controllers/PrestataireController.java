@@ -45,6 +45,11 @@ public class PrestataireController {
         return service.getById(id);
     }
 
+    @GetMapping("/{id}/detail")
+    public PrestataireDetailDTO getDetailById(@PathVariable Integer id) {
+        return service.getDetailById(id);
+    }
+
     @PostMapping
     @Transactional
     public void create(@RequestBody PrestataireDTO dto) {
@@ -147,4 +152,6 @@ public class PrestataireController {
 
         return ResponseEntity.ok("Prestataire supprimé");
     }
+
+
 }

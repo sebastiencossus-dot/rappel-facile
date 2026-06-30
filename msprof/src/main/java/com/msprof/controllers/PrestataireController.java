@@ -3,6 +3,7 @@ package com.msprof.controllers;
 
 import com.msprof.Models.PrestataireRequestDTO;
 import com.msprof.Models.PrestataireResponseDTO;
+import com.msprof.Models.PrestataireDetailDTO;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,11 @@ public class PrestataireController {
     @GetMapping("/{id}")
     public PrestataireResponseDTO findById(@PathVariable Integer id) {
         return service.findById(id);
+    }
+
+    @GetMapping("/{id}/detail")
+    public PrestataireDetailDTO findDetailById(@PathVariable Integer id) {
+        return service.findDetailById(id);
     }
 
     @PostMapping

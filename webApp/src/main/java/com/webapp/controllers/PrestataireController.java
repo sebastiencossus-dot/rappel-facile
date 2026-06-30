@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -72,6 +71,7 @@ public class PrestataireController {
     public String editForm(@PathVariable Integer id, Model model) {
         model.addAttribute("prestataire", prestataireClient.findById(id));
         model.addAttribute("professions", professionService.findAll());
+        model.addAttribute("adresses", adresseClient.findAll());
         return "prestataire-edit";
     }
 
@@ -81,28 +81,49 @@ public class PrestataireController {
             @RequestParam String nom,
             @RequestParam String prenom,
             @RequestParam(required = false) List<Integer> professionIds,
+            @RequestParam(required = false) List<String> adresseIds,
             @RequestParam(required = false) List<String> rues,
             @RequestParam(required = false) List<String> numeros,
             @RequestParam(required = false) List<String> villes,
             @RequestParam(required = false) List<String> codePostals) {
 
-        PrestataireDTO dto = new PrestataireDTO();
+        // --- Construction de la liste des adresses, alignée bloc par bloc ---
+        // Chaque index i correspond à un bloc "adresse" du formulaire :
+        // soit une adresse existante (adresseIds.get(i) renseigné),
+        // soit une nouvelle adresse saisie (rues/numeros/villes/codePostals.get(i)).
+        List<AdresseDTO> adresses = new ArrayList<>();
+
+        int nbBlocs = (adresseIds != null) ? adresseIds.size() : 0;
+
+        for (int i = 0; i < nbBlocs; i++) {
+            String adresseId = adresseIds.get(i);
+
+            if (adresseId != null && !adresseId.isBlank()) {
+                // Bloc = adresse existante sélectionnée dans le select
+                AdresseDTO a = new AdresseDTO();
+                a.setId(Integer.parseInt(adresseId));
+                adresses.add(a);
+            } else {
+                // Bloc = nouvelle adresse saisie
+                String rue = (rues != null && i < rues.size()) ? rues.get(i) : null;
+                if (rue != null && !rue.isBlank()) {
+                    AdresseDTO a = new AdresseDTO();
+                    a.setRue(rue);
+                    a.setNumero(numeros.get(i));
+                    a.setVille(villes.get(i));
+                    a.setCodepostal(codePostals.get(i));
+                    adresses.add(a);
+                }
+            }
+        }
+
+        PrestataireUpdateDTO dto = new PrestataireUpdateDTO();
         dto.setNom(nom);
         dto.setPrenom(prenom);
         dto.setProfessionIds(professionIds);
-
-        List<AdresseDTO> adresses = new ArrayList<>();
-        if (rues != null) {
-            for (int i = 0; i < rues.size(); i++) {
-                AdresseDTO a = new AdresseDTO();
-                a.setRue(rues.get(i));
-                a.setNumero(numeros.get(i));
-                a.setVille(villes.get(i));
-                a.setCodepostal(codePostals.get(i));
-                adresses.add(a);
-            }
-        }
         dto.setAdresses(adresses);
+
+        System.out.println(dto.getAdresses());
 
         prestataireClient.update(id, dto);
 
@@ -125,5 +146,3 @@ public class PrestataireController {
         return "prestataires";
     }
 }
-
-

@@ -57,11 +57,11 @@
         }
         &-burger{
             display: block;
-            color: $fontGeneral;
+            color: $fontColor;
         }
         &-close{
             display: none;
-            color: $fontGeneral;
+            color: $fontColor;
         }
         &-toggleMenu{
             background-color: rgba(77, 102, 242, 0.95);
@@ -404,10 +404,10 @@
 .NavFooter {
     
     display : none;
-    color: $fontGeneral;
+    color: $fontColor;
     &-link{
         text-decoration: none;
-        color: $fontGeneral;
+        color: $fontColor;
         font-family: $fontGeneral;
         font-size: 12px;
     }
@@ -421,7 +421,7 @@
             // background-color: $menuColor;
             text-align: center;
             padding: 20px 0 20px 0;
-            color: $fontGeneral;
+            color: $fontColor;
             font-family: $fontGeneral;
             font-size: 14px;
         }

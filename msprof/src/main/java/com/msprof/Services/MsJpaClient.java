@@ -2,7 +2,8 @@ package com.msprof.Services;
 
 import com.msprof.Models.PrestataireResponseDTO;
 import com.msprof.Models.PrestataireDTO;
-import com.msprof.Models.Prestataires;
+import com.msprof.Models.PrestataireUpdateDTO;
+import com.msprof.Models.PrestataireDetailDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,11 +20,14 @@ public interface MsJpaClient {
 
     @PutMapping("/prestataires/{id}")
     void updatePrestataire(@PathVariable Integer id,
-                           @RequestBody PrestataireDTO dto);
+                           @RequestBody PrestataireUpdateDTO dto);
 
     @DeleteMapping("/prestataires/{id}")
     void deletePrestataire(@PathVariable Integer id);
 
     @GetMapping("/prestataires/{id}")
     PrestataireResponseDTO findPrestataireById(@PathVariable("id") Integer id);
+
+    @GetMapping("/prestataires/{id}/detail")
+    PrestataireDetailDTO findPrestataireDetailById(@PathVariable("id") Integer id);
 }

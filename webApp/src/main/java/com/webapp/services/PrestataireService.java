@@ -22,7 +22,7 @@ public class PrestataireService {
         return client.findAll();
     }
 
-    public Prestataires findById(Integer id) {
+    public PrestataireDetailDTO findById(Integer id) {
         return client.findById(id);
     }
 
@@ -32,7 +32,7 @@ public class PrestataireService {
     }
 
     @CacheEvict(value = "prestataires", allEntries = true)
-    public void update(Integer id, PrestataireDTO dto) {
+    public void update(Integer id, PrestataireUpdateDTO dto) {
         client.update(id, dto);
     }
 
