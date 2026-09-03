@@ -46,7 +46,7 @@ public class RDV {
     @JoinColumn(name = "professions_id")
     private Professions professions;
 
-    @OneToMany(mappedBy = "rdv")
+    @OneToMany(mappedBy = "rdv", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Rappels> rappels;
 
     public Integer getIsOK() { return isOK; }

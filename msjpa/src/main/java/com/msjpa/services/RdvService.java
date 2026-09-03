@@ -120,34 +120,50 @@ import java.util.List;
         }
 
 
-        public RDV updateRdv(Integer id, RDV rdv, String email) {
-
+        public RDV updateRdv(Integer id, RdvUpdateDTO dto, String email) {
             RDV existing = rdvRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("RDV not found"));
-
+                    .orElseThrow(() -> new RuntimeException("RDV introuvable : " + id));
 
             if (!existing.getUser().getEmail().equals(email)) {
-                throw new RuntimeException("Unauthorized");
+                throw new RuntimeException("Accès non autorisé");
             }
 
+            existing.setDateRdv(dto.getDateRdv());
+            existing.setMotif(dto.getMotif());
 
-            rdv.setId(id);
-            rdv.setUser(existing.getUser());
+            if (dto.getPrestataireId() != null) {
+                Prestataires p = prestataireRepository.findById(dto.getPrestataireId())
+                        .orElseThrow(() -> new RuntimeException("Prestataire introuvable"));
+                existing.setPrestataires(p);
+            }
 
-            return rdvRepository.save(rdv);
+            if (dto.getAdresseId() != null) {
+                Adresses a = adresseRepository.findById(dto.getAdresseId())
+                        .orElseThrow(() -> new RuntimeException("Adresse introuvable"));
+                existing.setAdresses(a);
+            }
+
+            if (dto.getProfessionId() != null) {
+                Professions prof = professionRepository.findById(dto.getProfessionId())
+                        .orElseThrow(() -> new RuntimeException("Profession introuvable"));
+                existing.setProfessions(prof);
+            }
+
+            // isOK et user ne sont jamais touchés → conservés automatiquement
+
+            return rdvRepository.save(existing);
         }
 
 
         public void deleteRdv(Integer id, String email) {
-
             RDV existing = rdvRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("RDV not found"));
-
 
             if (!existing.getUser().getEmail().equals(email)) {
                 throw new RuntimeException("Unauthorized");
             }
 
+            rappelsRepository.deleteAll(existing.getRappels());
             rdvRepository.delete(existing);
         }
 

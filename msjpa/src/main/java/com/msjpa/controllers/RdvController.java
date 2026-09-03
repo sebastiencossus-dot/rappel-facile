@@ -1,10 +1,7 @@
 package com.msjpa.controllers;
 
 
-import com.msjpa.models.RDV;
-import com.msjpa.models.Rappels;
-import com.msjpa.models.RdvDTO;
-import com.msjpa.models.RdvPrestDTO;
+import com.msjpa.models.*;
 import com.msjpa.repositories.RappelsRepository;
 import com.msjpa.repositories.RdvRepository;
 import com.msjpa.services.RdvService;
@@ -43,9 +40,9 @@ public class RdvController {
 
     @PutMapping("/{id}")
     public RDV updateRdv(@PathVariable Integer id,
-                         @RequestBody RDV rdv,
+                         @RequestBody RdvUpdateDTO dto,
                          @RequestParam String email) {
-        return rdvService.updateRdv(id, rdv, email);
+        return rdvService.updateRdv(id, dto, email);
     }
 
     @DeleteMapping("/{id}")

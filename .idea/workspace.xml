@@ -4,34 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="debug adresseId = null in RdvForm, not ok">
-      <change afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/PrestataireDetailDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/Models/PrestataireDetailDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/Exerce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/ExerceId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/PrestataireDetailDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/PrestataireUpdateDTO.java" afterDir="false" />
+    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature prestataire edit ok">
+      <change afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RdvUpdateDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/form/EditRdvForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/mapper/RdvMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/Mapper/PrestataireMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/Mapper/PrestataireMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/PrestataireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/PrestataireController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/Prestataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/Prestataires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/PrestataireService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/PrestataireService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/Mapper/PrestataireMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/Mapper/PrestataireMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/Models/PrestataireUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/Models/PrestataireUpdateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/Services/MsJpaClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/Services/MsJpaClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/Services/PrestataireService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/Services/PrestataireService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/controllers/PrestataireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msprof/src/main/java/com/msprof/controllers/PrestataireController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/PrestataireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/PrestataireController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RdvController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RDV.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/models/RDV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/RdvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/RdvService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/RdvController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/Prestataires.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/models/Prestataires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/PrestataireClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/PrestataireClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/PrestataireService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/PrestataireService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_components.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_components.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/js/prestataire-edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/js/prestataire-edit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/form/rdvForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/form/rdvForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/detailRdv.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/detailRdv.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/prestataire-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/prestataire-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/edit-rdv.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/edit-rdv.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +23,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="292" />
+    <option name="cachedIndexableFilesCount" value="296" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -143,7 +127,7 @@
       <recent name="com.msrappel.Models" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MsjpaApplication">
+  <component name="RunManager" selected="Spring Boot.WebappApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="msjpa" />
       <method v="2">
@@ -233,11 +217,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.WebappApplication" />
-        <item itemvalue="Spring Boot.MsprofApplication" />
         <item itemvalue="Spring Boot.MsjpaApplication" />
-        <item itemvalue="Spring Boot.MsadminApplication" />
+        <item itemvalue="Spring Boot.WebappApplication" />
         <item itemvalue="Spring Boot.MsrappelApplication" />
+        <item itemvalue="Spring Boot.MsprofApplication" />
+        <item itemvalue="Spring Boot.MsadminApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -440,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782301631023</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="feature prestataire edit ok">
+      <option name="closed" value="true" />
+      <created>1782810214552</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1782810214553</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -469,7 +461,8 @@
     <MESSAGE value="finished adminStats" />
     <MESSAGE value="finished adminStats + feature css" />
     <MESSAGE value="debug adresseId = null in RdvForm, not ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug adresseId = null in RdvForm, not ok" />
+    <MESSAGE value="feature prestataire edit ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature prestataire edit ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

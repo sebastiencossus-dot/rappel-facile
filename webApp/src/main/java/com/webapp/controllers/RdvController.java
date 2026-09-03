@@ -4,6 +4,7 @@ import com.webapp.models.*;
 import com.webapp.services.*;
 import com.webapp.services.form.AlerteForm;
 import com.webapp.services.form.rdvForm;
+import com.webapp.services.mapper.RdvMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,17 +38,19 @@ public class RdvController {
         List<RDV> rdvs = rdvService.getRdvByUser(user.getEmail());
 
         List<RDV> todayList = rdvs.stream()
-                .filter(r -> r.getDateRdv().toLocalDate().equals(today))
+                .filter(r -> r.getDateRdv() != null && r.getDateRdv().toLocalDate().equals(today))
                 .sorted(Comparator.comparing(RDV::getDateRdv))
                 .toList();
 
         List<RDV> attente = rdvs.stream()
-                .filter(r -> r.getIsOK() == 1 && r.getDateRdv().toLocalDate().isBefore(today))
+                .filter(r -> Integer.valueOf(1).equals(r.getIsOK())
+                        && r.getDateRdv() != null
+                        && r.getDateRdv().toLocalDate().isBefore(today))
                 .sorted(Comparator.comparing(RDV::getDateRdv))
                 .toList();
 
         List<RDV> autres = rdvs.stream()
-                .filter(r -> r.getDateRdv().toLocalDate().isAfter(today))
+                .filter(r -> r.getDateRdv() != null && r.getDateRdv().toLocalDate().isAfter(today))
                 .sorted(Comparator.comparing(RDV::getDateRdv))
                 .toList();
 
@@ -76,15 +79,35 @@ public class RdvController {
 
     @GetMapping("/rdv/edit/{id}")
     public ModelAndView editRdv(@PathVariable Integer id) {
-        String email = sessionService.sessionUser().getEmail(); // sans HttpSession
+        String email = sessionService.sessionUser().getEmail();
         RDV rdv = msJpaClient.getRdv(id, email);
         if (rdv == null) return new ModelAndView("redirect:/rdv");
-        return new ModelAndView("rdv-form", "rdv", rdv);
+
+        rdvForm form = RdvMapper.toForm(rdv);
+
+        ModelAndView mav = new ModelAndView("edit-rdv");
+        mav.addObject("rdv", rdv);
+        mav.addObject("rdvForm", form);
+        mav.addObject("prestataires", prestataireService.findAll());
+        mav.addObject("professions", referentielService.getAllProfessions());
+        mav.addObject("adresses", referentielService.getAllAdresses());
+        return mav;
     }
 
     @PostMapping("/rdv/update/{id}")
-    public String updateRdv(@PathVariable Integer id, RDV rdv) {
-        rdvService.updateRdv(id, rdv);
+    public String updateRdv(@PathVariable Integer id, rdvForm form) {
+        String email = sessionService.sessionUser().getEmail();
+        RDV existing = msJpaClient.getRdv(id, email);
+        if (existing == null) return "redirect:/rdv";
+
+        existing.setDateRdv(form.getDateRdv());
+        existing.setMotif(form.getMotif());
+        existing.setPrestataireId(form.getPrestataireId());
+        existing.setAdresseId(form.getAdresseId());
+        existing.setProfessionId(form.getProfessionId());
+        // isOK, userId, etc. restent inchangés car on repart de l'objet existant
+
+        rdvService.updateRdv(id, existing);
         return "redirect:/rdv";
     }
 

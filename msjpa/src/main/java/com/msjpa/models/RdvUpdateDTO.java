@@ -1,27 +1,13 @@
-package com.webapp.services.form;
-
-import org.springframework.format.annotation.DateTimeFormat;
+package com.msjpa.models;
 
 import java.time.LocalDateTime;
 
-public class rdvForm {
-
-    private Integer id;
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+public class RdvUpdateDTO {
     private LocalDateTime dateRdv;
     private String motif;
     private Integer prestataireId;
     private Integer adresseId;
     private Integer professionId;
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public LocalDateTime getDateRdv() {
         return dateRdv;
@@ -62,7 +48,4 @@ public class rdvForm {
     public void setProfessionId(Integer professionId) {
         this.professionId = professionId;
     }
-
-
-
 }

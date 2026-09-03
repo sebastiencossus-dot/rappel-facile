@@ -190,7 +190,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
         adresseSection.style.display = 'flex';
 
-        // 👉 IMPORTANT : préselection si existe déjà
+        // IMPORTANT : préselection si existe déjà
         const current = adresseSelect.getAttribute("data-selected");
         if (current) {
             adresseSelect.value = current;
