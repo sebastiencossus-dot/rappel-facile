@@ -22,21 +22,16 @@ public class UserService {
 
     public User registration(SignUpForm form) {
 
-
-
         User user = new User();
 
         user.setPrenom(form.getPrenom());
         user.setNom(form.getNom());
         user.setEmail(form.getEmail());
         user.setTel(form.getTel());
-
-
-
+        user.setPhoto(form.getPhoto());
         user.setPassword(passwordEncoder.encode(form.getPassword()));
+
         return msJpaClient.createUser(user);
-
-
     }
 
     public void changePassword(User user,

@@ -46,16 +46,20 @@
                                required>
                     </div>
 
-                    <div class="mb-3" style="background-color:#EFE9B7; border-radius:15px; padding:12px 18px;">
+                    <div class="mb-3" style="background-color:#EFE9B7; border-radius:15px; padding:12px 18px; position:relative;">
                         <label class="form-label" style="font-size:12px; font-weight:bold; margin:0;">
                             <i class="fa-solid fa-lock"></i> Mot de passe
                         </label>
                         <input type="password"
+                               id="password"
                                name="password"
                                class="form-control"
-                               style="border:none; background:transparent; padding:2px 0; font-size:14px;"
+                               style="border:none; background:transparent; padding:2px 0; font-size:14px; padding-right:28px;"
                                placeholder="••••••••"
                                required>
+                        <i class="fa-regular fa-eye toggle-password"
+                           data-target="password"
+                           style="position:absolute; right:18px; bottom:14px; cursor:pointer; color:#555;"></i>
                     </div>
 
                     <div class="d-grid mt-4">
@@ -83,6 +87,21 @@
     </div>
 
 </div>
+
+<script src="https://kit.fontawesome.com/0aa6008ea0.js" crossorigin="anonymous"></script>
+<script>
+    document.querySelectorAll('.toggle-password').forEach(icon => {
+        icon.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const input = document.getElementById(targetId);
+            const isPassword = input.getAttribute('type') === 'password';
+
+            input.setAttribute('type', isPassword ? 'text' : 'password');
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+    });
+</script>
 
 </body>
 </html>

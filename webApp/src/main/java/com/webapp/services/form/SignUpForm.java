@@ -21,7 +21,7 @@ public class SignUpForm {
         return nom;
     }
 
-    public void setnom(String nom) {
+    public void setNom(String nom) {
         this.nom = nom;
     }
 

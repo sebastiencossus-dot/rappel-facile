@@ -17,7 +17,7 @@
                 <div class="NavBox-user">
                     <img class="NavBox-user-avatar"
                          th:if="${currentUser != null}"
-                         th:src="@{'/images/' + ${currentUser.photo}}">
+                         th:src="${currentUser.photo == null or currentUser.photo.isEmpty()} ? @{/images/logo.png} : @{'/uploads/images/' + ${currentUser.photo}}">
 
                     <p th:text="${currentUser != null ? currentUser.prenom : 'Invité'}"></p>
                     <form th:action="@{/logout}" method="post" class="NavBox-user-logout">

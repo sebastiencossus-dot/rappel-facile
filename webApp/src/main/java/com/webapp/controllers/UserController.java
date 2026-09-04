@@ -5,6 +5,7 @@ package com.webapp.controllers;
 
 
 import com.webapp.models.User;
+import com.webapp.services.FileStorageService;
 import com.webapp.services.MsJpaClient;
 import com.webapp.services.SessionService;
 import com.webapp.services.UserService;
@@ -12,9 +13,11 @@ import com.webapp.services.form.SignUpForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -24,6 +27,9 @@ public class UserController {
 
     @Autowired
     private MsJpaClient msJpaClient;
+
+    @Autowired
+    private FileStorageService fileStorageService;
 
     private final UserService userService;
     private final SessionService sessionService;
@@ -49,7 +55,11 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signup(SignUpForm form) {
+    public String signup(@ModelAttribute SignUpForm form,
+                         @RequestParam("photoFile") MultipartFile photoFile) {
+
+        String photoFilename = fileStorageService.storeUserPhoto(photoFile);
+        form.setPhoto(photoFilename);
 
         User user = new User();
         user.setNom(form.getNom());
