@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature update and delete for one rdv ok">
-      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/FileStorageService.java" afterDir="false" />
+    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="feature signup and signin form and upload photo">
+      <change afterPath="$PROJECT_DIR$/msjpa/src/test/java/com/msjpa/controllers/RdvControllerMockMvcTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msjpa/src/test/java/com/msjpa/controllers/RdvControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msjpa/src/test/java/com/msjpa/repositories/RdvRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msjpa/src/test/java/com/msjpa/services/RdvServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/msjpa/src/test/resources/application-test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/form/SignUpForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/form/SignUpForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/signin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RdvController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msrappel/src/main/java/com/msrappel/Scheduler/RappelScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/msrappel/src/main/java/com/msrappel/Scheduler/RappelScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msrdv/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/msrdv/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/detailRdv.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/detailRdv.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +23,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="296" />
+    <option name="cachedIndexableFilesCount" value="307" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,6 +80,13 @@
     "Docker.docker-compose.yml.mysql_db: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.webapp: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "JUnit.MsjpaApplicationTests.executor": "Run",
+    "JUnit.RdvControllerMockMvcTest.executor": "Run",
+    "JUnit.RdvControllerTest.executor": "Run",
+    "JUnit.RdvRepositoryTest.executor": "Run",
+    "JUnit.RdvServiceTest.executor": "Run",
+    "Maven.msadmin [com.google.cloud.tools:jib-maven-plugin:3.3.2:buildTar].executor": "Run",
+    "Maven.msadmin [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
     "Maven.msadmin [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
     "Maven.msadmin [deploy].executor": "Run",
     "Maven.msadmin [package].executor": "Run",
@@ -89,10 +97,15 @@
     "Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
     "Maven.msprof [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
     "Maven.msprof [package].executor": "Run",
+    "Maven.msrappel [com.google.cloud.tools:jib-maven-plugin:3.3.2:buildTar].executor": "Run",
+    "Maven.msrappel [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
     "Maven.msrappel [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
     "Maven.msrappel [package].executor": "Run",
+    "Maven.msrdv [com.google.cloud.tools:jib-maven-plugin:3.3.2:buildTar].executor": "Run",
+    "Maven.msrdv [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
     "Maven.msrdv [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
     "Maven.msrdv [package].executor": "Run",
+    "Maven.msstats [com.google.cloud.tools:jib-maven-plugin:3.3.2:buildTar].executor": "Run",
     "Maven.msstats [com.google.cloud.tools:jib-maven-plugin:3.3.2:build].executor": "Run",
     "Maven.msstats [com.google.cloud.tools:jib-maven-plugin:3.3.2:dockerBuild].executor": "Run",
     "Maven.msstats [package].executor": "Run",
@@ -118,9 +131,9 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/sebas/IdeaProjects/rappel-facile/webApp/src/main/java/com/webapp/models",
     "onboarding.tips.debug.path": "C:/Users/sebas/IdeaProjects/rappel-facile/msstats/src/main/java/com/restTemplate/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -134,13 +147,88 @@
       <recent name="com.msrappel.Models" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MsstatsApplication">
+  <component name="RunManager" selected="JUnit.MsjpaApplicationTests">
     <configuration name="All in msadmin" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="msadmin" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsjpaApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msjpa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msjpa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.msjpa" />
+      <option name="MAIN_CLASS_NAME" value="com.msjpa.MsjpaApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RdvControllerMockMvcTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msjpa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msjpa.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.msjpa.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.msjpa.controllers.RdvControllerMockMvcTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RdvControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msjpa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msjpa.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.msjpa.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.msjpa.controllers.RdvControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RdvRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msjpa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msjpa.repositories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.msjpa.repositories" />
+      <option name="MAIN_CLASS_NAME" value="com.msjpa.repositories.RdvRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RdvServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msjpa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msjpa.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.msjpa.services" />
+      <option name="MAIN_CLASS_NAME" value="com.msjpa.services.RdvServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -156,87 +244,19 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration name="MsRdvApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msrdv" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msRdv.MsRdvApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msRdv.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsadminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msadmin" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msadmin.MsadminApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msadmin.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsstatsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="msstats" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msstats.MsstatsApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msstats.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.msrdv: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="msrdv" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.msstats: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="msstats" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.MsstatsApplication" />
-        <item itemvalue="Spring Boot.MsRdvApplication" />
-        <item itemvalue="Spring Boot.MsadminApplication" />
-        <item itemvalue="Docker.docker-compose.yml.msrdv: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.msstats: Compose Deployment" />
+        <item itemvalue="JUnit.MsjpaApplicationTests" />
+        <item itemvalue="JUnit.RdvControllerMockMvcTest" />
+        <item itemvalue="JUnit.RdvRepositoryTest" />
+        <item itemvalue="JUnit.RdvControllerTest" />
+        <item itemvalue="JUnit.RdvServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -455,7 +475,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788425424713</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="feature signup and signin form and upload photo">
+      <option name="closed" value="true" />
+      <created>1788515474813</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1788515474813</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -486,7 +514,8 @@
     <MESSAGE value="debug adresseId = null in RdvForm, not ok" />
     <MESSAGE value="feature prestataire edit ok" />
     <MESSAGE value="feature update and delete for one rdv ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature update and delete for one rdv ok" />
+    <MESSAGE value="feature signup and signin form and upload photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature signup and signin form and upload photo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

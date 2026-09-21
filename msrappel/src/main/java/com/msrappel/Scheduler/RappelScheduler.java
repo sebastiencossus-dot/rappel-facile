@@ -21,7 +21,7 @@ public class RappelScheduler {
     private final com.msrappel.Services.EmailService emailService;
     private static final Logger log = LoggerFactory.getLogger(RappelScheduler.class);
 
-    // ✅ s'exécute toutes les minutes
+    //  s'exécute toutes les minutes
     @Scheduled(cron = "0 * * * * *")
     public void processRappels() {
         log.info("Cron rappels — vérification à {}", LocalDateTime.now());

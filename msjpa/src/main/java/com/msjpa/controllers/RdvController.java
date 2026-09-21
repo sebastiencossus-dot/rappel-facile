@@ -7,6 +7,8 @@ import com.msjpa.repositories.RdvRepository;
 import com.msjpa.services.RdvService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -61,7 +63,10 @@ public class RdvController {
 
         // Vérification sécurité : le rdv appartient bien à l'user connecté
         if (!rdv.getUser().getEmail().equals(email)) {
-            throw new RuntimeException("Accès non autorisé");
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN,
+                    "Accès non autorisé"
+            );
         }
 
         rdv.setIsOK(statut);  // 0 = réalisé, 3 = non réalisé
@@ -78,7 +83,10 @@ public class RdvController {
                 .orElseThrow(() -> new RuntimeException("RDV introuvable : " + id));
 
         if (!rdv.getUser().getEmail().equals(email)) {
-            throw new RuntimeException("Accès non autorisé");
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN,
+                    "Accès non autorisé"
+            );
         }
 
         Rappels rappel = new Rappels();
