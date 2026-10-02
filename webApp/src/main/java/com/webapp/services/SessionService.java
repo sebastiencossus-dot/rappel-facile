@@ -15,7 +15,7 @@ public class SessionService {
 
     private final MsJpaClient msJpaClient;
 
-    // ✅ Sans HttpSession
+    // Sans HttpSession
     public User sessionUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 

@@ -18,7 +18,7 @@ public class StatsService {
     private final VisiteRepository visiteRepository;
     private final RdvStatRepository rdvStatRepository;
 
-    // ✅ Enregistrer une connexion
+    // Enregistrer une connexion
     public void recordConnexion(ConnexionRequest request) {
         ConnexionEvent event = new ConnexionEvent();
         event.setUserEmail(request.getUserEmail());
@@ -27,7 +27,7 @@ public class StatsService {
         connexionRepository.save(event);
     }
 
-    // ✅ Enregistrer une visite
+    // Enregistrer une visite
     public void recordVisite(VisiteRequest request) {
         VisiteEvent event = new VisiteEvent();
         event.setUserEmail(request.getUserEmail());
@@ -36,7 +36,7 @@ public class StatsService {
         visiteRepository.save(event);
     }
 
-    // ✅ Enregistrer stats RDV
+    // Enregistrer stats RDV
     public void recordRdvStat(RdvStatRequest request) {
         RdvStatEvent event = new RdvStatEvent();
         event.setUserEmail(request.getUserEmail());
@@ -46,7 +46,7 @@ public class StatsService {
         rdvStatRepository.save(event);
     }
 
-    // ✅ Dashboard complet
+    // Dashboard complet
     public DashboardStatsDTO getDashboard() {
         LocalDateTime startOfDay = LocalDate.now().atStartOfDay();
         LocalDateTime endOfDay = startOfDay.plusDays(1);

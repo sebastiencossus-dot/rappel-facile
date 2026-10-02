@@ -38,7 +38,7 @@ public class AdminStatsService {
     public Map<String, Long> getStats() {
         Map<String, Long> stats = msJpaClient.getAdminStats();
 
-        // ✅ On remplace le 0L par le vrai nombre de prestataires via msprof
+
         long nbPrestataires = msProfClient.findAll().size();
 
         return Map.of(
@@ -49,7 +49,7 @@ public class AdminStatsService {
         );
     }
 
-    // Ajouter l'injection et la méthode
+
     private final MsstatsClient msstatsClient;
 
     public DashboardStatsDTO getMongoStats() {

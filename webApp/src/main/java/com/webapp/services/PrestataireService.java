@@ -15,7 +15,6 @@ import java.util.List;
 public class PrestataireService {
 
     private final PrestataireClient client;
-    // MsJpaClient supprimé — plus nécessaire ici
 
     @Cacheable("prestataires")
     public List<PrestataireResponseDTO> findAll() {

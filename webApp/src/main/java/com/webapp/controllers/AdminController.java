@@ -26,7 +26,6 @@ public class AdminController {
         model.addAttribute("nbRdv", adminRdvService.findAll().size());
         model.addAttribute("mongoStats", adminService.getMongoStats());
 
-        // temporaire si tu n’as pas encore de service
         model.addAttribute("nbAlertes", 0);
         return "admin-dashboard";
     }

@@ -40,7 +40,6 @@ function toggleNouvelleAdresse() {
     const isNouvelle = select.value === '';
     div.style.display = isNouvelle ? 'block' : 'none';
 
-    // ← désactive les champs si cachés, ils ne seront pas soumis
     inputs.forEach(input => input.disabled = !isNouvelle);
 }
 

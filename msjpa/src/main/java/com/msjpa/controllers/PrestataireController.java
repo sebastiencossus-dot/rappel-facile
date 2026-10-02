@@ -62,14 +62,14 @@ public class PrestataireController {
         p.setExercices(new ArrayList<>());
         p.setLocals(new ArrayList<>());
 
-        // Sauvegarder d'abord le prestataire pour avoir son id
+
         prestataireRepository.save(p);
         prestataireRepository.flush();
 
-        // Ensuite ajouter les professions
+
         if (dto.getProfessionIds() != null) {
             for (Integer idProf : dto.getProfessionIds()) {
-                // Recharger la profession depuis la BDD (évite l'objet transient)
+
                 Professions prof = professionRepository.findById(idProf)
                         .orElseThrow(() -> new RuntimeException("Profession introuvable : " + idProf));
 
@@ -78,7 +78,7 @@ public class PrestataireController {
                 exerceId.setProfessionsId(idProf);
 
                 Exerce ex = new Exerce();
-                ex.setId(exerceId);        // ← clé composite initialisée
+                ex.setId(exerceId);
                 ex.setPrestataires(p);
                 ex.setProfessions(prof);
                 ex.setValide(true);
@@ -89,7 +89,7 @@ public class PrestataireController {
         if (dto.getAdresses() != null) {
             for (AdresseDTO a : dto.getAdresses()) {
 
-                // ← ignorer les adresses vides
+                // ignorer les adresses vides
                 if (a.getRue() == null && a.getVille() == null
                         && a.getNumero() == null && a.getCodepostal() == null) {
                     continue;
@@ -137,7 +137,7 @@ public class PrestataireController {
         Prestataires p = prestataireRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Prestataire introuvable : " + id));
 
-        // Stop when a prestataire a in a rdv
+
         List<RDV> rdvs = rdvRepository.findByPrestatairesId(id);
         if (!rdvs.isEmpty()) {
             return ResponseEntity

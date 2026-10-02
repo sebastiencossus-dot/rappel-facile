@@ -87,10 +87,6 @@ public class PrestataireController {
             @RequestParam(required = false) List<String> villes,
             @RequestParam(required = false) List<String> codePostals) {
 
-        // --- Construction de la liste des adresses, alignée bloc par bloc ---
-        // Chaque index i correspond à un bloc "adresse" du formulaire :
-        // soit une adresse existante (adresseIds.get(i) renseigné),
-        // soit une nouvelle adresse saisie (rues/numeros/villes/codePostals.get(i)).
         List<AdresseDTO> adresses = new ArrayList<>();
 
         int nbBlocs = (adresseIds != null) ? adresseIds.size() : 0;

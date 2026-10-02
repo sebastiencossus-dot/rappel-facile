@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor  // ✅ remplace @Autowired + constructeur manquant
+@RequiredArgsConstructor
 public class AuthentificationService implements UserDetailsService {
 
     private final MsJpaClient msJpaClient;

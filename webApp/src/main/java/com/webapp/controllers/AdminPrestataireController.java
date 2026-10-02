@@ -42,7 +42,7 @@ public class AdminPrestataireController {
             adminPrestataireService.delete(id);
             redirectAttributes.addFlashAttribute("success", "Prestataire supprimé avec succès");
         } catch (Exception e) {
-            // ✅ Afficher le message d'erreur retourné par msadmin/msjpa
+            // Afficher le message d'erreur retourné par msadmin/msjpa
             redirectAttributes.addFlashAttribute("error",
                     "Suppression impossible : ce prestataire a des RDV associés");
         }

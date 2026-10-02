@@ -294,7 +294,7 @@ class RdvControllerTest {
                 );
 
         assertEquals(
-                "Accès non autorisé",
+                "403 FORBIDDEN \"Accès non autorisé\"",
                 exception.getMessage()
         );
 
@@ -372,7 +372,7 @@ class RdvControllerTest {
                 );
 
         assertEquals(
-                "Accès non autorisé",
+                "403 FORBIDDEN \"Accès non autorisé\"",
                 exception.getMessage()
         );
 

@@ -149,7 +149,7 @@ import java.util.List;
                 existing.setProfessions(prof);
             }
 
-            // isOK et user ne sont jamais touchés → conservés automatiquement
+
 
             return rdvRepository.save(existing);
         }

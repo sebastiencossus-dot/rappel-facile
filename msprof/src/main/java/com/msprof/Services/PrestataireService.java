@@ -36,10 +36,6 @@ public class PrestataireService {
         client.createPrestataire(dto);
     }
 
-    // ⚠️ Vérifier PrestataireMapper.toJpa() : si elle ne sait construire
-    // qu'un PrestataireDTO (pas un PrestataireUpdateDTO), il faudra soit
-    // une méthode toUpdateJpa() dédiée, soit accepter directement
-    // un PrestataireUpdateDTO ici en entrée (voir remarque ci-dessous).
     public void update(Integer id, PrestataireRequestDTO request) {
         PrestataireUpdateDTO dto = PrestataireMapper.toJpaUpdate(request);
         client.updatePrestataire(id, dto);

@@ -1,6 +1,3 @@
-// Ce fichier suppose que `professions` et `adresses` sont déjà déclarés
-// globalement par le <script th:inline="javascript"> de la page HTML.
-// Ne PAS redéclarer ces variables ici (sinon SyntaxError: redeclaration).
 
 function addProfession() {
     const container = document.getElementById('profession-container');
@@ -48,13 +45,10 @@ function addAdresse() {
     `;
     container.appendChild(div);
 
-    // Le nouveau bloc est sur "-- Nouvelle adresse --" par défaut :
-    // on affiche directement les champs de saisie sans attendre un onchange.
     const newSelect = div.querySelector('select[name="adresseIds"]');
     toggleNewAdresse(newSelect);
 }
 
-// Afficher/masquer les champs nouvelle adresse
 function toggleNewAdresse(select) {
     const fields = select.nextElementSibling;
     if (select.value === '') {

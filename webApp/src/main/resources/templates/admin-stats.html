@@ -88,7 +88,7 @@
     </main>
 </div>
 
-<!-- ✅ Passer les données Thymeleaf en JSON pour Chart.js -->
+<!-- Passer les données Thymeleaf en JSON pour Chart.js -->
 <script th:inline="javascript">
     const connexionsParHeure = /*[[${mongoStats != null ? mongoStats.connexionsParHeure : {}}]]*/ {};
     const visitesParPage = /*[[${mongoStats != null ? mongoStats.visitesParPage : {}}]]*/ {};
