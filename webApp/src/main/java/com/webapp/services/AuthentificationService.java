@@ -20,7 +20,6 @@ public class AuthentificationService implements UserDetailsService {
 
     private final MsJpaClient msJpaClient;
 
-
     private static final Logger log = LoggerFactory.getLogger(AuthentificationService.class);
 
     @Override
@@ -28,7 +27,6 @@ public class AuthentificationService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         try {
             User user = msJpaClient.findUserByEmail(email);
-            log.info("ROLE RECU DE MSJPA = {}", user.getRole());
 
             if (user == null || user.getEmail() == null || user.getPassword() == null) {
                 log.warn("Utilisateur introuvable ou incomplet : {}", email);

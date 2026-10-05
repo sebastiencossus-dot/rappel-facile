@@ -14,7 +14,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AdminService {
 
-    private final MsAdminClient msAdminClient; // ✅ remplace msJpaClient
+    private final MsAdminClient msAdminClient;
 
     public Map<String, Long> getStats() {
         return msAdminClient.getAdminStats();

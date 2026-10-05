@@ -105,7 +105,7 @@ public class RdvController {
         existing.setPrestataireId(form.getPrestataireId());
         existing.setAdresseId(form.getAdresseId());
         existing.setProfessionId(form.getProfessionId());
-        // isOK, userId, etc. restent inchangés car on repart de l'objet existant
+
 
         rdvService.updateRdv(id, existing);
         return "redirect:/rdv";

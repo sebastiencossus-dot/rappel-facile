@@ -10,7 +10,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminUserService {
 
-    private final MsAdminClient msAdminClient; // ✅ remplace msJpaClient
+    private final MsAdminClient msAdminClient;
 
     public List<User> findAll() {
         return msAdminClient.findAllUsers();

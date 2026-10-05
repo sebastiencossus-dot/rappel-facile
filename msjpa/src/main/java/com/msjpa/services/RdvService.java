@@ -76,14 +76,9 @@ import java.util.List;
             user.setId(dto.getUserId());
             rdv.setUser(user);
 
-
             Prestataires prest = new Prestataires();
             prest.setId(dto.getPrestataireId());
             rdv.setPrestataires(prest);
-
-
-//
-
 
             Professions prof = new Professions();
             prof.setId(dto.getProfessionId());
