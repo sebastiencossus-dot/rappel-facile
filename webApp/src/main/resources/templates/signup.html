@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="/css/style.css" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body style="background-color:#B0E1FA;">
@@ -31,6 +32,12 @@
 
             <!-- Formulaire -->
             <div style="background-color:#ffffff; border-radius:0 0 25px 25px; padding:30px; box-shadow:4px 4px 8px 0 rgba(0,0,0,0.2);">
+
+                <div th:if="${error}"
+                     class="alert alert-danger text-center"
+                     role="alert"
+                     th:text="${error}">
+                </div>
 
                 <form th:action="@{/signup}" th:object="${signUpForm}" method="POST" enctype="multipart/form-data">
 
@@ -114,6 +121,13 @@
                         <i class="fa-regular fa-eye toggle-password"
                            data-target="confirmPassword"
                            style="position:absolute; right:18px; bottom:14px; cursor:pointer; color:#555;"></i>
+                    </div>
+
+                    <!-- CAPTCHA Cloudflare Turnstile -->
+                    <div class="d-flex justify-content-center mt-4">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAFPPr67TnyNQTd6K">
+
+                        </div>
                     </div>
 
                     <div class="d-grid mt-4">

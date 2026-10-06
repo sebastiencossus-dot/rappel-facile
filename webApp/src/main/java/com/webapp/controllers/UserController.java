@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import com.webapp.services.TurnstileService;
 
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,12 +34,16 @@ public class UserController {
 
     private final UserService userService;
     private final SessionService sessionService;
+    private final TurnstileService turnstileService;
 
 
-    public UserController(com.webapp.services.UserService userService, SessionService sessionService) {
+    public UserController(UserService userService,
+                          SessionService sessionService,
+                          TurnstileService turnstileService) {
+
         this.userService = userService;
         this.sessionService = sessionService;
-
+        this.turnstileService = turnstileService;
     }
 
     @GetMapping("/")
@@ -56,17 +61,22 @@ public class UserController {
 
     @PostMapping("/signup")
     public String signup(@ModelAttribute SignUpForm form,
-                         @RequestParam("photoFile") MultipartFile photoFile) {
+                         @RequestParam("photoFile") MultipartFile photoFile,
+                         @RequestParam(value = "cf-turnstile-response", required = false) String turnstileToken,
+                         RedirectAttributes redirectAttributes) {
+
+        // Vérification du CAPTCHA avant toute création
+        if (!turnstileService.verify(turnstileToken)) {
+            redirectAttributes.addFlashAttribute(
+                    "error",
+                    "La vérification de sécurité a échoué. Veuillez réessayer."
+            );
+
+            return "redirect:/signup";
+        }
 
         String photoFilename = fileStorageService.storeUserPhoto(photoFile);
         form.setPhoto(photoFilename);
-
-        User user = new User();
-        user.setNom(form.getNom());
-        user.setPrenom(form.getPrenom());
-        user.setEmail(form.getEmail());
-        user.setTel(form.getTel());
-        user.setPassword(form.getPassword());
 
         userService.registration(form);
 

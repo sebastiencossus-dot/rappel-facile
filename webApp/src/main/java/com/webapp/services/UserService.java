@@ -31,6 +31,9 @@ public class UserService {
         user.setPhoto(form.getPhoto());
         user.setPassword(passwordEncoder.encode(form.getPassword()));
 
+        System.out.println("=== AVANT APPEL FEIGN MSJPA ===");
+        System.out.println("Email : " + user.getEmail());
+
         return msJpaClient.createUser(user);
     }
 

@@ -19,6 +19,9 @@ public class UserController {
     @PostMapping
     public User createUser(@RequestBody User user) {
 
+        System.out.println("=== POST /users RECU ===");
+        System.out.println("Email reçu : " + user.getEmail());
+
         if (user.getRole() == null) {
             user.setRole("USER");
         }

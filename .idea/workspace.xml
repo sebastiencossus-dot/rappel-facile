@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="review code and comment">
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/TurnstileService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/RdvRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/repositories/RdvRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/RdvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/RdvService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/RdvController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AdminUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AuthentificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/AuthentificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/signup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,21 +205,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RdvServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msjpa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msjpa.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.msjpa.services" />
-      <option name="MAIN_CLASS_NAME" value="com.msjpa.services.RdvServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="msjpa" />
       <method v="2">
@@ -245,19 +230,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WebappApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="TURNSTILE_SECRET_KEY" value="0x4AAAAAAFPPr0E6s7yzq5NnxmBGnCKslgY" />
+      </envs>
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <module name="webapp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.webapp.WebappApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.webapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
       </deployment>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JUnit.All in msadmin" />
+      <item itemvalue="JUnit.RdvControllerMockMvcTest" />
+      <item itemvalue="JUnit.RdvControllerTest" />
+      <item itemvalue="JUnit.RdvRepositoryTest" />
+      <item itemvalue="Spring Boot.MsjpaApplication" />
+      <item itemvalue="Spring Boot.WebappApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.MsjpaApplication" />
+        <item itemvalue="Spring Boot.WebappApplication" />
         <item itemvalue="JUnit.RdvRepositoryTest" />
         <item itemvalue="JUnit.RdvControllerMockMvcTest" />
         <item itemvalue="JUnit.RdvControllerTest" />
-        <item itemvalue="JUnit.RdvServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -508,7 +518,15 @@
       <option name="project" value="LOCAL" />
       <updated>1790946564646</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="review code and comment">
+      <option name="closed" value="true" />
+      <created>1791209111105</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1791209111106</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
