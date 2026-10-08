@@ -91,6 +91,8 @@ services:
       SPRING_CLOUD_CONSUL_HOST: consul
       SPRING_CLOUD_CONSUL_PORT: 8500
       SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+      TURNSTILE_SECRET_KEY: 0x4AAAAAAFPPr0E6s7yzq5NnxmBGnCKslgY
+
     networks:
       - rappel
 

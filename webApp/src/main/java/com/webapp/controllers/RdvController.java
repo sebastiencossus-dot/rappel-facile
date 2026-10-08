@@ -119,7 +119,7 @@ public class RdvController {
 
     @GetMapping("/rdv/{id}")
     public ModelAndView detailRdv(@PathVariable Integer id) {
-        String email = sessionService.sessionUser().getEmail(); // ✅ sans HttpSession
+        String email = sessionService.sessionUser().getEmail();
         RDV rdv = msJpaClient.getRdv(id, email);
         if (rdv == null) return new ModelAndView("redirect:/rdv");
         return new ModelAndView("detailRdv", "rdv", rdv);
@@ -128,9 +128,9 @@ public class RdvController {
     @PostMapping("/rdv/{id}/valider")
     public String validerRdv(@PathVariable Integer id,
                              @RequestParam Integer statut) {
-        User user = sessionService.sessionUser(); // ✅ sans HttpSession
+        User user = sessionService.sessionUser();
         rdvService.validerRdv(id, statut, user.getEmail());
-        return "redirect:/rdv"; // ✅ corrigé : redirect:/rdv et non redirect:/
+        return "redirect:/rdv";
     }
 
     @GetMapping("/rdv/{id}/alerte/add")
