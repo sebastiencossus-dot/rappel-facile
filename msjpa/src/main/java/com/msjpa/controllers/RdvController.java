@@ -59,7 +59,10 @@ public class RdvController {
                           @RequestParam String email) {
 
         RDV rdv = rdvRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("RDV introuvable : " + id));
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "RDV introuvable : " + id
+                ));
 
         // Vérification sécurité : le rdv appartient bien à l'user connecté
         if (!rdv.getUser().getEmail().equals(email)) {
