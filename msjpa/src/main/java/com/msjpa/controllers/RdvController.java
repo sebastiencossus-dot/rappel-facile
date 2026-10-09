@@ -61,7 +61,7 @@ public class RdvController {
         RDV rdv = rdvRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND,
-                        "RDV introuvable : " + id
+                        "Rendez-vous introuvable : " + id
                 ));
 
         // Vérification sécurité : le rdv appartient bien à l'user connecté
@@ -83,7 +83,10 @@ public class RdvController {
                              @RequestParam String email) {
 
         RDV rdv = rdvRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("RDV introuvable : " + id));
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Rendez-vous introuvable : " + id
+                ));
 
         if (!rdv.getUser().getEmail().equals(email)) {
             throw new ResponseStatusException(
@@ -118,7 +121,10 @@ public class RdvController {
     @DeleteMapping("/admin/{id}")
     public void deleteRdvAdmin(@PathVariable Integer id) {
         RDV rdv = rdvRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("RDV introuvable : " + id));
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Rendez-vous introuvable : " + id
+                ));
         rdvRepository.delete(rdv);
     }
 }

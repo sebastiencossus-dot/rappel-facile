@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title} + ' - Rappel Facile'">Erreur - Rappel Facile</title>
+    <link rel="stylesheet" th:href="@{/css/error.css}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+<main class="error-container">
+    <section class="error-card">
+
+        <div class="error-icon" aria-hidden="true">
+            <i th:class="${icon}" aria-hidden="true"></i>
+        </div>
+
+        <div class="error-code" th:text="${code}">404</div>
+
+        <h1 th:text="${title}">Page introuvable</h1>
+
+        <p class="error-message" th:text="${message}">
+            Une erreur est survenue.
+        </p>
+
+        <a th:href="@{/rdv}" class="error-button">
+            &larr; Retour à mes rendez-vous
+        </a>
+
+        <p class="error-footer">Rappel Facile · Votre assistant de rendez-vous</p>
+
+    </section>
+</main>
+
+</body>
+</html>

@@ -6,6 +6,8 @@ import com.msjpa.models.*;
 import com.msjpa.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -86,21 +88,33 @@ import java.util.List;
 
             if (dto.getUserId() != null) {
                 rdv.setUser(userRepository.findById(dto.getUserId())
-                        .orElseThrow(() -> new RuntimeException("User introuvable")));
+                        .orElseThrow(() -> new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST,
+                                "Utilisateur introuvable"
+                        )));
             }
             if (dto.getPrestataireId() != null) {
                 rdv.setPrestataires(prestataireRepository.findById(dto.getPrestataireId())
-                        .orElseThrow(() -> new RuntimeException("Prestataire introuvable")));
+                        .orElseThrow(() -> new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST,
+                                "Prestataire introuvable"
+                        )));
             }
             if (dto.getAdresseId() != null) {
                 Adresses adresse = adresseRepository.findById(dto.getAdresseId())
-                        .orElseThrow(() -> new RuntimeException("Adresse introuvable"));
+                        .orElseThrow(() -> new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST,
+                                "Adresse introuvable"
+                        ));
 
                 rdv.setAdresses(adresse);
             }
             if (dto.getProfessionId() != null) {
                 rdv.setProfessions(professionRepository.findById(dto.getProfessionId())
-                        .orElseThrow(() -> new RuntimeException("Profession introuvable")));
+                        .orElseThrow(() -> new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST,
+                                "Profession introuvable"
+                        )));
             }
 
             RDV savedRdv = rdvRepository.save(rdv);
@@ -116,11 +130,18 @@ import java.util.List;
 
 
         public RDV updateRdv(Integer id, RdvUpdateDTO dto, String email) {
+
             RDV existing = rdvRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("RDV introuvable : " + id));
+                    .orElseThrow(() -> new ResponseStatusException(
+                            HttpStatus.NOT_FOUND,
+                            "Rendez-vous introuvable : " + id
+                    ));
 
             if (!existing.getUser().getEmail().equals(email)) {
-                throw new RuntimeException("Accès non autorisé");
+                throw new ResponseStatusException(
+                        HttpStatus.FORBIDDEN,
+                        "Accès non autorisé à ce rendez-vous"
+                );
             }
 
             existing.setDateRdv(dto.getDateRdv());
@@ -128,34 +149,48 @@ import java.util.List;
 
             if (dto.getPrestataireId() != null) {
                 Prestataires p = prestataireRepository.findById(dto.getPrestataireId())
-                        .orElseThrow(() -> new RuntimeException("Prestataire introuvable"));
+                        .orElseThrow(() -> new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST,
+                                "Prestataire introuvable"
+                        ));
                 existing.setPrestataires(p);
             }
 
             if (dto.getAdresseId() != null) {
                 Adresses a = adresseRepository.findById(dto.getAdresseId())
-                        .orElseThrow(() -> new RuntimeException("Adresse introuvable"));
+                        .orElseThrow(() -> new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST,
+                                "Adresse introuvable"
+                        ));
                 existing.setAdresses(a);
             }
 
             if (dto.getProfessionId() != null) {
                 Professions prof = professionRepository.findById(dto.getProfessionId())
-                        .orElseThrow(() -> new RuntimeException("Profession introuvable"));
+                        .orElseThrow(() -> new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST,
+                                "Profession introuvable"
+                        ));
                 existing.setProfessions(prof);
             }
-
-
 
             return rdvRepository.save(existing);
         }
 
 
         public void deleteRdv(Integer id, String email) {
+
             RDV existing = rdvRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("RDV not found"));
+                    .orElseThrow(() -> new ResponseStatusException(
+                            HttpStatus.NOT_FOUND,
+                            "Rendez-vous introuvable : " + id
+                    ));
 
             if (!existing.getUser().getEmail().equals(email)) {
-                throw new RuntimeException("Unauthorized");
+                throw new ResponseStatusException(
+                        HttpStatus.FORBIDDEN,
+                        "Accès non autorisé à ce rendez-vous"
+                );
             }
 
             rappelsRepository.deleteAll(existing.getRappels());
@@ -166,10 +201,16 @@ import java.util.List;
         public RDV getRdvById(Integer id, String email) {
 
             RDV rdv = rdvRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("RDV not found"));
+                    .orElseThrow(() -> new ResponseStatusException(
+                            HttpStatus.NOT_FOUND,
+                            "Rendez-vous introuvable : " + id
+                    ));
 
             if (!rdv.getUser().getEmail().equals(email)) {
-                throw new RuntimeException("Unauthorized");
+                throw new ResponseStatusException(
+                        HttpStatus.FORBIDDEN,
+                        "Accès non autorisé à ce rendez-vous"
+                );
             }
 
             return rdv;

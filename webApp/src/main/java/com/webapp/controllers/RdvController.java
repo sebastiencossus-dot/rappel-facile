@@ -209,4 +209,5 @@ public class RdvController {
 
         return Map.of("professions", professions, "adresses", adresses);
     }
+
 }

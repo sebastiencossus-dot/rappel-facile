@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="add captcha to signup for more security">
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/error.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/error/error-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/controllers/RdvController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/RdvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/msjpa/src/main/java/com/msjpa/services/RdvService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/java/com/webapp/controllers/RdvController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_generals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/_generals.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -144,7 +151,7 @@
       <recent name="com.msrappel.Models" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MsjpaApplication">
+  <component name="RunManager" selected="Spring Boot.MsprofApplication">
     <configuration name="All in msadmin" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="msadmin" />
       <option name="PACKAGE_NAME" value="" />
@@ -165,21 +172,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.msjpa.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.msjpa.controllers.RdvControllerMockMvcTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RdvControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msjpa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msjpa.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.msjpa.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.msjpa.controllers.RdvControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -225,6 +217,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MsprofApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <module name="msprof" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.msprof.MsprofApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msprof.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WebappApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="TURNSTILE_SECRET_KEY" value="0x4AAAAAAFPPr0E6s7yzq5NnxmBGnCKslgY" />
@@ -251,18 +257,18 @@
     <list>
       <item itemvalue="JUnit.All in msadmin" />
       <item itemvalue="JUnit.RdvControllerMockMvcTest" />
-      <item itemvalue="JUnit.RdvControllerTest" />
       <item itemvalue="JUnit.RdvRepositoryTest" />
+      <item itemvalue="Spring Boot.MsprofApplication" />
       <item itemvalue="Spring Boot.MsjpaApplication" />
       <item itemvalue="Spring Boot.WebappApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.MsjpaApplication" />
         <item itemvalue="Spring Boot.WebappApplication" />
+        <item itemvalue="Spring Boot.MsprofApplication" />
+        <item itemvalue="Spring Boot.MsjpaApplication" />
         <item itemvalue="JUnit.RdvRepositoryTest" />
         <item itemvalue="JUnit.RdvControllerMockMvcTest" />
-        <item itemvalue="JUnit.RdvControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -537,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791464640871</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="add captcha to signup for more security">
+      <option name="closed" value="true" />
+      <created>1791531712065</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1791531712065</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -587,6 +601,10 @@
           <line>13</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
