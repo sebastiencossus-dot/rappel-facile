@@ -44,7 +44,7 @@ public class RdvService {
         dto.setProfessionId(form.getProfessionId());
 
         User user = sessionService.sessionUser();
-        dto.setUserId(user.getIdUser());  // ← idUser de webapp
+        dto.setUserId(user.getIdUser());
 
         return msJpaClient.createRdv(dto);
     }

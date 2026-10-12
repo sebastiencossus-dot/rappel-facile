@@ -22,10 +22,8 @@ public class RdvService {
     }
 
     public RdvDTO updateRdv(Integer id, RDV rdv, String email) {
-        // sécurité métier côté msRdv (optionnel)
+
         RdvDTO existing = rdvClient.getById(id);
-
-
 
         return rdvClient.update(id, rdv);
     }
@@ -33,15 +31,11 @@ public class RdvService {
     public void deleteRdv(Integer id, String email) {
         RdvDTO existing = rdvClient.getById(id);
 
-
-
         rdvClient.delete(id);
     }
 
     public RdvDTO getRdvById(Integer id, String email) {
         RdvDTO rdv = rdvClient.getById(id);
-
-
 
         return rdv;
     }

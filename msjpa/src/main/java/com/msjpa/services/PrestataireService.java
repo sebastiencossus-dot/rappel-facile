@@ -28,7 +28,7 @@ public class PrestataireService {
     }
 
     @Autowired
-    private AdresseRepository adresseRepository; // à injecter
+    private AdresseRepository adresseRepository;
 
     @Transactional
     public void create(PrestataireDTO dto) {
@@ -112,18 +112,13 @@ public class PrestataireService {
         prestataireRepository.save(p);
     }
 
-    /**
-     * Retire les professions qui ne sont plus sélectionnées et ajoute
-     * celles qui manquent, en rechargeant Professions depuis la BDD
-     * (objet géré par Hibernate, contrairement à new Professions() + setId()).
-     */
+
     private void syncExercices(Prestataires p, List<Integer> professionIds) {
 
         java.util.Set<Integer> nouvellesIds = (professionIds != null)
                 ? new java.util.HashSet<>(professionIds)
                 : new java.util.HashSet<>();
 
-        // nécessite orphanRemoval = true sur @OneToMany exercices dans Prestataires
         p.getExercices().removeIf(ex -> !nouvellesIds.contains(ex.getProfessions().getId()));
 
         java.util.Set<Integer> idsExistants = p.getExercices().stream()
@@ -210,7 +205,6 @@ public class PrestataireService {
             }
         }
 
-        // nécessite orphanRemoval = true sur @OneToMany locals dans Prestataires
         p.getLocals().removeIf(l -> !adresseIdsVoulues.contains(l.getAdresses().getId()));
     }
 

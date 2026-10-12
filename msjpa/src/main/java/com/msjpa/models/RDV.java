@@ -49,47 +49,4 @@ public class RDV {
     @OneToMany(mappedBy = "rdv", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Rappels> rappels;
 
-    public Integer getIsOK() { return isOK; }
-
-    public void setIsOK(Integer isOK) { this.isOK = isOK; }
-
-    public Professions getProfessions() {
-        return professions;
-    }
-
-    public void setProfessions(Professions professions) {
-        this.professions = professions;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Adresses getAdresses() {
-        return adresses;
-    }
-
-    public void setAdresses(Adresses adresses) {
-        this.adresses = adresses;
-    }
-
-    public Prestataires getPrestataires() {
-        return prestataires;
-    }
-
-    public void setPrestataires(Prestataires prestataires) {
-        this.prestataires = prestataires;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }

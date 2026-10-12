@@ -61,15 +61,6 @@ public class ChartsController {
         return mav;
     }
 
-//    @GetMapping("/details")
-//    public List<RDV> getDetails(
-//            @RequestParam int mois,
-//            @RequestParam String type, // categorie OU statut
-//            @RequestParam String valeur
-//    ) {
-//        return rdvService.getDetails(mois, type, valeur);
-//    }
-
     @GetMapping("/qrcode")
     public String qrcode() {
         return "qrcode";

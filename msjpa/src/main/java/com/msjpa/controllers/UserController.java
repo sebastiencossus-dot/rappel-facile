@@ -58,7 +58,7 @@ public class UserController {
         user.setEmail(updatedUser.getEmail());
         user.setTel(updatedUser.getTel());
         user.setRole(updatedUser.getRole());
-        // password non modifié ici, géré séparément via changePassword
+
 
         return userRepository.save(user);
     }

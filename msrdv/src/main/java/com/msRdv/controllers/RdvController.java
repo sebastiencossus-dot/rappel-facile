@@ -40,7 +40,6 @@ public class RdvController {
 
     @PostMapping
     public RdvDTO createRdv(@ModelAttribute rdvForm form) {
-        System.out.println("FORM RECU : " + form);
 
         return null;
     }

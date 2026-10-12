@@ -119,6 +119,7 @@ import java.util.List;
 
             RDV savedRdv = rdvRepository.save(rdv);
 
+            /** enregistrement du rappel a 24h */
             Rappels rappel = new Rappels();
             rappel.setRdv(savedRdv);
             rappel.setTypeAlerte("EMAIL");
