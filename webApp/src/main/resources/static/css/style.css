@@ -4,16 +4,29 @@ body {
   font-family: "Roboto", sans-serif;
   color: #000000;
   margin: 0 50px 0 50px;
+  font-size: 20px;
 }
 
 .Container {
   min-width: 300px;
   margin: auto;
 }
+
+img {
+  box-sizing: content-box;
+}
+
 @media screen and (min-width: 800px) {
   .Container {
     width: 90%;
   }
+}
+
+@media screen and (min-width: 1100px) {
+    .Container {
+        max-width: 1100px;
+        background-color: red;
+    }
 }
 
 p {
@@ -28,14 +41,14 @@ p {
   height: 80px;
   margin: 10px;
   z-index: 99;
-  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .HeaderBox-title {
   color: #F79BC5;
   font-family: "Roboto", sans-serif;
   font-size: 26px;
   margin: 0;
-  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .HeaderBox .NavBox {
   width: 100%;
@@ -79,7 +92,7 @@ p {
 }
 .HeaderBox .NavBox-toggleMenu {
   background-color: rgba(77, 102, 242, 0.95);
-  width: 100%;
+  width: 1100px;
   height: 100vh;
   font-size: 32px;
   padding-inline: 2em;
@@ -217,6 +230,19 @@ p {
   width: 100%;
 }
 @media screen and (min-width: 800px) {
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .Container {
+        flex: 1;
+      }
+      .NavFooter {
+        margin-top: auto;
+      }
+
   .ContentBox-rdvBox {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -228,6 +254,7 @@ p {
   .ContentBox-rdvBox.jour {
     grid-column: 1/2;
     grid-row: 1/2;
+    margin: auto;
   }
   .ContentBox-rdvBox.autre {
     grid-column: 2/3;
@@ -236,12 +263,48 @@ p {
   .ContentBox-rdvBox.attente {
     grid-column: 1/2;
     grid-row: 2/3;
+    margin: auto;
   }
   .ContentBox-rdvBox-title {
     text-align: left;
     padding: 50px 0 0 50px;
     width: 80%;
   }
+}
+@media screen and (min-width: 1100px) {
+
+       body {
+            width: 60%;
+
+            min-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+            min-height: calc(100vh - 40px);
+        }
+
+   .HeaderBox .NavBox {
+           position: relative;
+           z-index: 10;
+       }
+
+       .HeaderBox .NavBox-toggleMenu {
+           position: static;
+           width: 100%;
+           padding-inline: 0;
+       }
+
+       .HeaderBox .NavBox-menuPrincipal {
+           padding-left: 0;
+           flex-wrap: nowrap;
+       }
+
+       .HeaderBox-title {
+           white-space: nowrap;
+       }
 }
 
 .RdvBox {
@@ -320,7 +383,7 @@ p {
 }
 @media screen and (min-width: 800px) {
   .RdvBox {
-    width: 100%;
+    max-width: 600px;
   }
   .RdvBox-card-text {
     display: flex;
@@ -339,19 +402,20 @@ p {
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  padding: 0 30px 0 30px;
+  width: 100%;
 }
 .NavAdd-nav-link-text {
   display: none;
 }
 .NavAdd-nav-link img {
   height: 20px;
+  padding: 0 25px;
 }
 @media screen and (min-width: 800px) {
   .NavAdd {
     position: absolute;
-    top: 100px;
-    width: 90%;
+    top: 130px;
+    max-width: 1100px;
     background-color: #B0E1FA;
   }
   .NavAdd-nav {
@@ -364,6 +428,7 @@ p {
     vertical-align: baseline;
     border-radius: 15px;
     padding: 5px 10px 5px 10px;
+    margin-left: 100px;
   }
   .NavAdd-nav-link-text {
     display: inline;
@@ -386,17 +451,68 @@ p {
   font-size: 12px;
 }
 @media screen and (min-width: 800px) {
+
+  /* Réordonnancement : header, puis NavAdd, puis le reste */
+  .Container {
+    display: flex;
+    flex-direction: column;
+  }
+  .HeaderBox {
+    order: 1;
+  }
+  .NavAdd {
+    order: 2;
+    position: absolute;
+    max-width: 1000px;
+    background-color: #B0E1FA;
+    margin-top: 20px;
+  }
+  .Container > *:not(.HeaderBox):not(.NavAdd) {
+    order: 3;
+  }
+
+  /* Footer fixe en bas de la fenêtre */
   .NavFooter {
-    display: block;
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 150px;
+
     text-align: center;
-    padding: 20px 0 20px 0;
+    padding: 15px 0;
     color: #000000;
     font-family: "Roboto", sans-serif;
-    font-size: 14px;
+    font-size: 20px;
+
+    position: fixed;
+    bottom: 25px;
+    max-width: 1000px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #B0E1FA;
+    z-index: 50;
+  }
+
+  body {
+    padding-bottom: 70px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  body {
+    width: 60%;
+    min-width: 1100px;
+    margin: 20px auto;
+    padding: 20px 20px 90px 20px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+
+
+  }
+  .NavFooter {
+    max-width: 1000px;
   }
 }
 
@@ -557,8 +673,10 @@ p {
   justify-content: center;
   padding-right: 10px;
   width: 60%;
-  text-align: right;
+  text-align: left;
   margin-left: auto;
+  font-size: 18px;
+  font-weight: bold;
 }
 .ContentBox2-detailRdv-card .Center {
   margin: auto;
@@ -568,11 +686,11 @@ p {
   justify-content: center;
   background-color: #B0E1FA;
   text-decoration: none;
-  width: 90%;
+  max-width: 350px;
   gap: 20px;
   border: black 1px solid;
   border-radius: 15px;
-  padding: 10px 0px 10px 0;
+  padding: 10px 10px 10px 10px;
   margin: 5% auto 5% auto;
 }
 .ContentBox2-detailRdv-btn:hover {
@@ -615,6 +733,7 @@ p {
     grid-column: -4/-3;
     grid-row: 6/7;
     margin: 10px;
+    max-width: 350px;
   }
 }
 
@@ -924,6 +1043,12 @@ p {
   }
   .AdminContent {
     padding: 80px 20px 30px 20px; /* espace pour le burger en haut */
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: content-box;
   }
 
 
