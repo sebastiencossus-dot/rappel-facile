@@ -411,33 +411,43 @@ p {
   height: 20px;
   padding: 0 25px;
 }
+
 @media screen and (min-width: 800px) {
-  .NavAdd {
-    position: absolute;
-    top: 130px;
-    max-width: 1100px;
-    background-color: #B0E1FA;
-  }
-  .NavAdd-nav {
-    justify-content: space-between;
-  }
-  .NavAdd-nav-link {
-    display: flex;
-    text-decoration: none;
-    background-color: #EFE9B7;
-    vertical-align: baseline;
-    border-radius: 15px;
-    padding: 5px 10px 5px 10px;
-    margin-left: 100px;
-  }
-  .NavAdd-nav-link-text {
-    display: inline;
-    height: 20px;
-    margin-left: 10px;
-    color: #000000;
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-  }
+
+    .NavAdd {
+        position: absolute;
+        top: 130px;
+        width: 100%;
+        max-width: 1000px;
+        background-color: #B0E1FA;
+    }
+
+    .NavAdd-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+        width: 100%;
+    }
+
+    .NavAdd-nav-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        background-color: #EFE9B7;
+        border-radius: 15px;
+        padding: 5px 10px;
+        margin-left: 0;
+    }
+
+    .NavAdd-nav-link-text {
+        display: inline;
+        height: 20px;
+        margin-left: 10px;
+        color: #000000;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+    }
 }
 
 .NavFooter {
@@ -461,11 +471,13 @@ p {
     order: 1;
   }
   .NavAdd {
-    order: 2;
-    position: absolute;
-    max-width: 1000px;
-    background-color: #B0E1FA;
-    margin-top: 20px;
+      order: 2;
+      position: absolute;
+      top: 130px;
+      width: 100%;
+      max-width: 1000px;
+      background-color: #B0E1FA;
+      margin-top: 20px;
   }
   .Container > *:not(.HeaderBox):not(.NavAdd) {
     order: 3;
@@ -1050,6 +1062,102 @@ p {
   *::after {
     box-sizing: content-box;
   }
+}
+@media screen and (min-width: 1100px) {
 
+    .Container {
+        position: relative;
+    }
+
+    .NavAdd {
+        position: absolute;
+        top: 160px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 1000px;
+        margin-top: 0;
+    }
+
+    .NavAdd-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+        width: 100%;
+    }
+
+    .NavAdd-nav-link {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+
+    .NavFooter {
+        position: fixed;
+        bottom: 25px;
+
+        /* Centrage horizontal */
+        left: 50%;
+        transform: translateX(-50%);
+
+        /* Largeur du cadre */
+        width: 100%;
+        max-width: 1000px;
+
+        /* Centrage des liens */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 150px;
+
+        box-sizing: border-box;
+    }
+
+}
+
+/* Écrans intermédiaires : menu horizontal compact */
+@media screen and (min-width: 800px) and (max-width: 1099px) {
+
+    .HeaderBox {
+            padding-top: 30px;
+        }
+
+    .HeaderBox-logo {
+        height: 55px;
+        margin: 5px;
+    }
+
+    .HeaderBox-title {
+        font-size: 20px;
+    }
+
+    .HeaderBox .NavBox {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .HeaderBox .NavBox-toggleMenu {
+        width: 100%;
+        padding-inline: 0;
+        box-sizing: border-box;
+    }
+
+    .HeaderBox .NavBox-menuPrincipal {
+        padding-left: 0;
+        padding-top: 20px;
+    }
+
+    .HeaderBox .NavBox-menuPrincipal-link {
+        font-size: 12px;
+        margin: 0 5px;
+        white-space: nowrap;
+    }
+
+    .HeaderBox .NavBox-user {
+        padding-top: 15px;
+    }
+}
 
 }/*# sourceMappingURL=style.css.map */

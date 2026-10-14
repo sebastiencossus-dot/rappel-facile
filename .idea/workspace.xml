@@ -144,7 +144,7 @@
       <recent name="com.msrappel.Models" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MsadminApplication">
+  <component name="RunManager" selected="Spring Boot.WebappApplication">
     <configuration name="All in msadmin" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="msadmin" />
       <option name="PACKAGE_NAME" value="" />
@@ -256,8 +256,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WebappApplication" />
-        <item itemvalue="Spring Boot.MsadminApplication" />
         <item itemvalue="Spring Boot.MsjpaApplication" />
+        <item itemvalue="Spring Boot.MsadminApplication" />
         <item itemvalue="Spring Boot.MsRdvApplication" />
         <item itemvalue="Spring Boot.MsprofApplication" />
       </list>
@@ -566,7 +566,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791892470243</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="clean css and adjust card">
+      <option name="closed" value="true" />
+      <created>1791957758390</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1791957758390</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
