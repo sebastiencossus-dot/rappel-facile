@@ -36,6 +36,8 @@ p {
 .HeaderBox {
   display: flex;
   align-items: center;
+
+
 }
 .HeaderBox-logo {
   height: 80px;
@@ -72,6 +74,7 @@ p {
 }
 .HeaderBox .NavBox.active .NavBox-toggleMenu {
   left: 0;
+
 }
 .HeaderBox .NavBox i {
   position: absolute;
@@ -85,6 +88,7 @@ p {
 .HeaderBox .NavBox-burger {
   display: block;
   color: #000000;
+
 }
 .HeaderBox .NavBox-close {
   display: none;
@@ -1120,9 +1124,7 @@ p {
 /* Écrans intermédiaires : menu horizontal compact */
 @media screen and (min-width: 800px) and (max-width: 1099px) {
 
-    .HeaderBox {
-            padding-top: 30px;
-        }
+
 
     .HeaderBox-logo {
         height: 55px;
