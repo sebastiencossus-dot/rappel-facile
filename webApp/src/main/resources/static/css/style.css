@@ -317,7 +317,7 @@ p {
   width: 80%;
   align-items: flex-start;
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.36);
-  margin: 10px 0 10px 0;
+
   padding: 10px 0 0px 0;
 }
 .RdvBox.jour {
@@ -362,7 +362,7 @@ p {
   margin: 0 0 0 0;
 }
 .RdvBox-card-text-motif {
-  color: grey;
+  color: #2D96D1;
   font-size: 15px;
   font-weight: normal;
 }
@@ -462,11 +462,11 @@ p {
   text-decoration: none;
   color: #000000;
   font-family: "Roboto", sans-serif;
-  font-size: 12px;
+  font-size: 15px;
 }
 @media screen and (min-width: 800px) {
 
-  /* Réordonnancement : header, puis NavAdd, puis le reste */
+
   .Container {
     display: flex;
     flex-direction: column;
