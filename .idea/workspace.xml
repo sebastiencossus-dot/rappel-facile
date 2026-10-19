@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="clean css and adjust card">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +144,7 @@
       <recent name="com.msrappel.Models" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.WebappApplication">
+  <component name="RunManager" selected="Spring Boot.MsadminApplication">
     <configuration name="All in msadmin" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="msadmin" />
       <option name="PACKAGE_NAME" value="" />
@@ -255,10 +256,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WebappApplication" />
-        <item itemvalue="Spring Boot.MsjpaApplication" />
         <item itemvalue="Spring Boot.MsadminApplication" />
-        <item itemvalue="Spring Boot.MsRdvApplication" />
         <item itemvalue="Spring Boot.MsprofApplication" />
+        <item itemvalue="Spring Boot.MsRdvApplication" />
+        <item itemvalue="Spring Boot.MsjpaApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -581,7 +582,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791961283161</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="clean css and adjust card">
+      <option name="closed" value="true" />
+      <created>1791983972533</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1791983972533</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

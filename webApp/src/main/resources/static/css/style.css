@@ -357,13 +357,13 @@ p {
   margin: 0px;
 }
 .RdvBox-card-text-time {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   margin: 0 0 0 0;
 }
 .RdvBox-card-text-motif {
   color: grey;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: normal;
 }
 .RdvBox-card-btns {
@@ -644,12 +644,13 @@ p {
   color: #000000;
 }
 .ContentBox2-detailRdv-prestataire-spe {
-  font-size: 10px;
+  font-size: 15px;
   color: grey;
 }
 .ContentBox2-detailRdv-title {
   font-weight: bold;
   padding-left: 20px;
+  padding-top: 20px;
 }
 .ContentBox2-detailRdv-card {
   align-items: center;
@@ -658,6 +659,7 @@ p {
   margin: 0 0 10px 10px;
   padding: 10px 0 10px 0;
   border-radius: 15px;
+  border: 1px;
 }
 .ContentBox2-detailRdv-card-prestanom {
   font-weight: bold;
@@ -676,6 +678,7 @@ p {
   display: flex;
   align-items: center;
   padding: 10px 0 0 10px;
+  font-size: 16px;
 }
 .ContentBox2-detailRdv-card-left img {
   width: 25px;
@@ -691,7 +694,7 @@ p {
   width: 60%;
   text-align: left;
   margin-left: auto;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 .ContentBox2-detailRdv-card .Center {
