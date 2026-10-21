@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="clean css">
+    <list default="true" id="755f5f44-beee-49e5-ad9c-ee007533d40e" name="Changes" comment="clean css and adjust for design ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webApp/src/main/resources/templates/addalert.html" beforeDir="false" afterPath="$PROJECT_DIR$/webApp/src/main/resources/templates/addalert.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,10 +257,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WebappApplication" />
+        <item itemvalue="Spring Boot.MsjpaApplication" />
         <item itemvalue="Spring Boot.MsadminApplication" />
         <item itemvalue="Spring Boot.MsprofApplication" />
         <item itemvalue="Spring Boot.MsRdvApplication" />
-        <item itemvalue="Spring Boot.MsjpaApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -599,7 +599,15 @@
       <option name="project" value="LOCAL" />
       <updated>1792398709638</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="clean css and adjust for design ok">
+      <option name="closed" value="true" />
+      <created>1792410087327</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1792410087327</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -638,7 +646,8 @@
     <MESSAGE value="read and clean code ok" />
     <MESSAGE value="clean css and adjust card" />
     <MESSAGE value="clean css" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean css" />
+    <MESSAGE value="clean css and adjust for design ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean css and adjust for design ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

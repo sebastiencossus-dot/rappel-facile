@@ -96,7 +96,7 @@ p {
 }
 .HeaderBox .NavBox-toggleMenu {
   background-color: rgba(77, 102, 242, 0.95);
-  width: 1100px;
+  width: 100%;
   height: 100vh;
   font-size: 32px;
   padding-inline: 2em;
@@ -105,6 +105,7 @@ p {
   left: 100%;
   top: 0;
   transition: all 0.3s;
+
 }
 .HeaderBox .NavBox-menuPrincipal {
   text-decoration: none;
@@ -115,6 +116,8 @@ p {
 }
 .HeaderBox .NavBox-menuPrincipal-link {
   font-size: 25px;
+  left: 50px;
+
 }
 .HeaderBox .NavBox-menuPrincipal-link:link, .HeaderBox .NavBox-menuPrincipal-link:visited {
   color: white;
@@ -180,6 +183,8 @@ p {
   color: #000000;
 }
 @media screen and (min-width: 800px) {
+
+
   .HeaderBox .NavBox-burger {
     display: none;
   }
@@ -187,18 +192,28 @@ p {
     display: none;
   }
   .HeaderBox .NavBox-toggleMenu {
-    height: auto;
-    left: 0;
-    background-color: transparent;
-    display: flex;
-    justify-content: flex-end;
-  }
+          position: static;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          width: 100%;
+          height: auto;
+          padding: 0;
+          background-color: transparent;
+          box-sizing: border-box;
+      }
   .HeaderBox .NavBox-menuPrincipal {
-    display: flex;
-    flex-direction: row;
-    padding-top: 30px;
-    padding-left: 50px;
-  }
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-end;
+
+          width: auto;
+          padding: 0;
+          margin: 0 15px 0 auto;
+          gap: 15px;
+      }
   .HeaderBox .NavBox-menuPrincipal-link {
     font-size: 16px;
     margin: 0 10px 0 10px;
@@ -317,7 +332,7 @@ p {
   width: 80%;
   align-items: flex-start;
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.36);
-
+  margin-bottom: 15px;
   padding: 10px 0 0px 0;
 }
 .RdvBox.jour {
@@ -400,6 +415,7 @@ p {
   height: 60px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .NavAdd-nav {
   display: flex;
@@ -1164,5 +1180,6 @@ p {
         padding-top: 15px;
     }
 }
+
 
 }/*# sourceMappingURL=style.css.map */
