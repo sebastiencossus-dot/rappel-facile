@@ -1171,7 +1171,7 @@ p {
     }
 
     .HeaderBox .NavBox-menuPrincipal-link {
-        font-size: 12px;
+        font-size: 16px;
         margin: 0 5px;
         white-space: nowrap;
     }
@@ -1183,3 +1183,19 @@ p {
 
 
 }/*# sourceMappingURL=style.css.map */
+
+/* Encadrement des champs de formulaire */
+input.form-control {
+    border: 1px solid #000 !important;
+    border-radius: 8px;
+    background: transparent;
+    padding: 6px 10px;
+}
+
+/* Conserver la bordure noire au clic */
+input.form-control:focus {
+    border-color: #000 !important;
+    box-shadow: none;
+    background: transparent;
+    outline: none;
+}
